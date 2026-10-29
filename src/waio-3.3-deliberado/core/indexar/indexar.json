@@ -1,0 +1,25 @@
+{
+  "nombre": "indexar",
+  "version": "1.1",
+  "autor": "Yonijd",
+  "copyright": "Copyright (c) 2026 Yonijd",
+  "licencia": "MIT",
+  "categoria": "core",
+  "tags": ["indexar", "skills", "catalogo", "actualizar"],
+  "descripcion": "Regenera el catalogo de comandos y scripts escaneando core/, skills/ y comandos/, y escribiendo data/skills.json",
+  "tipo": "script",
+  "script": "indexar.py",
+  "ruta_script": "core/indexar/indexar.py",
+  "alias": [],
+  "parametros": {},
+  "usage": [],
+  "timeout_segundos": 120,
+  "ejemplo": {
+    "comando": "indexar"
+  },
+  "ejemplos_adicionales": [],
+  "perfil_minimo": "standard",
+  "ubicacion": "core",
+  "ejecutable": true,
+  "nota": "IMPORTANTE: los alias NO se aplican en caliente. Despues de indexar, reiniciar el motor para que los cambios de alias surtan efecto."
+}

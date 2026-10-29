@@ -1,0 +1,28 @@
+{
+  "nombre": "crear_carpeta",
+  "version": "1.1",
+  "autor": "Yonijd",
+  "copyright": "Copyright (c) 2026 Yonijd",
+  "licencia": "MIT",
+  "categoria": "comandos_base",
+  "tags": ["crear", "carpeta", "directorio", "nuevo"],
+  "descripcion": "Crea una nueva carpeta",
+  "tipo": "comando_interno",
+  "alias": ["mkdir", "make_dir"],
+  "parametros": {
+    "ruta": {
+      "tipo": "string",
+      "requerido": true,
+      "descripcion": "Ruta de la carpeta a crear"
+    }
+  },
+  "usage": ["ruta"],
+  "timeout_segundos": 60,
+  "ejemplo": {
+    "comando": "crear_carpeta",
+    "ruta": "nueva_carpeta/"
+  },
+  "ejemplos_adicionales": [],
+  "perfil_minimo": "standard",
+  "nota": "Crea carpetas padre si no existen. No falla si la carpeta ya existe."
+}

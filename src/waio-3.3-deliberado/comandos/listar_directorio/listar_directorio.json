@@ -1,0 +1,29 @@
+{
+  "nombre": "listar_directorio",
+  "version": "1.1",
+  "autor": "Yonijd",
+  "copyright": "Copyright (c) 2026 Yonijd",
+  "licencia": "MIT",
+  "categoria": "comandos_base",
+  "tags": ["listar", "directorio", "archivos", "carpetas", "contenido"],
+  "descripcion": "Lista archivos y carpetas en una ruta especifica (no recursivo)",
+  "tipo": "comando_interno",
+  "alias": ["listar", "ls", "dir", "list"],
+  "parametros": {
+    "ruta": {
+      "tipo": "string",
+      "requerido": false,
+      "descripcion": "Carpeta a listar (default: .)",
+      "defecto": "."
+    }
+  },
+  "usage": ["ruta (opcional)"],
+  "timeout_segundos": 60,
+  "ejemplo": {
+    "comando": "listar_directorio",
+    "ruta": "."
+  },
+  "ejemplos_adicionales": [],
+  "perfil_minimo": "readonly",
+  "nota": "Devuelve nombres separados por coma en una sola linea. Para listado estructurado usar 'listia'."
+}

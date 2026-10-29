@@ -1,0 +1,21 @@
+{
+  "nombre": "ayuda",
+  "version": "1.1",
+  "autor": "Yonijd",
+  "copyright": "Copyright (c) 2026 Yonijd",
+  "licencia": "MIT",
+  "categoria": "core",
+  "tags": ["ayuda", "help", "comandos", "guia"],
+  "descripcion": "Muestra ayuda general de WAIO (comandos, perfiles, ejemplos).",
+  "tipo": "comando_interno",
+  "alias": ["help", "?"],
+  "parametros": {},
+  "usage": [],
+  "timeout_segundos": 60,
+  "ejemplo": {
+    "comando": "ayuda"
+  },
+  "ejemplos_adicionales": [],
+  "perfil_minimo": "standard",
+  "nota": "Comando interno. Devuelve la guia de uso de WAIO."
+}

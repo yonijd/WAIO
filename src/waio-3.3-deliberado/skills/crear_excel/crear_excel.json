@@ -1,0 +1,56 @@
+{
+  "nombre": "crear_excel",
+  "version": "1.1",
+  "autor": "Yonijd",
+  "copyright": "Copyright (c) 2026 Yonijd",
+  "licencia": "MIT",
+  "categoria": "datos",
+  "tags": ["crear", "excel", "xlsx", "datos", "tabla"],
+  "descripcion": "Crea un archivo Excel (.xlsx) con los datos proporcionados",
+  "tipo": "script",
+  "dependencias": {
+    "openpyxl": "3.1.0"
+  },
+  "script": "crear_excel.py",
+  "ruta_script": "skills/crear_excel/crear_excel.py",
+  "alias": ["excel", "xlsx", "create_xlsx"],
+  "parametros": {
+    "ruta": {
+      "tipo": "string",
+      "requerido": true,
+      "descripcion": "Ruta de salida del archivo Excel"
+    },
+    "datos": {
+      "tipo": "string",
+      "requerido": true,
+      "descripcion": "Datos en formato JSON. Ej: [[\"Nombre\",\"Edad\"],[\"Juan\",25]]"
+    }
+  },
+  "usage": ["ruta", "datos"],
+  "ejemplo": {
+    "comando": "crear_excel",
+    "ruta": "reporte.xlsx",
+    "datos": "[[\"Producto\",\"Precio\"],[\"Manzana\",1.5],[\"Pera\",2.0]]"
+  },
+  "ejemplos_adicionales": [
+    {
+      "descripcion": "Crear Excel basico",
+      "json": {
+        "comando": "crear_excel",
+        "ruta": "datos.xlsx",
+        "datos": "[[\"Nombre\",\"Edad\"],[\"Juan\",25],[\"Ana\",30]]"
+      }
+    },
+    {
+      "descripcion": "Usar alias excel",
+      "json": {
+        "comando": "excel",
+        "ruta": "reporte.xlsx",
+        "datos": "[[\"Producto\",\"Precio\"],[\"Manzana\",1.5]]"
+      }
+    }
+  ],
+  "perfil_minimo": "advanced",
+  "timeout_segundos": 120,
+  "nota": "Funciona con 'crear_excel' directo o con 'ejecutar'. Acepta datos como string JSON con comillas dobles o comillas simples."
+}

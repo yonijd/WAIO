@@ -1,0 +1,43 @@
+{
+  "nombre": "buscar_archivos",
+  "version": "1.1",
+  "autor": "Yonijd",
+  "copyright": "Copyright (c) 2026 Yonijd",
+  "licencia": "MIT",
+  "categoria": "comandos_base",
+  "tags": ["buscar", "archivos", "patron", "nombre", "encontrar"],
+  "descripcion": "Busca archivos por nombre o patron glob en un solo nivel (no recursivo).",
+  "tipo": "comando_interno",
+  "alias": ["find", "search"],
+  "parametros": {
+    "ruta": {
+      "tipo": "string",
+      "requerido": true,
+      "descripcion": "Carpeta donde buscar"
+    },
+    "patron": {
+      "tipo": "string",
+      "requerido": true,
+      "descripcion": "Patron de busqueda (ej: *.txt, config.*)"
+    }
+  },
+  "usage": ["ruta", "patron"],
+  "timeout_segundos": 120,
+  "ejemplo": {
+    "comando": "buscar_archivos",
+    "ruta": ".",
+    "patron": "*.json"
+  },
+  "ejemplos_adicionales": [
+    {
+      "descripcion": "Buscar todos los .txt",
+      "json": {
+        "comando": "buscar_archivos",
+        "ruta": ".",
+        "patron": "*.txt"
+      }
+    }
+  ],
+  "perfil_minimo": "readonly",
+  "nota": "Busqueda simple (un nivel). Para busqueda recursiva usar 'buscaria'."
+}

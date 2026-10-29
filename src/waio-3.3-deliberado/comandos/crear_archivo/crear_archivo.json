@@ -1,0 +1,43 @@
+{
+  "nombre": "crear_archivo",
+  "version": "1.1",
+  "autor": "Yonijd",
+  "copyright": "Copyright (c) 2026 Yonijd",
+  "licencia": "MIT",
+  "categoria": "comandos_base",
+  "tags": ["crear", "archivo", "escribir", "nuevo"],
+  "descripcion": "Crea un archivo con el contenido especificado.",
+  "tipo": "comando_interno",
+  "alias": ["crear", "touch", "create", "write"],
+  "parametros": {
+    "ruta": {
+      "tipo": "string",
+      "requerido": true,
+      "descripcion": "Ruta del archivo a crear"
+    },
+    "contenido": {
+      "tipo": "string",
+      "requerido": false,
+      "descripcion": "Contenido del archivo",
+      "defecto": ""
+    }
+  },
+  "usage": ["ruta", "contenido (opcional)"],
+  "timeout_segundos": 60,
+  "ejemplo": {
+    "comando": "crear_archivo",
+    "ruta": "nuevo.txt",
+    "contenido": "Hola mundo"
+  },
+  "ejemplos_adicionales": [
+    {
+      "descripcion": "Crear archivo vacio",
+      "json": {
+        "comando": "crear_archivo",
+        "ruta": "vacio.txt"
+      }
+    }
+  ],
+  "perfil_minimo": "standard",
+  "nota": "Crea carpetas padre si no existen. Sobrescribe si el archivo ya existe. Sujeto a limite_escritura_bytes del perfil."
+}

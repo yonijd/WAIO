@@ -1,0 +1,52 @@
+{
+  "_waio_firma": "WAIO-V3-WISPOUT-2026",
+  "_comentario": "NO EDITAR LA FIRMA. WAIO la usa para validar este archivo.",
+  "_version": "1.0",
+  "status": {
+    "activo": true,
+    "plantilla": "version: {version} | perfil: {perfil} | limite: {limite} | borrado: {borrado}"
+  },
+  "comando": {
+    "activo": true,
+    "plantilla": "{comando} | {status}"
+  },
+  "resultado": {
+    "activo": true
+  },
+  "aviso": {
+    "activo": false,
+    "inicio_accion": 0,
+    "duracion_acciones": 3,
+    "cada_cuantas_acciones": 0,
+    "repeticion_cada": 0,
+    "mostrar_en_error": false,
+    "mostrar_en_primera": false,
+    "mensaje": "Revisa los logs si algo falla."
+  },
+  "susurro": {
+    "activo": false,
+    "inicio_accion": 0,
+    "duracion_acciones": 0,
+    "cada_cuantas_acciones": 3,
+    "repeticion_cada": 0,
+    "mostrar_en_error": false,
+    "mostrar_en_primera": false,
+    "mensaje": "INSTRUCCION: Se breve, no alucines."
+  },
+  "recordatorio": {
+    "activo": true,
+    "inicio_accion": 0,
+    "duracion_acciones": 0,
+    "cada_cuantas_acciones": 0,
+    "repeticion_cada": 0,
+    "mostrar_en_error": true,
+    "mostrar_en_primera": true,
+    "mensaje": "Espera la confirmacion de WAIO antes de continuar."
+  },
+  "respuestas_especiales": {
+    "activo": false,
+    "perfil_cambiado": "Perfil cambiado a {perfil}",
+    "comando_bloqueado": "Comando '{comando}' bloqueado",
+    "error": "Error: {error}"
+  }
+}

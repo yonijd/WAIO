@@ -1,0 +1,28 @@
+{
+  "nombre": "existe_archivo",
+  "version": "1.1",
+  "autor": "Yonijd",
+  "copyright": "Copyright (c) 2026 Yonijd",
+  "licencia": "MIT",
+  "categoria": "comandos_base",
+  "tags": ["existe", "archivo", "verificar", "comprobar"],
+  "descripcion": "Verifica si un archivo o carpeta existe",
+  "tipo": "comando_interno",
+  "alias": ["existe", "test", "exists"],
+  "parametros": {
+    "ruta": {
+      "tipo": "string",
+      "requerido": true,
+      "descripcion": "Ruta del archivo o carpeta a verificar"
+    }
+  },
+  "usage": ["ruta"],
+  "timeout_segundos": 60,
+  "ejemplo": {
+    "comando": "existe_archivo",
+    "ruta": "config.json"
+  },
+  "ejemplos_adicionales": [],
+  "perfil_minimo": "readonly",
+  "nota": "Devuelve True o False como string. Funciona tanto para archivos como carpetas."
+}

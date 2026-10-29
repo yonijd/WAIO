@@ -1,0 +1,35 @@
+{
+  "nombre": "leer_archivo",
+  "version": "1.1",
+  "autor": "Yonijd",
+  "copyright": "Copyright (c) 2026 Yonijd",
+  "licencia": "MIT",
+  "categoria": "comandos_base",
+  "tags": ["leer", "archivo", "contenido", "texto", "ver"],
+  "descripcion": "Lee el contenido de un archivo de texto",
+  "tipo": "comando_interno",
+  "alias": ["leer", "cat", "read"],
+  "parametros": {
+    "ruta": {
+      "tipo": "string",
+      "requerido": true,
+      "descripcion": "Ruta del archivo a leer"
+    },
+    "limite": {
+      "tipo": "number",
+      "requerido": false,
+      "descripcion": "Maximo de caracteres a leer (0 = todo)",
+      "defecto": 500000
+    }
+  },
+  "usage": ["ruta", "limite (opcional)"],
+  "timeout_segundos": 120,
+  "ejemplo": {
+    "comando": "leer_archivo",
+    "ruta": "config.json",
+    "limite": 0
+  },
+  "ejemplos_adicionales": [],
+  "perfil_minimo": "readonly",
+  "nota": "Sujeto al limite_lectura_bytes del perfil. Si el archivo es mas grande, se trunca con aviso."
+}

@@ -1,0 +1,84 @@
+{
+  "nombre": "mostrar_arbol",
+  "version": "2.1",
+  "autor": "Yonijd",
+  "copyright": "Copyright (c) 2026 Yonijd",
+  "licencia": "MIT",
+  "categoria": "utilidades",
+  "tags": ["mostrar", "arbol", "carpetas", "estructura", "jerarquia", "json"],
+  "descripcion": "Muestra la estructura de carpetas en forma de arbol. Soporta formato tree (consola) y JSON. Incluye opcion para mostrar carpetas ocultas y guardar el resultado.",
+  "tipo": "script",
+  "dependencias": {},
+  "script": "mostrar_arbol.py",
+  "ruta_script": "core/mostrar_arbol/mostrar_arbol.py",
+  "alias": ["arbol", "tree", "show_tree"],
+  "parametros": {
+    "ruta": {
+      "tipo": "string",
+      "requerido": false,
+      "descripcion": "Ruta de la carpeta a analizar (default: .)",
+      "defecto": "."
+    },
+    "profundidad": {
+      "tipo": "number",
+      "requerido": false,
+      "descripcion": "Profundidad maxima a mostrar (default: 10)",
+      "defecto": 10
+    },
+    "incluir_ocultos": {
+      "tipo": "boolean",
+      "requerido": false,
+      "descripcion": "Incluir carpetas y archivos ocultos (default: false)",
+      "defecto": false
+    },
+    "formato": {
+      "tipo": "string",
+      "requerido": false,
+      "descripcion": "Formato de salida: tree (arbol en consola), json (estructurado), ambos (default: tree)",
+      "defecto": "tree"
+    },
+    "guardar": {
+      "tipo": "boolean",
+      "requerido": false,
+      "descripcion": "Guardar estructura en archivo JSON (default: false)",
+      "defecto": false
+    }
+  },
+  "usage": ["ruta (opcional)", "profundidad (opcional)", "incluir_ocultos (opcional)", "formato (opcional)", "guardar (opcional)"],
+  "ejemplo": {
+    "comando": "mostrar_arbol",
+    "ruta": "skills",
+    "profundidad": 2
+  },
+  "ejemplos_adicionales": [
+    {
+      "descripcion": "Arbol basico con profundidad 1",
+      "json": {
+        "comando": "mostrar_arbol",
+        "ruta": ".",
+        "profundidad": 1
+      }
+    },
+    {
+      "descripcion": "Arbol en formato JSON",
+      "json": {
+        "comando": "mostrar_arbol",
+        "ruta": "skills",
+        "profundidad": 2,
+        "formato": "json"
+      }
+    },
+    {
+      "descripcion": "Guardar arbol en JSON",
+      "json": {
+        "comando": "mostrar_arbol",
+        "ruta": ".",
+        "profundidad": 3,
+        "guardar": true
+      }
+    }
+  ],
+  "perfil_minimo": "standard",
+  "timeout_segundos": 180,
+  "nota": "Funciona con 'mostrar_arbol' directo o con 'ejecutar'. Usa workdir para rutas relativas."
+}

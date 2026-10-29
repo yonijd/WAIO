@@ -1,0 +1,34 @@
+{
+  "nombre": "renombrar_archivo",
+  "version": "1.1",
+  "autor": "Yonijd",
+  "copyright": "Copyright (c) 2026 Yonijd",
+  "licencia": "MIT",
+  "categoria": "comandos_base",
+  "tags": ["renombrar", "archivo", "nombre", "cambiar"],
+  "descripcion": "Renombra un archivo",
+  "tipo": "comando_interno",
+  "alias": ["renombrar", "rename", "ren"],
+  "parametros": {
+    "ruta": {
+      "tipo": "string",
+      "requerido": true,
+      "descripcion": "Ruta del archivo a renombrar"
+    },
+    "nombre_nuevo": {
+      "tipo": "string",
+      "requerido": true,
+      "descripcion": "Nuevo nombre del archivo (sin ruta, solo el nombre)"
+    }
+  },
+  "usage": ["ruta", "nombre_nuevo"],
+  "timeout_segundos": 60,
+  "ejemplo": {
+    "comando": "renombrar_archivo",
+    "ruta": "viejo.txt",
+    "nombre_nuevo": "nuevo.txt"
+  },
+  "ejemplos_adicionales": [],
+  "perfil_minimo": "standard",
+  "nota": "El archivo se renombra en su misma carpeta. No usar rutas en 'nombre_nuevo'."
+}

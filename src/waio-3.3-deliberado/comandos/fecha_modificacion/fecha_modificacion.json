@@ -1,0 +1,28 @@
+{
+  "nombre": "fecha_modificacion",
+  "version": "1.1",
+  "autor": "Yonijd",
+  "copyright": "Copyright (c) 2026 Yonijd",
+  "licencia": "MIT",
+  "categoria": "comandos_base",
+  "tags": ["fecha", "modificacion", "archivo", "tiempo", "ultima"],
+  "descripcion": "Devuelve la fecha de ultima modificacion de un archivo",
+  "tipo": "comando_interno",
+  "alias": ["modificado", "modified"],
+  "parametros": {
+    "ruta": {
+      "tipo": "string",
+      "requerido": true,
+      "descripcion": "Ruta del archivo"
+    }
+  },
+  "usage": ["ruta"],
+  "timeout_segundos": 60,
+  "ejemplo": {
+    "comando": "fecha_modificacion",
+    "ruta": "archivo.txt"
+  },
+  "ejemplos_adicionales": [],
+  "perfil_minimo": "readonly",
+  "nota": "Devuelve la fecha en formato YYYY-MM-DD HH:MM:SS."
+}

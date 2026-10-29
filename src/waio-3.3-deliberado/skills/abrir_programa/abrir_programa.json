@@ -1,0 +1,53 @@
+{
+  "nombre": "abrir_programa",
+  "version": "1.1",
+  "autor": "Yonijd",
+  "copyright": "Copyright (c) 2026 Yonijd",
+  "licencia": "MIT",
+  "categoria": "sistema",
+  "tags": ["abrir", "programa", "exe", "ejecutar", "lanzar"],
+  "descripcion": "Abre cualquier programa buscando su ejecutable en el sistema. Solo pasa el nombre del programa (ej: notepad, calc, aimp, vlc).",
+  "tipo": "script",
+  "dependencias": {},
+  "script": "abrir_programa.py",
+  "ruta_script": "skills/abrir_programa/abrir_programa.py",
+  "alias": ["launch", "start"],
+  "parametros": {
+    "programa": {
+      "tipo": "string",
+      "requerido": true,
+      "descripcion": "Nombre del programa a abrir. Ej: notepad, calc, aimp, vlc, winrar, explorer"
+    }
+  },
+  "usage": ["programa"],
+  "ejemplo": {
+    "comando": "abrir_programa",
+    "programa": "notepad"
+  },
+  "ejemplos_adicionales": [
+    {
+      "descripcion": "Abrir directo con clave programa",
+      "json": {
+        "comando": "abrir_programa",
+        "programa": "notepad"
+      }
+    },
+    {
+      "descripcion": "Usar alias launch",
+      "json": {
+        "comando": "launch",
+        "programa": "calc"
+      }
+    },
+    {
+      "descripcion": "Compatibilidad legacy con parametros",
+      "json": {
+        "comando": "abrir_programa",
+        "parametros": ["notepad"]
+      }
+    }
+  ],
+  "perfil_minimo": "advanced",
+  "timeout_segundos": 60,
+  "nota": "Funciona con 'abrir_programa' directo o con 'ejecutar'. No usa workdir porque busca en rutas del sistema."
+}

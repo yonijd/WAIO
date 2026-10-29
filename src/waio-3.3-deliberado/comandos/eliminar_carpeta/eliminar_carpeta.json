@@ -1,0 +1,28 @@
+{
+  "nombre": "eliminar_carpeta",
+  "version": "1.1",
+  "autor": "Yonijd",
+  "copyright": "Copyright (c) 2026 Yonijd",
+  "licencia": "MIT",
+  "categoria": "comandos_base",
+  "tags": ["eliminar", "carpeta", "borrar", "papelera", "peligroso"],
+  "descripcion": "Elimina una carpeta y todo su contenido (a Papelera)",
+  "tipo": "comando_interno",
+  "alias": ["rmdir", "delete_dir"],
+  "parametros": {
+    "ruta": {
+      "tipo": "string",
+      "requerido": true,
+      "descripcion": "Ruta de la carpeta a eliminar"
+    }
+  },
+  "usage": ["ruta"],
+  "timeout_segundos": 120,
+  "ejemplo": {
+    "comando": "eliminar_carpeta",
+    "ruta": "carpeta_temporal/"
+  },
+  "ejemplos_adicionales": [],
+  "perfil_minimo": "standard",
+  "nota": "Elimina recursivamente todo el contenido. En perfil avanzado va a Papelera. Requiere perfil avanzado o superior."
+}

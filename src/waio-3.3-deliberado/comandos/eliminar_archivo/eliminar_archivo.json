@@ -1,0 +1,28 @@
+{
+  "nombre": "eliminar_archivo",
+  "version": "1.1",
+  "autor": "Yonijd",
+  "copyright": "Copyright (c) 2026 Yonijd",
+  "licencia": "MIT",
+  "categoria": "comandos_base",
+  "tags": ["eliminar", "archivo", "borrar", "papelera", "peligroso"],
+  "descripcion": "Elimina un archivo y lo envia a la Papelera de Reciclaje",
+  "tipo": "comando_interno",
+  "alias": ["eliminar", "rm", "del", "delete"],
+  "parametros": {
+    "ruta": {
+      "tipo": "string",
+      "requerido": true,
+      "descripcion": "Ruta del archivo a eliminar"
+    }
+  },
+  "usage": ["ruta"],
+  "timeout_segundos": 60,
+  "ejemplo": {
+    "comando": "eliminar_archivo",
+    "ruta": "temporal.txt"
+  },
+  "ejemplos_adicionales": [],
+  "perfil_minimo": "standard",
+  "nota": "En perfil avanzado va a Papelera. En sin_restricciones borra permanentemente. Requiere perfil avanzado o superior."
+}

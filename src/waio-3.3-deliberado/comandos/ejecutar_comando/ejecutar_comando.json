@@ -1,0 +1,41 @@
+{
+  "nombre": "ejecutar_comando",
+  "version": "1.1",
+  "autor": "Yonijd",
+  "copyright": "Copyright (c) 2026 Yonijd",
+  "licencia": "MIT",
+  "categoria": "sistema",
+  "tags": ["ejecutar", "comando", "consola", "shell"],
+  "descripcion": "Ejecuta comandos del sistema (consola). Solo disponible en el perfil debug. Gate: permite_consola.",
+  "tipo": "comando_interno",
+  "alias": ["comando", "shell", "cmd", "system"],
+  "parametros": {
+    "parametros": {
+      "tipo": "array",
+      "requerido": true,
+      "descripcion": "Comando a ejecutar como lista de tokens. Ej: [\"ipconfig\"] o [\"pip\", \"list\"]"
+    },
+    "timeout": {
+      "tipo": "number",
+      "requerido": false,
+      "descripcion": "Timeout en segundos (default: 10, max: 300)"
+    }
+  },
+  "usage": ["parametros: [comando, ...]", "timeout (opcional)"],
+  "ejemplo": {
+    "comando": "ejecutar_comando",
+    "parametros": ["ipconfig"]
+  },
+  "ejemplos_adicionales": [
+    {
+      "descripcion": "Ejecutar pip list",
+      "json": {
+        "comando": "ejecutar_comando",
+        "parametros": ["pip", "list"]
+      }
+    }
+  ],
+  "perfil_minimo": "debug",
+  "timeout_segundos": 120,
+  "nota": "Comando interno. El codigo vive en waio_escucha.py. Gate: permite_consola (solo true en debug). Whitelist de comandos seguros. No se ejecuta desde esta carpeta; solo informa al catalogo."
+}

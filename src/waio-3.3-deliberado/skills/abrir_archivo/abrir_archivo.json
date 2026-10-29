@@ -1,0 +1,53 @@
+{
+  "nombre": "abrir_archivo",
+  "version": "1.1",
+  "autor": "Yonijd",
+  "copyright": "Copyright (c) 2026 Yonijd",
+  "licencia": "MIT",
+  "categoria": "sistema",
+  "tags": ["abrir", "archivo", "pdf", "imagen", "documento", "audio", "video"],
+  "descripcion": "Abre cualquier archivo con su programa asociado en Windows. Soporta PDF, Word, Excel, PowerPoint, imagenes, audio, video, texto, codigo y mas.",
+  "tipo": "script",
+  "dependencias": {},
+  "script": "abrir_archivo.py",
+  "ruta_script": "skills/abrir_archivo/abrir_archivo.py",
+  "alias": ["abrir", "open", "start"],
+  "parametros": {
+    "ruta": {
+      "tipo": "string",
+      "requerido": true,
+      "descripcion": "Ruta del archivo a abrir (relativa al workdir o absoluta)"
+    }
+  },
+  "usage": ["ruta"],
+  "ejemplo": {
+    "comando": "abrir_archivo",
+    "ruta": "documento.pdf"
+  },
+  "ejemplos_adicionales": [
+    {
+      "descripcion": "Abrir directo con clave ruta",
+      "json": {
+        "comando": "abrir_archivo",
+        "ruta": "tests/prueba_abrir.txt"
+      }
+    },
+    {
+      "descripcion": "Usar alias abrir",
+      "json": {
+        "comando": "abrir",
+        "ruta": "tests/prueba_abrir.txt"
+      }
+    },
+    {
+      "descripcion": "Compatibilidad legacy con parametros",
+      "json": {
+        "comando": "abrir_archivo",
+        "parametros": ["tests/prueba_abrir.txt"]
+      }
+    }
+  ],
+  "perfil_minimo": "advanced",
+  "timeout_segundos": 60,
+  "nota": "Funciona con 'abrir_archivo' directo o con 'ejecutar'. Acepta --ruta, --parametros y posicional suelto."
+}

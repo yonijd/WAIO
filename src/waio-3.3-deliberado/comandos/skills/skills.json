@@ -1,0 +1,41 @@
+{
+  "nombre": "skills",
+  "version": "1.1",
+  "autor": "Yonijd",
+  "copyright": "Copyright (c) 2026 Yonijd",
+  "licencia": "MIT",
+  "categoria": "core",
+  "tags": ["skills", "listar", "info", "comandos", "catalogo"],
+  "descripcion": "Comando unificado para listar skills o mostrar la informacion de una skill especifica.",
+  "tipo": "comando_interno",
+  "alias": ["listar_skills", "list_skills"],
+  "parametros": {
+    "nombre": {
+      "tipo": "string",
+      "requerido": false,
+      "descripcion": "Nombre de la skill (ej: voz, leer_pdf). Si no se especifica, lista todas las skills disponibles para el perfil activo."
+    }
+  },
+  "usage": ["nombre (opcional)"],
+  "timeout_segundos": 60,
+  "ejemplo": {
+    "comando": "skills"
+  },
+  "ejemplos_adicionales": [
+    {
+      "descripcion": "Listar todas las skills disponibles",
+      "json": {
+        "comando": "skills"
+      }
+    },
+    {
+      "descripcion": "Mostrar el JSON completo de la skill 'voz'",
+      "json": {
+        "comando": "skills",
+        "nombre": "voz"
+      }
+    }
+  ],
+  "perfil_minimo": "standard",
+  "nota": "Sin parametros lista las skills disponibles para el perfil activo. Con 'nombre' devuelve el JSON completo de esa skill. El alias 'info' se removio (colisionaba con metadatos)."
+}

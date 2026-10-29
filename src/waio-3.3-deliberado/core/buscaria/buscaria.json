@@ -1,0 +1,134 @@
+{
+  "nombre": "buscaria",
+  "version": "1.0",
+  "autor": "Yonijd",
+  "copyright": "Copyright (c) 2026 Yonijd",
+  "licencia": "MIT",
+  "categoria": "busqueda",
+  "tags": ["buscar", "archivos", "recursivo", "json", "ia", "filtros"],
+  "descripcion": "Buscador recursivo de archivos por patron, con filtros de tamano y fecha, ordenamiento y salida JSON estructurada. Optimizado para consumo por IA.",
+  "tipo": "script",
+  "dependencias": {},
+  "script": "buscaria.py",
+  "ruta_script": "core/buscaria/buscaria.py",
+  "alias": ["buscar_multi", "buscar_avanzado", "super_buscar"],
+  "parametros": {
+    "ruta": {
+      "tipo": "string",
+      "requerido": false,
+      "descripcion": "Carpeta raiz donde buscar (default: .)",
+      "defecto": "."
+    },
+    "patron": {
+      "tipo": "string",
+      "requerido": true,
+      "descripcion": "Patrones separados por comas. Ej: *.py,*.json,config.*"
+    },
+    "profundidad": {
+      "tipo": "number",
+      "requerido": false,
+      "descripcion": "Profundidad maxima (0 = sin limite)",
+      "defecto": 0
+    },
+    "ocultos": {
+      "tipo": "boolean",
+      "requerido": false,
+      "descripcion": "Incluir archivos y carpetas ocultas (default: false)"
+    },
+    "excluir": {
+      "tipo": "string",
+      "requerido": false,
+      "descripcion": "Carpetas a excluir separadas por comas (ej: __pycache__,.git,node_modules)"
+    },
+    "min_bytes": {
+      "tipo": "number",
+      "requerido": false,
+      "descripcion": "Tamano minimo en bytes"
+    },
+    "max_bytes": {
+      "tipo": "number",
+      "requerido": false,
+      "descripcion": "Tamano maximo en bytes"
+    },
+    "desde": {
+      "tipo": "string",
+      "requerido": false,
+      "descripcion": "Fecha minima de modificacion (formato YYYY-MM-DD)"
+    },
+    "hasta": {
+      "tipo": "string",
+      "requerido": false,
+      "descripcion": "Fecha maxima de modificacion (formato YYYY-MM-DD)"
+    },
+    "orden": {
+      "tipo": "string",
+      "requerido": false,
+      "descripcion": "Orden de resultados: nombre, tamano, fecha",
+      "defecto": "nombre"
+    },
+    "desc": {
+      "tipo": "boolean",
+      "requerido": false,
+      "descripcion": "Orden descendente (default: false)"
+    },
+    "case_sensitive": {
+      "tipo": "boolean",
+      "requerido": false,
+      "descripcion": "Busqueda sensible a mayusculas (default: false)"
+    },
+    "limite_resultados": {
+      "tipo": "number",
+      "requerido": false,
+      "descripcion": "Limite maximo de resultados (default: 1000)",
+      "defecto": 1000
+    }
+  },
+  "usage": ["patron", "ruta (opcional)", "profundidad (opcional)", "ocultos (opcional)", "excluir (opcional)", "min_bytes (opcional)", "max_bytes (opcional)", "desde (opcional)", "hasta (opcional)", "orden (opcional)", "desc (opcional)", "case_sensitive (opcional)", "limite_resultados (opcional)"],
+  "ejemplo": {
+    "comando": "buscaria",
+    "ruta": "skills",
+    "patron": "*.py,*.json",
+    "orden": "tamano",
+    "desc": true
+  },
+  "ejemplos_adicionales": [
+    {
+      "descripcion": "Buscar todos los .py",
+      "json": {
+        "comando": "buscaria",
+        "ruta": ".",
+        "patron": "*.py"
+      }
+    },
+    {
+      "descripcion": "Buscar archivos grandes (mayores a 100KB)",
+      "json": {
+        "comando": "buscaria",
+        "patron": "*",
+        "min_bytes": 102400,
+        "orden": "tamano",
+        "desc": true
+      }
+    },
+    {
+      "descripcion": "Buscar modificados en 2026",
+      "json": {
+        "comando": "buscaria",
+        "patron": "*",
+        "desde": "2026-01-01",
+        "hasta": "2026-12-31"
+      }
+    },
+    {
+      "descripcion": "Buscar sin entrar a __pycache__",
+      "json": {
+        "comando": "buscaria",
+        "patron": "*.pyc",
+        "excluir": "__pycache__,.git"
+      }
+    }
+  ],
+  "perfil_minimo": "standard",
+  "timeout_segundos": 180,
+  "nota": "Buscador optimizado para IA. Salida siempre en JSON estructurado. Usa workdir para rutas relativas."
+}

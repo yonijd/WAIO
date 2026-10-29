@@ -1,0 +1,45 @@
+{
+  "nombre": "verificar_paquetes",
+  "version": "1.1",
+  "autor": "Yonijd",
+  "copyright": "Copyright (c) 2026 Yonijd",
+  "licencia": "MIT",
+  "categoria": "sistema",
+  "tags": ["verificar", "paquetes", "python", "dependencias", "pip"],
+  "descripcion": "Verifica si una lista de paquetes de Python estan instalados intentando importarlos.",
+  "tipo": "script",
+  "dependencias": {},
+  "script": "verificar_paquetes.py",
+  "ruta_script": "core/verificar_paquetes/verificar_paquetes.py",
+  "alias": ["paquetes", "pkgs", "packages"],
+  "parametros": {
+    "parametros": {
+      "tipo": "array",
+      "requerido": false,
+      "descripcion": "Lista de nombres de paquetes a verificar. Si no se especifica, verifica los comunes (numpy, requests, rich, tqdm, pywin32, setuptools, pillow)."
+    }
+  },
+  "usage": ["parametros: [paquete1, paquete2, ...] (opcional)"],
+  "ejemplo": {
+    "comando": "verificar_paquetes",
+    "parametros": ["numpy", "requests", "pillow"]
+  },
+  "ejemplos_adicionales": [
+    {
+      "descripcion": "Verificar paquetes por defecto",
+      "json": {
+        "comando": "verificar_paquetes"
+      }
+    },
+    {
+      "descripcion": "Verificar paquetes especificos",
+      "json": {
+        "comando": "verificar_paquetes",
+        "parametros": ["requests", "rich"]
+      }
+    }
+  ],
+  "perfil_minimo": "standard",
+  "timeout_segundos": 120,
+  "nota": "Funciona con 'verificar_paquetes' directo o con 'ejecutar'. Usa 'parametros' como array posicional."
+}

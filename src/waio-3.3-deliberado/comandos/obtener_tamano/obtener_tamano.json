@@ -1,0 +1,28 @@
+{
+  "nombre": "obtener_tamano",
+  "version": "1.1",
+  "autor": "Yonijd",
+  "copyright": "Copyright (c) 2026 Yonijd",
+  "licencia": "MIT",
+  "categoria": "comandos_base",
+  "tags": ["tamano", "bytes", "archivo", "peso"],
+  "descripcion": "Devuelve el tamano de un archivo en bytes",
+  "tipo": "comando_interno",
+  "alias": ["tamano", "size"],
+  "parametros": {
+    "ruta": {
+      "tipo": "string",
+      "requerido": true,
+      "descripcion": "Ruta del archivo"
+    }
+  },
+  "usage": ["ruta"],
+  "timeout_segundos": 120,
+  "ejemplo": {
+    "comando": "obtener_tamano",
+    "ruta": "archivo.zip"
+  },
+  "ejemplos_adicionales": [],
+  "perfil_minimo": "readonly",
+  "nota": "Si la ruta es una carpeta, suma recursivamente el tamano de todos los archivos."
+}

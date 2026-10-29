@@ -1,0 +1,28 @@
+{
+  "nombre": "mensaje",
+  "version": "1.1",
+  "autor": "Yonijd",
+  "copyright": "Copyright (c) 2026 Yonijd",
+  "licencia": "MIT",
+  "categoria": "comandos_base",
+  "tags": ["mensaje", "comunicacion", "respuesta", "informar"],
+  "descripcion": "Envia un mensaje de texto al usuario. DEPRECADO: usar 'voz' para mensajes hablados.",
+  "tipo": "comando_interno",
+  "alias": ["echo", "say"],
+  "parametros": {
+    "contenido": {
+      "tipo": "string",
+      "requerido": true,
+      "descripcion": "Texto del mensaje a enviar"
+    }
+  },
+  "usage": ["contenido"],
+  "timeout_segundos": 60,
+  "ejemplo": {
+    "comando": "mensaje",
+    "contenido": "hola"
+  },
+  "ejemplos_adicionales": [],
+  "perfil_minimo": "standard",
+  "nota": "DEPRECADO. Devuelve el texto como respuesta del comando. Para mensajes hablados usar 'voz'."
+}

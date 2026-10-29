@@ -1,0 +1,51 @@
+{
+  "nombre": "leer_lineas",
+  "version": "1.1",
+  "autor": "Yonijd",
+  "copyright": "Copyright (c) 2026 Yonijd",
+  "licencia": "MIT",
+  "categoria": "comandos_base",
+  "tags": ["leer", "lineas", "rango", "archivo", "texto"],
+  "descripcion": "Lee un rango especifico de lineas de un archivo",
+  "tipo": "comando_interno",
+  "alias": ["head", "read_lines"],
+  "parametros": {
+    "ruta": {
+      "tipo": "string",
+      "requerido": true,
+      "descripcion": "Ruta del archivo"
+    },
+    "inicio": {
+      "tipo": "number",
+      "requerido": false,
+      "descripcion": "Numero de linea inicial (1-based)",
+      "defecto": 1
+    },
+    "fin": {
+      "tipo": "number",
+      "requerido": true,
+      "descripcion": "Numero de linea final (inclusive)"
+    }
+  },
+  "usage": ["ruta", "fin", "inicio (opcional)"],
+  "timeout_segundos": 120,
+  "ejemplo": {
+    "comando": "leer_lineas",
+    "ruta": "archivo.py",
+    "inicio": 10,
+    "fin": 20
+  },
+  "ejemplos_adicionales": [
+    {
+      "descripcion": "Leer las primeras 5 lineas",
+      "json": {
+        "comando": "leer_lineas",
+        "ruta": "archivo.txt",
+        "inicio": 1,
+        "fin": 5
+      }
+    }
+  ],
+  "perfil_minimo": "readonly",
+  "nota": "Lineas numeradas desde 1. 'fin' es inclusivo. Si 'fin' excede el total, se ajusta automaticamente."
+}

@@ -1,0 +1,48 @@
+{
+  "nombre": "ejecutar",
+  "version": "1.1",
+  "autor": "Yonijd",
+  "copyright": "Copyright (c) 2026 Yonijd",
+  "licencia": "MIT",
+  "categoria": "core",
+  "tags": ["ejecutar", "scripts", "python", "run"],
+  "descripcion": "Ejecuta un script. Busca en skills.json, core/, skills/ y workdir.",
+  "tipo": "comando_interno",
+  "alias": ["run"],
+  "parametros": {
+    "script": {
+      "tipo": "string",
+      "requerido": true,
+      "descripcion": "Nombre del script a ejecutar (con o sin .py)"
+    },
+    "parametros": {
+      "tipo": "array",
+      "requerido": false,
+      "descripcion": "Argumentos para el script",
+      "defecto": []
+    },
+    "timeout": {
+      "tipo": "number",
+      "requerido": false,
+      "descripcion": "Timeout en segundos. Si no se especifica, usa el timeout_segundos de la skill o el default del config."
+    }
+  },
+  "usage": ["script", "parametros (opcional)", "timeout (opcional)"],
+  "timeout_segundos": 120,
+  "ejemplo": {
+    "comando": "ejecutar",
+    "script": "hola_mundo.py"
+  },
+  "ejemplos_adicionales": [
+    {
+      "descripcion": "Ejecutar skill con parametros",
+      "json": {
+        "comando": "ejecutar",
+        "script": "voz",
+        "parametros": ["Hola desde WAIO"]
+      }
+    }
+  ],
+  "perfil_minimo": "standard",
+  "nota": "El subproceso hereda la variable de entorno WAIO_WORKDIR. El timeout final se calcula como min(timeout de la accion, timeout_segundos de la skill, timeout_default del config)."
+}

@@ -1,0 +1,46 @@
+{
+  "nombre": "metadatos",
+  "version": "1.0",
+  "autor": "Yonijd",
+  "copyright": "Copyright (c) 2026 Yonijd",
+  "licencia": "MIT",
+  "categoria": "sistema",
+  "tags": ["metadatos", "archivo", "carpeta", "informacion", "stats"],
+  "descripcion": "Extrae metadatos de un archivo o carpeta (tamano, fechas, permisos, etc.)",
+  "tipo": "script",
+  "dependencias": {},
+  "script": "metadatos.py",
+  "ruta_script": "core/metadatos/metadatos.py",
+  "alias": ["meta", "metadata", "info"],
+  "parametros": {
+    "ruta": {
+      "tipo": "string",
+      "requerido": true,
+      "descripcion": "Ruta del archivo o carpeta a analizar"
+    }
+  },
+  "usage": ["ruta"],
+  "ejemplo": {
+    "comando": "metadatos",
+    "ruta": "tests/prueba_abrir.txt"
+  },
+  "ejemplos_adicionales": [
+    {
+      "descripcion": "Metadatos de un archivo",
+      "json": {
+        "comando": "metadatos",
+        "ruta": "tests/prueba_abrir.txt"
+      }
+    },
+    {
+      "descripcion": "Metadatos de una carpeta",
+      "json": {
+        "comando": "metadatos",
+        "ruta": "."
+      }
+    }
+  ],
+  "perfil_minimo": "standard",
+  "timeout_segundos": 120,
+  "nota": "Funciona con 'metadatos' directo o con 'ejecutar'. Usa workdir para rutas relativas."
+}

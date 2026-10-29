@@ -1,0 +1,35 @@
+{
+  "nombre": "voz",
+  "version": "4.2",
+  "autor": "Yonijd",
+  "copyright": "Copyright (c) 2026 Yonijd",
+  "licencia": "MIT",
+  "categoria": "sistema",
+  "tags": ["voz", "audio", "tts", "texto", "hablar", "speak"],
+  "descripcion": "Reproduce texto por voz usando System.Speech. Encola mensajes, procesa en segundo plano y devuelve JSON estructurado. Permite cambiar la voz y velocidad por parametros directos.",
+  "tipo": "script",
+  "dependencias": {},
+  "script": "voz.py",
+  "ruta_script": "core/voz/voz.py",
+  "alias": ["speak", "tts", "decir"],
+  "parametros": {
+    "texto": {"tipo": "string", "requerido": true, "descripcion": "Texto a reproducir por voz"},
+    "voz_nombre": {"tipo": "string", "requerido": false, "descripcion": "Nombre exacto de la voz (ej: Microsoft Pablo). Si no se pasa, usa el config."},
+    "velocidad": {"tipo": "number", "requerido": false, "descripcion": "Velocidad entre -10 y 10. Si no se pasa, usa el config."},
+    "volumen": {"tipo": "number", "requerido": false, "descripcion": "Volumen entre 0 y 100. Si no se pasa, usa el config."}
+  },
+  "usage": ["texto", "voz_nombre (opcional)", "velocidad (opcional)", "volumen (opcional)"],
+  "ejemplo": {
+    "comando": "voz",
+    "texto": "Hola, soy WAIO"
+  },
+  "ejemplos_adicionales": [
+    {
+      "descripcion": "Usar una voz y velocidad especifica sin tocar el config",
+      "json": {"comando": "voz", "texto": "Hola", "voz_nombre": "Microsoft Pablo", "velocidad": -2}
+    }
+  ],
+  "perfil_minimo": "standard",
+  "timeout_segundos": 30,
+  "nota": "El encolador devuelve JSON estructurado con estado. El procesador corre en segundo plano. Timeout calculado dinamicamente. Los parametros voz_nombre y velocidad son opcionales y no afectan el config global."
+}
