@@ -1,0 +1,54 @@
+{
+  "nombre": "grep_avanzado",
+  "version": "1.0",
+  "autor": "Yonijd",
+  "categoria": "busqueda",
+  "tags": ["grep", "buscar", "regex", "archivos", "contenido"],
+  "descripcion": "Busqueda avanzada en archivos con soporte para regex y filtros",
+  "tipo": "script",
+  "dependencias": {},
+  "script": "grep_avanzado.py",
+  "parametros": {
+    "ruta": {
+      "tipo": "string",
+      "requerido": true,
+      "descripcion": "Ruta de carpeta o archivo donde buscar"
+    },
+    "patron": {
+      "tipo": "string",
+      "requerido": true,
+      "descripcion": "Patron a buscar"
+    },
+    "regex": {
+      "tipo": "boolean",
+      "requerido": false,
+      "descripcion": "Usar expresiones regulares"
+    },
+    "case_sensitive": {
+      "tipo": "boolean",
+      "requerido": false,
+      "descripcion": "Sensible a mayusculas"
+    },
+    "extension": {
+      "tipo": "string",
+      "requerido": false,
+      "descripcion": "Filtrar por extension (ej: .py, .txt)"
+    },
+    "excluir": {
+      "tipo": "string",
+      "requerido": false,
+      "descripcion": "Excluir rutas que coincidan con este patron"
+    },
+    "mostrar_lineas": {
+      "tipo": "boolean",
+      "requerido": false,
+      "descripcion": "Mostrar contenido completo de la linea"
+    }
+  },
+  "ejemplo": {
+    "comando": "ejecutar_script",
+    "script": "grep_avanzado.py",
+    "parametros": ["--ruta=./src", "--patron=import", "--extension=.py"]
+  },
+  "perfil_minimo": "solo_lectura"
+}

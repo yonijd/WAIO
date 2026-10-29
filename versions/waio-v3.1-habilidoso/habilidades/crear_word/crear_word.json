@@ -1,0 +1,36 @@
+{
+  "nombre": "crear_word",
+  "version": "1.0",
+  "autor": "Yonijd",
+  "categoria": "documentos",
+  "tags": ["crear", "word", "docx", "documento", "texto"],
+  "descripcion": "Crea un archivo Word (.docx) con el texto proporcionado",
+  "tipo": "script",
+  "dependencias": {
+    "python-docx": "1.2.0"
+  },
+  "script": "crear_word.py",
+  "parametros": {
+    "ruta": {
+      "tipo": "string",
+      "requerido": true,
+      "descripcion": "Ruta de salida del archivo Word"
+    },
+    "contenido": {
+      "tipo": "string",
+      "requerido": true,
+      "descripcion": "Contenido del documento. Usa \\n para saltos de línea."
+    },
+    "titulo": {
+      "tipo": "string",
+      "requerido": false,
+      "descripcion": "Título del documento (opcional)"
+    }
+  },
+  "ejemplo": {
+    "comando": "ejecutar_script",
+    "script": "crear_word.py",
+    "parametros": ["--ruta=informe.docx", "--contenido=Texto del informe", "--titulo=Informe Final"]
+  },
+  "perfil_minimo": "estandar"
+}

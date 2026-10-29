@@ -1,0 +1,54 @@
+{
+  "nombre": "analizar_proyecto",
+  "version": "1.1",
+  "autor": "Yonijd",
+  "copyright": "Copyright (c) 2026 Yonijd",
+  "licencia": "MIT",
+  "categoria": "sistema",
+  "tags": ["analizar", "proyecto", "estructura", "carpetas", "resumen"],
+  "descripcion": "Analiza la estructura de una carpeta y genera un resumen",
+  "tipo": "script",
+  "dependencias": {},
+  "script": "analizar_proyecto.py",
+  "ruta_script": "skills/analizar_proyecto/analizar_proyecto.py",
+  "alias": ["analizar", "analyze"],
+  "parametros": {
+    "ruta": {
+      "tipo": "string",
+      "requerido": false,
+      "descripcion": "Ruta de la carpeta a analizar (default: .)",
+      "defecto": "."
+    },
+    "profundidad": {
+      "tipo": "number",
+      "requerido": false,
+      "descripcion": "Profundidad maxima a analizar (default: 3)",
+      "defecto": 3
+    }
+  },
+  "usage": ["ruta (opcional)", "profundidad (opcional)"],
+  "ejemplo": {
+    "comando": "analizar_proyecto",
+    "ruta": ".",
+    "profundidad": 2
+  },
+  "ejemplos_adicionales": [
+    {
+      "descripcion": "Analizar directorio actual",
+      "json": {
+        "comando": "analizar_proyecto",
+        "ruta": "."
+      }
+    },
+    {
+      "descripcion": "Usar alias analizar",
+      "json": {
+        "comando": "analizar",
+        "ruta": "tests",
+        "profundidad": 1
+      }
+    }
+  ],
+  "perfil_minimo": "solo_lectura",
+  "nota": "Funciona con 'analizar_proyecto' directo o con 'ejecutar'. Usa workdir para rutas relativas."
+}

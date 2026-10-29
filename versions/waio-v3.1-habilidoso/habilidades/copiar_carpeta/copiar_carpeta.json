@@ -1,0 +1,34 @@
+{
+  "nombre": "copiar_carpeta",
+  "version": "1.0",
+  "autor": "Yonijd",
+  "categoria": "archivos",
+  "tags": ["copiar", "carpeta", "directorio", "recursivo", "backup"],
+  "descripcion": "Copia una carpeta completa recursivamente (contenido y subcarpetas). Se ejecuta con ejecutar_script.",
+  "tipo": "script",
+  "dependencias": {},
+  "script": "copiar_carpeta.py",
+  "parametros": {
+    "origen": {
+      "tipo": "string",
+      "requerido": true,
+      "descripcion": "Ruta de la carpeta origen"
+    },
+    "destino": {
+      "tipo": "string",
+      "requerido": true,
+      "descripcion": "Ruta de la carpeta destino"
+    },
+    "sobrescribir": {
+      "tipo": "boolean",
+      "requerido": false,
+      "descripcion": "Sobrescribir si la carpeta destino ya existe"
+    }
+  },
+  "ejemplo": {
+    "comando": "ejecutar_script",
+    "script": "copiar_carpeta.py",
+    "parametros": ["--origen=D:/backup/mi_carpeta", "--destino=C:/proyecto/mi_carpeta", "--sobrescribir"]
+  },
+  "perfil_minimo": "estandar"
+}

@@ -1,0 +1,92 @@
+{
+  "nombre": "super_buscar",
+  "version": "1.1",
+  "autor": "Yonijd",
+  "copyright": "Copyright (c) 2026 Yonijd",
+  "licencia": "MIT",
+  "categoria": "sistema",
+  "tags": ["buscar", "archivos", "recursivo", "profundo", "patron", "ocultos", "excluir"],
+  "descripcion": "Busca archivos en profundidad con multiples patrones, exclusiones y progreso en tiempo real.",
+  "tipo": "script",
+  "dependencias": {},
+  "script": "super_buscar.py",
+  "ruta_script": "skills/super_buscar/super_buscar.py",
+  "alias": ["super_find", "super_search"],
+  "parametros": {
+    "ruta": {
+      "tipo": "string",
+      "requerido": false,
+      "descripcion": "Carpeta raiz donde buscar (default: .)",
+      "defecto": "."
+    },
+    "patron": {
+      "tipo": "string",
+      "requerido": true,
+      "descripcion": "Patron de busqueda. Multiples separados por comas (ej: *.py,*.txt,config.*)"
+    },
+    "recursivo": {
+      "tipo": "boolean",
+      "requerido": false,
+      "descripcion": "Buscar en subcarpetas (default: True)",
+      "defecto": true
+    },
+    "ocultos": {
+      "tipo": "boolean",
+      "requerido": false,
+      "descripcion": "Incluir archivos y carpetas ocultas (default: False)"
+    },
+    "excluir": {
+      "tipo": "string",
+      "requerido": false,
+      "descripcion": "Carpetas a excluir separadas por comas (ej: node_modules,__pycache__,.git)"
+    },
+    "limite_resultados": {
+      "tipo": "integer",
+      "requerido": false,
+      "descripcion": "Limite maximo de resultados (default: 1000)",
+      "defecto": 1000
+    },
+    "guardar_log": {
+      "tipo": "boolean",
+      "requerido": false,
+      "descripcion": "Guardar resultado en archivo de log"
+    }
+  },
+  "usage": ["patron", "ruta (opcional)", "recursivo (opcional)", "ocultos (opcional)", "excluir (opcional)", "limite_resultados (opcional)", "guardar_log (opcional)"],
+  "ejemplo": {
+    "comando": "super_buscar",
+    "ruta": "skills",
+    "patron": "*.py,*.json",
+    "excluir": "__pycache__"
+  },
+  "ejemplos_adicionales": [
+    {
+      "descripcion": "Buscar todos los .py",
+      "json": {
+        "comando": "super_buscar",
+        "ruta": ".",
+        "patron": "*.py"
+      }
+    },
+    {
+      "descripcion": "Buscar multiples patrones",
+      "json": {
+        "comando": "super_buscar",
+        "ruta": "skills",
+        "patron": "*.py,*.json",
+        "excluir": "__pycache__"
+      }
+    },
+    {
+      "descripcion": "Con guardado de log",
+      "json": {
+        "comando": "super_buscar",
+        "patron": "*.py",
+        "guardar_log": true
+      }
+    }
+  ],
+  "perfil_minimo": "advanced",
+  "timeout_segundos": 180,
+  "nota": "Funciona con 'super_buscar' directo o con 'ejecutar'. Version texto plano. Para salida JSON usar 'buscaria'. Usa workdir para rutas relativas."
+}

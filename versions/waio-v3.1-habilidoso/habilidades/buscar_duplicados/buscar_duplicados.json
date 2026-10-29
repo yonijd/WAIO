@@ -1,0 +1,30 @@
+{
+  "nombre": "buscar_duplicados",
+  "version": "1.0",
+  "autor": "Yonijd",
+  "categoria": "utilidades",
+  "tags": ["buscar", "duplicados", "archivos", "hash", "contenido"],
+  "descripcion": "Busca archivos duplicados por contenido (hash SHA-256)",
+  "tipo": "script",
+  "dependencias": {},
+  "script": "buscar_duplicados.py",
+  "parametros": {
+    "ruta": {
+      "tipo": "string",
+      "requerido": false,
+      "descripcion": "Ruta de la carpeta a analizar (default: .)",
+      "defecto": "."
+    },
+    "mostrar_tamano": {
+      "tipo": "boolean",
+      "requerido": false,
+      "descripcion": "Mostrar tamaño de los duplicados"
+    }
+  },
+  "ejemplo": {
+    "comando": "ejecutar_script",
+    "script": "buscar_duplicados.py",
+    "parametros": ["--ruta=./descargas", "--mostrar_tamano"]
+  },
+  "perfil_minimo": "solo_lectura"
+}

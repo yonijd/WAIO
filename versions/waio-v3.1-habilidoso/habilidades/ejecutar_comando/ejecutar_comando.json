@@ -1,0 +1,24 @@
+{
+  "nombre": "ejecutar_comando",
+  "version": "1.0",
+  "autor": "Yonijd",
+  "categoria": "sistema",
+  "tags": ["ejecutar", "comando", "cmd", "terminal", "consola"],
+  "descripcion": "Ejecuta comandos del sistema con restricciones de seguridad (whitelist, timeout, comandos prohibidos). Se ejecuta con ejecutar_script.",
+  "tipo": "script",
+  "dependencias": {},
+  "script": "ejecutar_comando.py",
+  "parametros": {
+    "comando": {
+      "tipo": "string",
+      "requerido": true,
+      "descripcion": "Comando a ejecutar (ej: pip list, python --version, dir)"
+    }
+  },
+  "ejemplo": {
+    "comando": "ejecutar_script",
+    "script": "ejecutar_comando.py",
+    "parametros": ["pip", "list"]
+  },
+  "perfil_minimo": "avanzado"
+}

@@ -1,0 +1,24 @@
+{
+  "nombre": "leer_habilidad_json",
+  "version": "1.0",
+  "autor": "Yonijd",
+  "categoria": "sistema",
+  "tags": ["leer", "habilidad", "json", "micro"],
+  "descripcion": "Lee el micro JSON de una habilidad especifica. Solo pasa el nombre de la habilidad (ej: abrir_programa). Devuelve la informacion completa.",
+  "tipo": "script",
+  "dependencias": {},
+  "script": "leer_habilidad_json.py",
+  "parametros": {
+    "nombre": {
+      "tipo": "string",
+      "requerido": true,
+      "descripcion": "Nombre de la habilidad (ej: abrir_programa, buscar_contenido, leer_pdf)"
+    }
+  },
+  "ejemplo": {
+    "comando": "ejecutar_script",
+    "script": "leer_habilidad_json.py",
+    "parametros": ["abrir_programa"]
+  },
+  "perfil_minimo": "solo_lectura"
+}

@@ -1,0 +1,49 @@
+{
+  "nombre": "editar_archivo",
+  "version": "1.0",
+  "autor": "Yonijd",
+  "categoria": "utilidades",
+  "tags": ["editar", "archivo", "buscar", "reemplazar", "regex", "backup"],
+  "descripcion": "Busca y reemplaza texto en un archivo. Soporta regex y backup.",
+  "tipo": "script",
+  "dependencias": {},
+  "script": "editar_archivo.py",
+  "parametros": {
+    "ruta": {
+      "tipo": "string",
+      "requerido": true,
+      "descripcion": "Ruta del archivo a editar"
+    },
+    "buscar": {
+      "tipo": "string",
+      "requerido": true,
+      "descripcion": "Texto a buscar"
+    },
+    "reemplazar": {
+      "tipo": "string",
+      "requerido": true,
+      "descripcion": "Texto de reemplazo"
+    },
+    "regex": {
+      "tipo": "boolean",
+      "requerido": false,
+      "descripcion": "Usar expresiones regulares (default: false)"
+    },
+    "dry_run": {
+      "tipo": "boolean",
+      "requerido": false,
+      "descripcion": "Simular cambios sin guardar (default: false)"
+    },
+    "backup": {
+      "tipo": "boolean",
+      "requerido": false,
+      "descripcion": "Crear backup antes de editar (default: false)"
+    }
+  },
+  "ejemplo": {
+    "comando": "ejecutar_script",
+    "script": "editar_archivo.py",
+    "parametros": ["--ruta=config.ini", "--buscar=127.0.0.1", "--reemplazar=0.0.0.0", "--backup", "--dry_run"]
+  },
+  "perfil_minimo": "estandar"
+}

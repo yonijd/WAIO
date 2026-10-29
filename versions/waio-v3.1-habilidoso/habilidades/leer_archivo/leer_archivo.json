@@ -1,0 +1,28 @@
+{
+  "nombre": "leer_archivo",
+  "version": "1.0",
+  "autor": "WAIOGG",
+  "categoria": "comandos_base",
+  "tags": ["leer", "archivo", "contenido", "texto", "ver"],
+  "descripcion": "Lee el contenido de un archivo de texto",
+  "tipo": "comando_interno",
+  "parametros": {
+    "ruta": {
+      "tipo": "string",
+      "requerido": true,
+      "descripcion": "Ruta del archivo a leer"
+    },
+    "limite": {
+      "tipo": "number",
+      "requerido": false,
+      "descripcion": "Maximo de caracteres a leer (0 = todo)",
+      "defecto": 500000
+    }
+  },
+  "perfil_minimo": "solo_lectura",
+  "ejemplo": {
+    "comando": "leer_archivo",
+    "ruta": "config.json",
+    "limite": 0
+  }
+}

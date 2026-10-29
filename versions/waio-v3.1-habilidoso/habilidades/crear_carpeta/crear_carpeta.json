@@ -1,0 +1,21 @@
+{
+  "nombre": "crear_carpeta",
+  "version": "1.0",
+  "autor": "WAIOGG",
+  "categoria": "comandos_base",
+  "tags": ["crear", "carpeta", "directorio", "nuevo"],
+  "descripcion": "Crea una nueva carpeta",
+  "tipo": "comando_interno",
+  "parametros": {
+    "ruta": {
+      "tipo": "string",
+      "requerido": true,
+      "descripcion": "Ruta de la carpeta a crear"
+    }
+  },
+  "perfil_minimo": "estandar",
+  "ejemplo": {
+    "comando": "crear_carpeta",
+    "ruta": "nueva_carpeta/"
+  }
+}

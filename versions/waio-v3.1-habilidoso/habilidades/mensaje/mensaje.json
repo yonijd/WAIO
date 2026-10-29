@@ -1,0 +1,21 @@
+{
+  "nombre": "mensaje",
+  "version": "1.0",
+  "autor": "WAIOGG",
+  "categoria": "comandos_base",
+  "tags": ["mensaje", "comunicacion", "respuesta", "informar"],
+  "descripcion": "Envia un mensaje al usuario. Util para respuestas informativas.",
+  "tipo": "comando_interno",
+  "parametros": {
+    "contenido": {
+      "tipo": "string",
+      "requerido": true,
+      "descripcion": "Texto del mensaje a enviar"
+    }
+  },
+  "perfil_minimo": "solo_lectura",
+  "ejemplo": {
+    "comando": "mensaje",
+    "contenido": "Hola, soy WAIO"
+  }
+}

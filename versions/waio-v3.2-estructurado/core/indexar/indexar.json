@@ -1,0 +1,15 @@
+{
+  "nombre": "indexar",
+  "version": "1.0",
+  "autor": "Yonijd",
+  "categoria": "core",
+  "tags": ["indexar", "skills", "catalogo", "actualizar"],
+  "descripcion": "Regenera el catalogo de skills escaneando core/ y skills/",
+  "tipo": "script",
+  "script": "indexar.py",
+  "perfil_minimo": "solo_lectura",
+  "parametros": {},
+  "ejemplo": {
+    "comando": "indexar"
+  }
+}

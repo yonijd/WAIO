@@ -1,0 +1,43 @@
+{
+  "nombre": "buscar_contenido",
+  "version": "1.0",
+  "autor": "Yonijd",
+  "categoria": "busqueda",
+  "tags": ["buscar", "contenido", "texto", "grep", "pdf", "excel", "word"],
+  "descripcion": "Busca texto en archivos: PDF, DOCX, XLSX, TXT, PY, JSON, MD, CSV, HTML, XML",
+  "tipo": "script",
+  "dependencias": {
+    "PyPDF2": "3.0.0",
+    "openpyxl": "3.1.0",
+    "python-docx": "1.2.0"
+  },
+  "script": "buscar_contenido.py",
+  "parametros": {
+    "ruta": {
+      "tipo": "string",
+      "requerido": true,
+      "descripcion": "Carpeta o archivo donde buscar"
+    },
+    "patron": {
+      "tipo": "string",
+      "requerido": true,
+      "descripcion": "Texto a buscar"
+    },
+    "extension": {
+      "tipo": "string",
+      "requerido": false,
+      "descripcion": "Filtrar por extensión (ej: .pdf, .docx)"
+    },
+    "case_sensitive": {
+      "tipo": "boolean",
+      "requerido": false,
+      "descripcion": "Sensible a mayúsculas"
+    }
+  },
+  "ejemplo": {
+    "comando": "ejecutar_script",
+    "script": "buscar_contenido.py",
+    "parametros": ["--ruta=./", "--patron=texto", "--extension=.pdf"]
+  },
+  "perfil_minimo": "estandar"
+}

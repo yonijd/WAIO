@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Logs
+*.log
+
+# Runtime (locks, triggers, pid)
+*.lock
+*.trigger
+*.pid
+
+# Temporales
+*.tmp
+temp/
+trash/
+outputs_copiados/
+
+# Backups
+*_backup.*
+*.bak
+*.rar
+*.7z
+*.zip
+
+# Sistema
+desktop.ini
+Thumbs.db

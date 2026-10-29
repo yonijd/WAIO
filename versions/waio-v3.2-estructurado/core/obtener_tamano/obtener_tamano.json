@@ -1,0 +1,22 @@
+{
+  "nombre": "obtener_tamano",
+  "version": "1.0",
+  "autor": "WAIOGG",
+  "categoria": "comandos_base",
+  "tags": ["tamano", "bytes", "archivo", "peso", "tamaño"],
+  "descripcion": "Devuelve el tamaño de un archivo en bytes",
+  "tipo": "comando_interno",
+  "alias": ["tamano", "size"],
+  "parametros": {
+    "ruta": {
+      "tipo": "string",
+      "requerido": true,
+      "descripcion": "Ruta del archivo"
+    }
+  },
+  "perfil_minimo": "solo_lectura",
+  "ejemplo": {
+    "comando": "obtener_tamano",
+    "ruta": "archivo.zip"
+  }
+}

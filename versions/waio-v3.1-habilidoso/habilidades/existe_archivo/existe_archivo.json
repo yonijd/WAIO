@@ -1,0 +1,21 @@
+{
+  "nombre": "existe_archivo",
+  "version": "1.0",
+  "autor": "WAIOGG",
+  "categoria": "comandos_base",
+  "tags": ["existe", "archivo", "verificar", "comprobar"],
+  "descripcion": "Verifica si un archivo o carpeta existe",
+  "tipo": "comando_interno",
+  "parametros": {
+    "ruta": {
+      "tipo": "string",
+      "requerido": true,
+      "descripcion": "Ruta del archivo o carpeta a verificar"
+    }
+  },
+  "perfil_minimo": "solo_lectura",
+  "ejemplo": {
+    "comando": "existe_archivo",
+    "ruta": "config.json"
+  }
+}

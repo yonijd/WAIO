@@ -1,0 +1,43 @@
+{
+  "nombre": "monitorear_carpeta",
+  "version": "1.0",
+  "autor": "Yonijd",
+  "categoria": "sistema",
+  "tags": ["monitorear", "carpeta", "eventos", "tiempo real", "cambios"],
+  "descripcion": "Monitorea una carpeta en tiempo real y detecta eventos: creacion, modificacion, eliminacion y movimiento. Usa watchdog para escuchar eventos del sistema.",
+  "tipo": "script",
+  "dependencias": {
+    "watchdog": "4.0.0"
+  },
+  "script": "monitorear_carpeta.py",
+  "parametros": {
+    "ruta": {
+      "tipo": "string",
+      "requerido": true,
+      "descripcion": "Carpeta a monitorear"
+    },
+    "eventos": {
+      "tipo": "string",
+      "requerido": false,
+      "descripcion": "Eventos a detectar: creacion,modificacion,eliminacion,movimiento (separados por coma)",
+      "defecto": "creacion,modificacion,eliminacion"
+    },
+    "tiempo": {
+      "tipo": "integer",
+      "requerido": false,
+      "descripcion": "Tiempo de monitoreo en segundos (default: 30)",
+      "defecto": 30
+    },
+    "log": {
+      "tipo": "string",
+      "requerido": false,
+      "descripcion": "Archivo de log para guardar eventos (opcional). Por defecto: .waio/eventos.log"
+    }
+  },
+  "ejemplo": {
+    "comando": "ejecutar_script",
+    "script": "monitorear_carpeta.py",
+    "parametros": ["--ruta=C:/Proyectos/waio", "--eventos=creacion,modificacion", "--tiempo=60"]
+  },
+  "perfil_minimo": "solo_lectura"
+}

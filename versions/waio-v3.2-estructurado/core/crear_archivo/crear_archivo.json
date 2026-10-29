@@ -1,0 +1,29 @@
+{
+  "nombre": "crear_archivo",
+  "version": "1.0",
+  "autor": "WAIOGG",
+  "categoria": "comandos_base",
+  "tags": ["crear", "archivo", "escribir", "nuevo"],
+  "descripcion": "Crea un archivo con el contenido especificado.",
+  "tipo": "comando_interno",
+  "alias": ["crear", "touch", "create", "write"],
+  "perfil_minimo": "estandar",
+  "parametros": {
+    "ruta": {
+      "tipo": "string",
+      "requerido": true,
+      "descripcion": "Ruta del archivo a crear"
+    },
+    "contenido": {
+      "tipo": "string",
+      "requerido": false,
+      "descripcion": "Contenido del archivo",
+      "defecto": ""
+    }
+  },
+  "ejemplo": {
+    "comando": "crear_archivo",
+    "ruta": "nuevo.txt",
+    "contenido": "Hola mundo"
+  }
+}

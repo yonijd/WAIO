@@ -1,0 +1,59 @@
+{
+  "nombre": "copiar_carpeta",
+  "version": "1.1",
+  "autor": "Yonijd",
+  "copyright": "Copyright (c) 2026 Yonijd",
+  "licencia": "MIT",
+  "categoria": "archivos",
+  "tags": ["copiar", "carpeta", "directorio", "recursivo", "backup"],
+  "descripcion": "Copia una carpeta completa recursivamente (contenido y subcarpetas).",
+  "tipo": "script",
+  "dependencias": {},
+  "script": "copiar_carpeta.py",
+  "ruta_script": "skills/copiar_carpeta/copiar_carpeta.py",
+  "alias": ["cp_dir", "xcopy", "copy_dir"],
+  "parametros": {
+    "origen": {
+      "tipo": "string",
+      "requerido": true,
+      "descripcion": "Ruta de la carpeta origen"
+    },
+    "destino": {
+      "tipo": "string",
+      "requerido": true,
+      "descripcion": "Ruta de la carpeta destino"
+    },
+    "sobrescribir": {
+      "tipo": "boolean",
+      "requerido": false,
+      "descripcion": "Sobrescribir si la carpeta destino ya existe (default: false)"
+    }
+  },
+  "usage": ["origen", "destino", "sobrescribir (opcional)"],
+  "ejemplo": {
+    "comando": "copiar_carpeta",
+    "origen": "skills",
+    "destino": "skills_backup"
+  },
+  "ejemplos_adicionales": [
+    {
+      "descripcion": "Copiar carpeta directo",
+      "json": {
+        "comando": "copiar_carpeta",
+        "origen": "tests",
+        "destino": "tests_copia"
+      }
+    },
+    {
+      "descripcion": "Sobrescribir destino existente",
+      "json": {
+        "comando": "copiar_carpeta",
+        "origen": "tests",
+        "destino": "tests_copia",
+        "sobrescribir": true
+      }
+    }
+  ],
+  "perfil_minimo": "estandar",
+  "nota": "Funciona con 'copiar_carpeta' directo o con 'ejecutar'. Usa workdir para rutas relativas."
+}

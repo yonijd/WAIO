@@ -1,0 +1,24 @@
+{
+  "nombre": "extraer_metadatos",
+  "version": "1.0",
+  "autor": "Yonijd",
+  "categoria": "sistema",
+  "tags": ["extraer", "metadatos", "archivo", "carpeta", "informacion"],
+  "descripcion": "Extrae metadatos de un archivo o carpeta (tamaño, fechas, permisos, etc.)",
+  "tipo": "script",
+  "dependencias": {},
+  "script": "extraer_metadatos.py",
+  "parametros": {
+    "ruta": {
+      "tipo": "string",
+      "requerido": true,
+      "descripcion": "Ruta del archivo o carpeta a analizar"
+    }
+  },
+  "ejemplo": {
+    "comando": "ejecutar_script",
+    "script": "extraer_metadatos.py",
+    "parametros": ["--ruta=documento.pdf"]
+  },
+  "perfil_minimo": "solo_lectura"
+}

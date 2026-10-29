@@ -1,0 +1,57 @@
+{
+  "nombre": "super_buscar",
+  "version": "1.0",
+  "autor": "Yonijd",
+  "categoria": "sistema",
+  "tags": ["buscar", "archivos", "recursivo", "profundo", "patron", "ocultos", "excluir"],
+  "descripcion": "Busca archivos en profundidad con multiples patrones, exclusiones y progreso en tiempo real. Reemplaza al buscar_archivos basico.",
+  "tipo": "script",
+  "dependencias": {},
+  "script": "super_buscar.py",
+  "parametros": {
+    "ruta": {
+      "tipo": "string",
+      "requerido": false,
+      "descripcion": "Carpeta raiz donde buscar (default: .)",
+      "defecto": "."
+    },
+    "patron": {
+      "tipo": "string",
+      "requerido": true,
+      "descripcion": "Patron de busqueda. Multiples separados por comas (ej: *.py,*.txt,config.*)"
+    },
+    "recursivo": {
+      "tipo": "boolean",
+      "requerido": false,
+      "descripcion": "Buscar en subcarpetas (default: True)",
+      "defecto": true
+    },
+    "ocultos": {
+      "tipo": "boolean",
+      "requerido": false,
+      "descripcion": "Incluir archivos y carpetas ocultas (default: False)"
+    },
+    "excluir": {
+      "tipo": "string",
+      "requerido": false,
+      "descripcion": "Carpetas a excluir separadas por comas (ej: node_modules,__pycache__,.git)"
+    },
+    "limite_resultados": {
+      "tipo": "integer",
+      "requerido": false,
+      "descripcion": "Limite maximo de resultados (default: 1000)",
+      "defecto": 1000
+    },
+    "guardar_log": {
+      "tipo": "boolean",
+      "requerido": false,
+      "descripcion": "Guardar resultado en archivo de log"
+    }
+  },
+  "ejemplo": {
+    "comando": "ejecutar_script",
+    "script": "super_buscar.py",
+    "parametros": ["--ruta=./src", "--patron=*.py,*.json", "--excluir=__pycache__,node_modules", "--limite_resultados=500"]
+  },
+  "perfil_minimo": "solo_lectura"
+}

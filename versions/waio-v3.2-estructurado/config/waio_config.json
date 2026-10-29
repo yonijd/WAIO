@@ -1,0 +1,60 @@
+{
+  "_waio_firma": "WAIO-V3-CONFIG-2026",
+  "_comentario": "NO EDITAR LA FIRMA. WAIO la usa para validar este archivo.",
+  "_version": "1.0",
+  "perfil_activo": "estandar",
+  "perfiles": {
+    "solo_lectura": {
+      "_descripcion": "SOLO LECTURA. Puede ver y listar, pero no modificar ni borrar.",
+      "sandbox": true,
+      "permite_rutas_absolutas": false,
+      "permite_navegacion_padre": false,
+      "borrado": "papelera",
+      "comandos_bloqueados": ["crear_archivo", "crear_carpeta", "eliminar_archivo", "eliminar_carpeta", "mover_archivo", "copiar_archivo"],
+      "limite_escritura_bytes": 0,
+      "limite_lectura_bytes": 500000,
+      "carpetas_prohibidas": [],
+      "permite_scripts": false,
+      "permite_consola": false
+    },
+    "estandar": {
+      "_descripcion": "SEGURO. Puede leer, escribir y borrar en el proyecto. Todo va a Papelera.",
+      "sandbox": true,
+      "permite_rutas_absolutas": false,
+      "permite_navegacion_padre": false,
+      "borrado": "papelera",
+      "comandos_bloqueados": [],
+      "limite_escritura_bytes": 1048576,
+      "limite_lectura_bytes": 1048576,
+      "carpetas_prohibidas": [],
+      "permite_scripts": false,
+      "permite_consola": false
+    },
+    "avanzado": {
+      "_descripcion": "DESARROLLADOR. Puede leer y escribir en todo el disco (excepto Windows). Ejecuta scripts.",
+      "sandbox": false,
+      "permite_rutas_absolutas": true,
+      "permite_navegacion_padre": true,
+      "borrado": "papelera",
+      "comandos_bloqueados": [],
+      "limite_escritura_bytes": 10485760,
+      "limite_lectura_bytes": 10485760,
+      "carpetas_prohibidas": ["C:\\Windows", "C:\\Windows\\System32", "C:\\Windows\\System", "C:\\Program Files", "C:\\Program Files (x86)", "C:\\ProgramData"],
+      "permite_scripts": true,
+      "permite_consola": false
+    },
+    "sin_restricciones": {
+      "_descripcion": "PELIGROSO. Acceso total. Borrado PERMANENTE. Solo rescate.",
+      "sandbox": false,
+      "permite_rutas_absolutas": true,
+      "permite_navegacion_padre": true,
+      "borrado": "permanente",
+      "comandos_bloqueados": [],
+      "limite_escritura_bytes": 0,
+      "limite_lectura_bytes": 10485760,
+      "carpetas_prohibidas": [],
+      "permite_scripts": true,
+      "permite_consola": true
+    }
+  }
+}

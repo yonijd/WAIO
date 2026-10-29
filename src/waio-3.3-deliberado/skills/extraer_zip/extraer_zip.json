@@ -1,0 +1,67 @@
+{
+  "nombre": "extraer_zip",
+  "version": "1.1",
+  "autor": "Yonijd",
+  "copyright": "Copyright (c) 2026 Yonijd",
+  "licencia": "MIT",
+  "categoria": "utilidades",
+  "tags": ["extraer", "zip", "descomprimir", "archivo"],
+  "descripcion": "Extrae un archivo ZIP en la carpeta destino",
+  "tipo": "script",
+  "dependencias": {},
+  "script": "extraer_zip.py",
+  "ruta_script": "skills/extraer_zip/extraer_zip.py",
+  "alias": ["extraer", "unzip", "extract"],
+  "parametros": {
+    "zip": {
+      "tipo": "string",
+      "requerido": true,
+      "descripcion": "Ruta del archivo ZIP"
+    },
+    "destino": {
+      "tipo": "string",
+      "requerido": false,
+      "descripcion": "Carpeta de destino (opcional, default: nombre del ZIP)"
+    },
+    "sobrescribir": {
+      "tipo": "boolean",
+      "requerido": false,
+      "descripcion": "Sobrescribir archivos existentes (default: false)"
+    }
+  },
+  "usage": ["zip", "destino (opcional)", "sobrescribir (opcional)"],
+  "ejemplo": {
+    "comando": "extraer_zip",
+    "zip": "tests_max.zip",
+    "destino": "tests_extraido"
+  },
+  "ejemplos_adicionales": [
+    {
+      "descripcion": "Extraer ZIP con destino",
+      "json": {
+        "comando": "extraer_zip",
+        "zip": "tests_max.zip",
+        "destino": "tests_extraido"
+      }
+    },
+    {
+      "descripcion": "Extraer sin destino (usa nombre del ZIP)",
+      "json": {
+        "comando": "extraer_zip",
+        "zip": "tests_max.zip"
+      }
+    },
+    {
+      "descripcion": "Sobrescribir si ya existe",
+      "json": {
+        "comando": "extraer_zip",
+        "zip": "tests_max.zip",
+        "destino": "tests_extraido",
+        "sobrescribir": true
+      }
+    }
+  ],
+  "perfil_minimo": "advanced",
+  "timeout_segundos": 120,
+  "nota": "Funciona con 'extraer_zip' directo o con 'ejecutar'. Usa workdir para rutas relativas."
+}

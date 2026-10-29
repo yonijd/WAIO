@@ -1,0 +1,26 @@
+{
+  "nombre": "leer_excel",
+  "version": "1.0",
+  "autor": "Yonijd",
+  "categoria": "datos",
+  "tags": ["leer", "excel", "xlsx", "hoja", "datos"],
+  "descripcion": "Lee un archivo Excel (.xlsx) y muestra su contenido",
+  "tipo": "script",
+  "dependencias": {
+    "openpyxl": "3.1.0"
+  },
+  "script": "leer_excel.py",
+  "parametros": {
+    "ruta": {
+      "tipo": "string",
+      "requerido": true,
+      "descripcion": "Ruta del archivo Excel a leer"
+    }
+  },
+  "ejemplo": {
+    "comando": "ejecutar_script",
+    "script": "leer_excel.py",
+    "parametros": ["--ruta=datos.xlsx"]
+  },
+  "perfil_minimo": "estandar"
+}

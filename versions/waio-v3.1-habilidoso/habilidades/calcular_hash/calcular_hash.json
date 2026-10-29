@@ -1,0 +1,35 @@
+{
+  "nombre": "calcular_hash",
+  "version": "1.0",
+  "autor": "Yonijd",
+  "categoria": "utilidades",
+  "tags": ["hash", "sha256", "md5", "sha1", "archivo", "checksum"],
+  "descripcion": "Calcula el hash (SHA-256, MD5, etc.) de un archivo o carpeta",
+  "tipo": "script",
+  "dependencias": {},
+  "script": "calcular_hash.py",
+  "parametros": {
+    "ruta": {
+      "tipo": "string",
+      "requerido": true,
+      "descripcion": "Ruta del archivo o carpeta"
+    },
+    "algoritmo": {
+      "tipo": "string",
+      "requerido": false,
+      "descripcion": "Algoritmo: sha256, md5, sha1, etc.",
+      "defecto": "sha256"
+    },
+    "resumen": {
+      "tipo": "boolean",
+      "requerido": false,
+      "descripcion": "Mostrar solo resumen (para carpetas)"
+    }
+  },
+  "ejemplo": {
+    "comando": "ejecutar_script",
+    "script": "calcular_hash.py",
+    "parametros": ["--ruta=archivo.pdf", "--algoritmo=md5"]
+  },
+  "perfil_minimo": "solo_lectura"
+}

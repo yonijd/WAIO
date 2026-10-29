@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.pyc
+
+# Logs
+*.log
+logs/
+
+# Archivos de instancia/trigger
+*.lock
+*.trigger
+
+# Archivos temporales
+*.tmp
+
+# Archivos de usuario
+prompt.txt
+waio_config.json
+wispout.json
+workdir.txt
+
+# Carpetas de datos
+output/
+jsonout/
+trash/
+pyseguras/
+pyhabilidades/
+
+# Carpetas de sistema
+habilidades/habilidades.json
+
+# Archivos de sistema
+desktop.ini
+Thumbs.db
+
+# Backups
+*_backup.*
+*.rar
+*.7z
+*.zip

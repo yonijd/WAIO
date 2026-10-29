@@ -1,0 +1,57 @@
+{
+  "nombre": "extlog",
+  "version": "1.1",
+  "autor": "Yonijd",
+  "copyright": "Copyright (c) 2026 Yonijd",
+  "licencia": "MIT",
+  "categoria": "sistema",
+  "tags": ["analisis", "archivo", "hash", "metadatos", "exif", "profundo"],
+  "descripcion": "Analiza un archivo en profundidad: hashes, metadatos, estructura interna (texto, imagen, ejecutable, PDF, ZIP, RAR).",
+  "tipo": "script",
+  "dependencias": {
+    "pillow": "10.0.0",
+    "pypdf": "4.0.0",
+    "pywin32": "306",
+    "rarfile": "4.2"
+  },
+  "script": "extlog.py",
+  "ruta_script": "skills/extlog/extlog.py",
+  "alias": ["ext", "analyze_file"],
+  "parametros": {
+    "ruta": {
+      "tipo": "string",
+      "requerido": true,
+      "descripcion": "Ruta del archivo a analizar"
+    },
+    "guardar_log": {
+      "tipo": "boolean",
+      "requerido": false,
+      "descripcion": "Guardar log en .ialogpack/logs/ (default: false)"
+    }
+  },
+  "usage": ["ruta", "guardar_log (opcional)"],
+  "ejemplo": {
+    "comando": "extlog",
+    "ruta": "tests/prueba_abrir.txt"
+  },
+  "ejemplos_adicionales": [
+    {
+      "descripcion": "Analizar archivo de texto",
+      "json": {
+        "comando": "extlog",
+        "ruta": "tests/prueba_abrir.txt"
+      }
+    },
+    {
+      "descripcion": "Analizar y guardar log",
+      "json": {
+        "comando": "extlog",
+        "ruta": "skills/extlog/extlog.py",
+        "guardar_log": true
+      }
+    }
+  ],
+  "perfil_minimo": "advanced",
+  "timeout_segundos": 300,
+  "nota": "Funciona con 'extlog' directo o con 'ejecutar'. Analiza archivos de texto, imagen, ejecutable, PDF, ZIP y RAR. Usa workdir para rutas relativas."
+}

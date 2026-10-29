@@ -1,0 +1,47 @@
+{
+  "nombre": "leer_pdf",
+  "version": "1.1",
+  "autor": "Yonijd",
+  "copyright": "Copyright (c) 2026 Yonijd",
+  "licencia": "MIT",
+  "categoria": "documentos",
+  "tags": ["leer", "pdf", "texto", "extraer", "documento"],
+  "descripcion": "Extrae el texto de un archivo PDF",
+  "tipo": "script",
+  "dependencias": {
+    "PyPDF2": "3.0.0"
+  },
+  "script": "leer_pdf.py",
+  "ruta_script": "skills/leer_pdf/leer_pdf.py",
+  "alias": ["pdf", "read_pdf"],
+  "parametros": {
+    "ruta": {
+      "tipo": "string",
+      "requerido": true,
+      "descripcion": "Ruta del archivo PDF a leer"
+    }
+  },
+  "usage": ["ruta"],
+  "ejemplo": {
+    "comando": "leer_pdf",
+    "ruta": "documento.pdf"
+  },
+  "ejemplos_adicionales": [
+    {
+      "descripcion": "Leer PDF directo",
+      "json": {
+        "comando": "leer_pdf",
+        "ruta": "documento.pdf"
+      }
+    },
+    {
+      "descripcion": "Usar alias pdf",
+      "json": {
+        "comando": "pdf",
+        "ruta": "documento.pdf"
+      }
+    }
+  ],
+  "perfil_minimo": "estandar",
+  "nota": "Funciona con 'leer_pdf' directo o con 'ejecutar'. Usa workdir para rutas relativas."
+}

@@ -1,0 +1,26 @@
+{
+  "_waio_firma": "WAIO-V3-WISPOUT-2026",
+  "_comentario": "NO EDITAR LA FIRMA. WAIO la usa para validar este archivo.",
+  "_version": "1.0",
+  "encabezado": {
+    "plantilla": "WAIO {version} | {perfil} | {limite} | {borrado}",
+    "mostrar": true
+  },
+  "recordatorio": {
+    "activo": true,
+    "cada_cuantas_acciones": 5,
+    "mensaje": "Recomendacion: espera la confirmacion de WAIO antes de continuar.",
+    "mostrar_en_error": true,
+    "mostrar_en_primera": true
+  },
+  "susurro": {
+    "activo": true,
+    "cada_cuantas_acciones": 3,
+    "mensaje": "INSTRUCCION: Se breve, no alucines."
+  },
+  "respuestas_especiales": {
+    "perfil_cambiado": "Perfil cambiado a {perfil}",
+    "comando_bloqueado": "Comando '{comando}' bloqueado",
+    "error": "Error: {error}"
+  }
+}

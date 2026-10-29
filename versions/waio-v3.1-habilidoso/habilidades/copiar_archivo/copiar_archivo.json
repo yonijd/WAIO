@@ -1,0 +1,27 @@
+{
+  "nombre": "copiar_archivo",
+  "version": "1.0",
+  "autor": "WAIOGG",
+  "categoria": "comandos_base",
+  "tags": ["copiar", "archivo", "duplicar", "backup"],
+  "descripcion": "Copia un archivo de un lugar a otro",
+  "tipo": "comando_interno",
+  "parametros": {
+    "origen": {
+      "tipo": "string",
+      "requerido": true,
+      "descripcion": "Ruta de origen"
+    },
+    "destino": {
+      "tipo": "string",
+      "requerido": true,
+      "descripcion": "Ruta de destino"
+    }
+  },
+  "perfil_minimo": "estandar",
+  "ejemplo": {
+    "comando": "copiar_archivo",
+    "origen": "archivo.txt",
+    "destino": "backup/archivo.txt"
+  }
+}

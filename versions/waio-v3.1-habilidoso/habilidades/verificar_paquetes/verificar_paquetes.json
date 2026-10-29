@@ -1,0 +1,24 @@
+{
+  "nombre": "verificar_paquetes",
+  "version": "1.0",
+  "autor": "Yonijd",
+  "categoria": "sistema",
+  "tags": ["verificar", "paquetes", "python", "dependencias", "pip"],
+  "descripcion": "Verifica si una lista de paquetes de Python estan instalados intentando importarlos. Se ejecuta con ejecutar_script.",
+  "tipo": "script",
+  "dependencias": {},
+  "script": "verificar_paquetes.py",
+  "parametros": {
+    "paquetes": {
+      "tipo": "array",
+      "requerido": false,
+      "descripcion": "Lista de nombres de paquetes a verificar (ej: numpy requests rich). Si no se especifica, verifica los paquetes comunes."
+    }
+  },
+  "ejemplo": {
+    "comando": "ejecutar_script",
+    "script": "verificar_paquetes.py",
+    "parametros": ["numpy", "requests", "pillow"]
+  },
+  "perfil_minimo": "solo_lectura"
+}

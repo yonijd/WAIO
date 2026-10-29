@@ -1,0 +1,40 @@
+{
+  "nombre": "crear_zip",
+  "version": "1.0",
+  "autor": "Yonijd",
+  "categoria": "utilidades",
+  "tags": ["crear", "zip", "comprimir", "archivo", "backup"],
+  "descripcion": "Crea un archivo ZIP desde una carpeta o archivo",
+  "tipo": "script",
+  "dependencias": {},
+  "script": "crear_zip.py",
+  "parametros": {
+    "origen": {
+      "tipo": "string",
+      "requerido": true,
+      "descripcion": "Ruta de la carpeta o archivo a comprimir"
+    },
+    "destino": {
+      "tipo": "string",
+      "requerido": false,
+      "descripcion": "Ruta de destino del ZIP (opcional)"
+    },
+    "sin_subcarpetas": {
+      "tipo": "boolean",
+      "requerido": false,
+      "descripcion": "No incluir subcarpetas"
+    },
+    "compresion": {
+      "tipo": "number",
+      "requerido": false,
+      "descripcion": "Nivel de compresion (0-9, default: 6)",
+      "defecto": 6
+    }
+  },
+  "ejemplo": {
+    "comando": "ejecutar_script",
+    "script": "crear_zip.py",
+    "parametros": ["--origen=./proyecto", "--destino=backup.zip", "--compresion=9"]
+  },
+  "perfil_minimo": "estandar"
+}

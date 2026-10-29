@@ -1,0 +1,32 @@
+{
+  "nombre": "skills",
+  "version": "1.0",
+  "autor": "Yonijd",
+  "categoria": "core",
+  "tags": ["skills", "listar", "info", "comandos", "catalogo"],
+  "descripcion": "Comando unificado para listar skills o mostrar la informacion de una skill especifica.",
+  "tipo": "comando_interno",
+  "alias": ["listar_skills", "list_skills", "info"],
+  "perfil_minimo": "solo_lectura",
+  "parametros": {
+    "nombre": {
+      "tipo": "string",
+      "requerido": false,
+      "descripcion": "Nombre de la skill (ej: voz, leer_pdf). Si no se especifica, lista todas las skills disponibles."
+    }
+  },
+  "ejemplo_1": {
+    "descripcion": "Listar todas las skills",
+    "comando": "skills"
+  },
+  "ejemplo_2": {
+    "descripcion": "Mostrar JSON de la skill 'voz'",
+    "comando": "skills",
+    "nombre": "voz"
+  },
+  "ejemplo_3": {
+    "descripcion": "Usar alias 'info' para mostrar JSON de 'leer_pdf'",
+    "comando": "info",
+    "nombre": "leer_pdf"
+  }
+}

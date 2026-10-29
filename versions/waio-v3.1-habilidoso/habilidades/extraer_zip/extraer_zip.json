@@ -1,0 +1,34 @@
+{
+  "nombre": "extraer_zip",
+  "version": "1.0",
+  "autor": "Yonijd",
+  "categoria": "utilidades",
+  "tags": ["extraer", "zip", "descomprimir", "archivo"],
+  "descripcion": "Extrae un archivo ZIP en la carpeta destino",
+  "tipo": "script",
+  "dependencias": {},
+  "script": "extraer_zip.py",
+  "parametros": {
+    "zip": {
+      "tipo": "string",
+      "requerido": true,
+      "descripcion": "Ruta del archivo ZIP"
+    },
+    "destino": {
+      "tipo": "string",
+      "requerido": false,
+      "descripcion": "Carpeta de destino (opcional)"
+    },
+    "sobrescribir": {
+      "tipo": "boolean",
+      "requerido": false,
+      "descripcion": "Sobrescribir archivos existentes"
+    }
+  },
+  "ejemplo": {
+    "comando": "ejecutar_script",
+    "script": "extraer_zip.py",
+    "parametros": ["--zip=backup.zip", "--destino=./extraido", "--sobrescribir"]
+  },
+  "perfil_minimo": "estandar"
+}

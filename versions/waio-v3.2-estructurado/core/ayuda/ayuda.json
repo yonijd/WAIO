@@ -1,0 +1,15 @@
+{
+  "nombre": "ayuda",
+  "version": "1.0",
+  "autor": "Yonijd",
+  "categoria": "core",
+  "tags": ["ayuda", "help", "comandos", "guia"],
+  "descripcion": "Muestra ayuda general de WAIO (comandos, perfiles, ejemplos).",
+  "tipo": "comando_interno",
+  "alias": ["help", "?"],
+  "perfil_minimo": "solo_lectura",
+  "parametros": {},
+  "ejemplo": {
+    "comando": "ayuda"
+  }
+}

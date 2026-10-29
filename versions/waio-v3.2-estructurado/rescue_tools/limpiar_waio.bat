@@ -1,0 +1,34 @@
+@echo off
+chcp 65001 >nul
+title LIMPIAR WAIO - MATAR PROCESOS
+echo ============================================================
+echo              LIMPIANDO PROCESOS WAIO
+echo ============================================================
+echo.
+
+echo [1] Matando todos los pythonw.exe...
+taskkill /F /IM pythonw.exe 2>nul
+
+echo [2] Matando python.exe (motores)...
+taskkill /F /IM python.exe /FI "WINDOWTITLE eq WAIO*" 2>nul
+
+echo [3] Eliminando triggers huerfanos...
+if exist STOP.trigger del STOP.trigger
+if exist TRANSCLIP_STOP.trigger del TRANSCLIP_STOP.trigger
+if exist ESCUCHA_STOP.trigger del ESCUCHA_STOP.trigger
+if exist transclip.lock del transclip.lock
+if exist escucha.lock del escucha.lock
+if exist events.lock del events.lock
+if exist waio.lock del waio.lock
+
+echo.
+echo [4] Eliminando carpetas temporales de WAIO...
+if exist temp\jsonout rmdir /s /q temp\jsonout 2>nul
+if exist temp\output rmdir /s /q temp\output 2>nul
+
+echo.
+echo LISTO. Procesos y archivos temporales limpiados.
+echo.
+tasklist /FI "IMAGENAME eq pythonw.exe" 2>nul
+echo.
+pause

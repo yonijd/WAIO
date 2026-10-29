@@ -1,0 +1,77 @@
+{
+  "nombre": "buscar_contenido",
+  "version": "1.1",
+  "autor": "Yonijd",
+  "copyright": "Copyright (c) 2026 Yonijd",
+  "licencia": "MIT",
+  "categoria": "busqueda",
+  "tags": ["buscar", "contenido", "texto", "grep", "pdf", "excel", "word"],
+  "descripcion": "Busca texto en archivos: PDF, DOCX, XLSX, TXT, PY, JSON, MD, CSV, HTML, XML",
+  "tipo": "script",
+  "dependencias": {
+    "PyPDF2": "3.0.0",
+    "openpyxl": "3.1.0",
+    "python-docx": "1.2.0"
+  },
+  "script": "buscar_contenido.py",
+  "ruta_script": "skills/buscar_contenido/buscar_contenido.py",
+  "alias": ["buscar_texto", "grep", "findstr", "search_text"],
+  "parametros": {
+    "ruta": {
+      "tipo": "string",
+      "requerido": true,
+      "descripcion": "Carpeta o archivo donde buscar"
+    },
+    "patron": {
+      "tipo": "string",
+      "requerido": true,
+      "descripcion": "Texto a buscar"
+    },
+    "extension": {
+      "tipo": "string",
+      "requerido": false,
+      "descripcion": "Filtrar por extension (ej: .pdf, .docx)"
+    },
+    "case_sensitive": {
+      "tipo": "boolean",
+      "requerido": false,
+      "descripcion": "Sensible a mayusculas (default: false)"
+    }
+  },
+  "usage": ["ruta", "patron", "extension (opcional)", "case_sensitive (opcional)"],
+  "ejemplo": {
+    "comando": "buscar_contenido",
+    "ruta": ".",
+    "patron": "WAIO"
+  },
+  "ejemplos_adicionales": [
+    {
+      "descripcion": "Buscar en un directorio",
+      "json": {
+        "comando": "buscar_contenido",
+        "ruta": "skills",
+        "patron": "ruta"
+      }
+    },
+    {
+      "descripcion": "Buscar filtrando por extension",
+      "json": {
+        "comando": "buscar_contenido",
+        "ruta": ".",
+        "patron": "WAIO",
+        "extension": ".md"
+      }
+    },
+    {
+      "descripcion": "Buscar con alias grep",
+      "json": {
+        "comando": "grep",
+        "ruta": ".",
+        "patron": "config",
+        "case_sensitive": true
+      }
+    }
+  ],
+  "perfil_minimo": "estandar",
+  "nota": "Funciona con 'buscar_contenido' directo o con 'ejecutar'. Soporta PDFs, DOCX, XLSX, TXT, etc."
+}

@@ -1,0 +1,47 @@
+{
+  "nombre": "leer_word",
+  "version": "1.1",
+  "autor": "Yonijd",
+  "copyright": "Copyright (c) 2026 Yonijd",
+  "licencia": "MIT",
+  "categoria": "documentos",
+  "tags": ["leer", "word", "docx", "texto", "documento"],
+  "descripcion": "Lee un archivo Word (.docx) y extrae su texto",
+  "tipo": "script",
+  "dependencias": {
+    "python-docx": "1.2.0"
+  },
+  "script": "leer_word.py",
+  "ruta_script": "skills/leer_word/leer_word.py",
+  "alias": ["doc", "read_docx"],
+  "parametros": {
+    "ruta": {
+      "tipo": "string",
+      "requerido": true,
+      "descripcion": "Ruta del archivo Word a leer"
+    }
+  },
+  "usage": ["ruta"],
+  "ejemplo": {
+    "comando": "leer_word",
+    "ruta": "tests/word_basico.docx"
+  },
+  "ejemplos_adicionales": [
+    {
+      "descripcion": "Leer Word directo",
+      "json": {
+        "comando": "leer_word",
+        "ruta": "tests/word_basico.docx"
+      }
+    },
+    {
+      "descripcion": "Leer Word con titulo",
+      "json": {
+        "comando": "leer_word",
+        "ruta": "tests/word_titulo.docx"
+      }
+    }
+  ],
+  "perfil_minimo": "estandar",
+  "nota": "Funciona con 'leer_word' directo o con 'ejecutar'. Usa workdir para rutas relativas."
+}

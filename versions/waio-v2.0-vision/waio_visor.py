@@ -1,0 +1,212 @@
+# -*- coding: utf-8 -*-
+import json
+import time
+import subprocess
+import os
+from pathlib import Path
+from datetime import datetime
+import tkinter as tk
+from tkinter import scrolledtext, messagebox
+
+SCRIPT_DIR = Path(__file__).parent.resolve()
+OUTPUT_DIR = str(SCRIPT_DIR / "output")
+REFRESCO_MS = 1000
+MAX_LINEAS = 500
+MAX_CARACTERES_OUTPUT = 2000
+
+class WAIOVisor:
+    def __init__(self, root):
+        self.root = root
+        self.root.title("WAIO VISOR V1.0")
+        self.root.geometry("800x600")
+        self.root.configure(bg='black')
+        
+        self.ruta_output = Path(OUTPUT_DIR)
+        self.ruta_output.mkdir(parents=True, exist_ok=True)
+        
+        self.archivos_vistos = set()
+        self.ultimo_json = None
+        
+        self.text_area = scrolledtext.ScrolledText(
+            self.root, wrap=tk.WORD, bg='black', fg='lime',
+            font=('Consolas', 10), insertbackground='lime'
+        )
+        self.text_area.pack(fill=tk.BOTH, expand=True, padx=5, pady=5)
+        
+        # Configurar colores
+        self.text_area.tag_config("timestamp", foreground="cyan")
+        self.text_area.tag_config("comando", foreground="yellow")
+        self.text_area.tag_config("resultado", foreground="lime")
+        self.text_area.tag_config("error", foreground="red")
+        self.text_area.tag_config("separador", foreground="gray")
+        self.text_area.tag_config("copia", foreground="magenta")
+        self.text_area.tag_config("ultimo", foreground="cyan")
+        self.text_area.tag_config("anterior", foreground="orange")
+        
+        # Frame de botones
+        frame = tk.Frame(self.root, bg='black')
+        frame.pack(fill=tk.X, padx=5, pady=5)
+        
+        btn_limpiar = tk.Button(frame, text="LIMPIAR", command=self.limpiar, bg='gray20', fg='white')
+        btn_limpiar.pack(side=tk.LEFT, padx=5)
+        
+        btn_copiar = tk.Button(frame, text="COPIAR TODO", command=self.copiar_todo, bg='gray20', fg='white')
+        btn_copiar.pack(side=tk.LEFT, padx=5)
+        
+        btn_limpiar_output = tk.Button(frame, text="LIMPIAR OUTPUT", command=self.limpiar_output, bg='gray20', fg='white')
+        btn_limpiar_output.pack(side=tk.LEFT, padx=5)
+        
+        btn_abrir_output = tk.Button(frame, text="ABRIR OUTPUT", command=self.abrir_output, bg='gray20', fg='white')
+        btn_abrir_output.pack(side=tk.LEFT, padx=5)
+        
+        self.label_estado = tk.Label(frame, text="Monitoreando...", bg='black', fg='gray')
+        self.label_estado.pack(side=tk.RIGHT, padx=10)
+        
+        # Configurar cierre
+        self.root.protocol("WM_DELETE_WINDOW", self.cerrar)
+        
+        self.monitorear()
+    
+    def abrir_output(self):
+        """Abre la carpeta output de WAIO en el explorador"""
+        try:
+            os.startfile(str(self.ruta_output))
+            self.escribir(f"Carpeta output abierta: {self.ruta_output}", "copia")
+        except Exception as e:
+            self.escribir(f"Error al abrir carpeta: {e}", "error")
+    
+    def copiar_portapapeles(self, texto):
+        try:
+            self.root.clipboard_clear()
+            self.root.clipboard_append(texto)
+            return True
+        except:
+            return False
+    
+    def escribir(self, texto, tag=None):
+        timestamp = datetime.now().strftime("%H:%M:%S")
+        self.text_area.insert(tk.END, f"[{timestamp}] ", "timestamp")
+        if tag:
+            self.text_area.insert(tk.END, f"{texto}\n", tag)
+        else:
+            self.text_area.insert(tk.END, f"{texto}\n")
+        self.text_area.see(tk.END)
+        self.limpiar_si_es_necesario()
+    
+    def escribir_separador(self):
+        self.text_area.insert(tk.END, "-" * 70 + "\n", "separador")
+        self.text_area.see(tk.END)
+    
+    def limpiar(self):
+        self.text_area.delete(1.0, tk.END)
+        self.escribir("Pantalla limpiada")
+    
+    def limpiar_si_es_necesario(self):
+        lineas_actuales = int(self.text_area.index('end-1c').split('.')[0])
+        if lineas_actuales > MAX_LINEAS:
+            self.text_area.delete(1.0, 101.0)
+            self.escribir("(Se borraron lineas antiguas para mantener rendimiento)", "copia")
+    
+    def copiar_todo(self):
+        texto = self.text_area.get(1.0, tk.END)
+        if self.copiar_portapapeles(texto):
+            self.escribir("Texto copiado al portapapeles", "copia")
+    
+    def limpiar_output(self):
+        if messagebox.askyesno("Confirmar", f"¿Borrar todos los JSONs y TXTs de {self.ruta_output} (excepto PROMPT_WAIO.txt)?"):
+            contador = 0
+            for archivo in self.ruta_output.glob("*.json"):
+                if archivo.name != "PROMPT_WAIO.txt":
+                    try:
+                        archivo.unlink()
+                        contador += 1
+                    except:
+                        pass
+            for archivo in self.ruta_output.glob("*.txt"):
+                if archivo.name != "PROMPT_WAIO.txt":
+                    try:
+                        archivo.unlink()
+                        contador += 1
+                    except:
+                        pass
+            self.escribir(f"Limpiado output/ ({contador} archivos borrados)", "copia")
+    
+    def cerrar(self):
+        """Cierra el visor y mata el motor via STOP.trigger"""
+        self.escribir("Cerrando visor...", "copia")
+        try:
+            stop_file = SCRIPT_DIR / "STOP.trigger"
+            stop_file.touch()
+            self.escribir("STOP.trigger creado - Motor se apagara en <2 segundos", "copia")
+        except Exception as e:
+            self.escribir(f"Error al crear STOP.trigger: {e}", "error")
+        self.root.destroy()
+    
+    def mostrar_json(self, archivo, es_ultimo=False):
+        try:
+            with open(archivo, "r", encoding="utf-8") as f:
+                data = json.load(f)
+            
+            tx_id = data.get("transaccion_id", "desconocido")
+            comando = data.get("comando", "?")
+            status = data.get("status", "ok")
+            output = data.get("output", "")
+            
+            self.escribir_separador()
+            
+            if es_ultimo:
+                self.escribir(f"TRANSACCION: {tx_id} (ULTIMO)", "ultimo")
+            else:
+                self.escribir(f"TRANSACCION: {tx_id}", "comando")
+            
+            if status == "ok":
+                if len(output) > MAX_CARACTERES_OUTPUT:
+                    output = output[:MAX_CARACTERES_OUTPUT] + "..."
+                if es_ultimo:
+                    self.escribir(f"  {comando}: {output}", "ultimo")
+                else:
+                    self.escribir(f"  {comando}: {output}", "resultado")
+            else:
+                if es_ultimo:
+                    self.escribir(f"  {comando}: ERROR - {output}", "error")
+                else:
+                    self.escribir(f"  {comando}: ERROR - {output}", "error")
+            
+            self.escribir_separador()
+            
+            if es_ultimo:
+                self.escribir(f"[COPIADO] {archivo.name} (en portapapeles)", "copia")
+                # Copiar al portapapeles el contenido completo
+                texto_copia = f"Comando: {comando}\nStatus: {status}\nResultado: {output}"
+                self.copiar_portapapeles(texto_copia)
+            
+            return True
+        except Exception as e:
+            return False
+    
+    def monitorear(self):
+        try:
+            archivos = list(self.ruta_output.glob("*.json"))
+            # Filtrar PROMPT_WAIO.txt y ordenar por fecha de modificacion
+            archivos_json = [a for a in archivos if not a.name.startswith("PROMPT")]
+            archivos_json.sort(key=lambda x: x.stat().st_mtime)
+            
+            for archivo in archivos_json:
+                if archivo.name not in self.archivos_vistos:
+                    self.archivos_vistos.add(archivo.name)
+                    es_ultimo = (archivo == archivos_json[-1])
+                    self.mostrar_json(archivo, es_ultimo)
+            
+        except Exception as e:
+            pass
+        
+        self.label_estado.config(text=f"Monitoreando... {datetime.now().strftime('%H:%M:%S')}")
+        self.root.after(REFRESCO_MS, self.monitorear)
+
+def main():
+    root = tk.Tk()
+    app = WAIOVisor(root)
+    root.mainloop()
+
+if __name__ == "__main__":
+    main()

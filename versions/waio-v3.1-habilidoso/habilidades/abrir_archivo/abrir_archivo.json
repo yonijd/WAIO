@@ -1,0 +1,24 @@
+{
+  "nombre": "abrir_archivo",
+  "version": "1.0",
+  "autor": "Yonijd",
+  "categoria": "sistema",
+  "tags": ["abrir", "archivo", "pdf", "imagen", "documento", "audio", "video"],
+  "descripcion": "Abre cualquier archivo con su programa asociado en Windows. Soporta PDF, Word, Excel, PowerPoint, imagenes, audio, video, texto, codigo y mas.",
+  "tipo": "script",
+  "dependencias": {},
+  "script": "abrir_archivo.py",
+  "parametros": {
+    "archivo": {
+      "tipo": "string",
+      "requerido": true,
+      "descripcion": "Ruta del archivo a abrir (ej: documento.pdf, imagen.jpg, cancion.mp3)"
+    }
+  },
+  "ejemplo": {
+    "comando": "ejecutar_script",
+    "script": "abrir_archivo.py",
+    "parametros": ["documento.pdf"]
+  },
+  "perfil_minimo": "estandar"
+}

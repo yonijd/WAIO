@@ -1,0 +1,26 @@
+{
+  "nombre": "leer_pdf",
+  "version": "1.0",
+  "autor": "Yonijd",
+  "categoria": "documentos",
+  "tags": ["leer", "pdf", "texto", "extraer", "documento"],
+  "descripcion": "Extrae el texto de un archivo PDF",
+  "tipo": "script",
+  "dependencias": {
+    "PyPDF2": "3.0.0"
+  },
+  "script": "leer_pdf.py",
+  "parametros": {
+    "ruta": {
+      "tipo": "string",
+      "requerido": true,
+      "descripcion": "Ruta del archivo PDF a leer"
+    }
+  },
+  "ejemplo": {
+    "comando": "ejecutar_script",
+    "script": "leer_pdf.py",
+    "parametros": ["--ruta=documento.pdf"]
+  },
+  "perfil_minimo": "estandar"
+}

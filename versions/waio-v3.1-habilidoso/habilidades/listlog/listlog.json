@@ -1,0 +1,35 @@
+{
+  "nombre": "listlog",
+  "version": "1.0",
+  "autor": "Yonijd",
+  "categoria": "sistema",
+  "tags": ["listar", "directorio", "archivos", "carpetas", "tabla"],
+  "descripcion": "Lista el contenido de un directorio en formato tabla con nombre, tipo, tamaño y fecha de modificacion. Soporte para modo recursivo.",
+  "tipo": "script",
+  "dependencias": {},
+  "script": "listlog.py",
+  "parametros": {
+    "ruta": {
+      "tipo": "string",
+      "requerido": false,
+      "descripcion": "Ruta del directorio a listar (default: .)",
+      "defecto": "."
+    },
+    "recursive": {
+      "tipo": "boolean",
+      "requerido": false,
+      "descripcion": "Listar recursivamente todo el arbol de carpetas"
+    },
+    "guardar_log": {
+      "tipo": "boolean",
+      "requerido": false,
+      "descripcion": "Guardar log en .ialogpack/logs/"
+    }
+  },
+  "ejemplo": {
+    "comando": "ejecutar_script",
+    "script": "listlog.py",
+    "parametros": ["--ruta=./src", "--recursive"]
+  },
+  "perfil_minimo": "solo_lectura"
+}

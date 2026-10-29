@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.pyc
+
+# Logs
+*.log
+logs/
+
+# Archivos de instancia/trigger
+*.lock
+*.trigger
+
+# Archivos temporales
+*.tmp
+
+# Archivos de usuario
+prompt.txt
+
+# Carpetas de datos
+output/
+jsonout/
+trash/
+
+# Archivos de sistema
+desktop.ini
+Thumbs.db
+
+# Backups
+*_backup.*

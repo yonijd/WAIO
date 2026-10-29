@@ -1,0 +1,22 @@
+{
+  "nombre": "listar_directorio",
+  "version": "1.0",
+  "autor": "WAIOGG",
+  "categoria": "comandos_base",
+  "tags": ["listar", "directorio", "archivos", "carpetas", "contenido"],
+  "descripcion": "Lista archivos y carpetas en una ruta especifica",
+  "tipo": "comando_interno",
+  "parametros": {
+    "ruta": {
+      "tipo": "string",
+      "requerido": false,
+      "descripcion": "Carpeta a listar (default: .)",
+      "defecto": "."
+    }
+  },
+  "perfil_minimo": "solo_lectura",
+  "ejemplo": {
+    "comando": "listar_directorio",
+    "ruta": "."
+  }
+}

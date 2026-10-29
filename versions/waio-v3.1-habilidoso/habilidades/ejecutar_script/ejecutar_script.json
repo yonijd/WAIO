@@ -1,0 +1,28 @@
+{
+  "nombre": "ejecutar_script",
+  "version": "1.0",
+  "autor": "WAIOGG",
+  "categoria": "comandos_base",
+  "tags": ["ejecutar", "script", "python", "pyseguras", "pyhabilidades"],
+  "descripcion": "Ejecuta un script de pyseguras/ o pyhabilidades/",
+  "tipo": "comando_interno",
+  "parametros": {
+    "script": {
+      "tipo": "string",
+      "requerido": true,
+      "descripcion": "Nombre del script a ejecutar"
+    },
+    "parametros": {
+      "tipo": "array",
+      "requerido": false,
+      "descripcion": "Argumentos para el script",
+      "defecto": []
+    }
+  },
+  "perfil_minimo": "avanzado",
+  "ejemplo": {
+    "comando": "ejecutar_script",
+    "script": "analizar.py",
+    "parametros": ["--input", "datos.csv"]
+  }
+}

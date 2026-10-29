@@ -1,0 +1,90 @@
+{
+  "nombre": "editar_archivo",
+  "version": "1.1",
+  "autor": "Yonijd",
+  "copyright": "Copyright (c) 2026 Yonijd",
+  "licencia": "MIT",
+  "categoria": "utilidades",
+  "tags": ["editar", "archivo", "buscar", "reemplazar", "regex", "backup"],
+  "descripcion": "Busca y reemplaza texto en un archivo. Soporta regex y backup.",
+  "tipo": "script",
+  "dependencias": {},
+  "script": "editar_archivo.py",
+  "ruta_script": "skills/editar_archivo/editar_archivo.py",
+  "alias": ["editar", "edit", "replace"],
+  "parametros": {
+    "ruta": {
+      "tipo": "string",
+      "requerido": true,
+      "descripcion": "Ruta del archivo a editar"
+    },
+    "buscar": {
+      "tipo": "string",
+      "requerido": true,
+      "descripcion": "Texto a buscar"
+    },
+    "reemplazar": {
+      "tipo": "string",
+      "requerido": true,
+      "descripcion": "Texto de reemplazo"
+    },
+    "regex": {
+      "tipo": "boolean",
+      "requerido": false,
+      "descripcion": "Usar expresiones regulares (default: false)"
+    },
+    "dry_run": {
+      "tipo": "boolean",
+      "requerido": false,
+      "descripcion": "Simular cambios sin guardar (default: false)"
+    },
+    "backup": {
+      "tipo": "boolean",
+      "requerido": false,
+      "descripcion": "Crear backup antes de editar (default: false)"
+    }
+  },
+  "usage": ["ruta", "buscar", "reemplazar", "regex (opcional)", "dry_run (opcional)", "backup (opcional)"],
+  "ejemplo": {
+    "comando": "editar_archivo",
+    "ruta": "config.ini",
+    "buscar": "127.0.0.1",
+    "reemplazar": "0.0.0.0",
+    "backup": true,
+    "dry_run": true
+  },
+  "ejemplos_adicionales": [
+    {
+      "descripcion": "Reemplazo simple",
+      "json": {
+        "comando": "editar_archivo",
+        "ruta": "tests/word_basico.txt",
+        "buscar": "Hola",
+        "reemplazar": "Chau"
+      }
+    },
+    {
+      "descripcion": "Reemplazo con regex",
+      "json": {
+        "comando": "editar_archivo",
+        "ruta": "config.ini",
+        "buscar": "\\d+\\.\\d+\\.\\d+\\.\\d+",
+        "reemplazar": "0.0.0.0",
+        "regex": true
+      }
+    },
+    {
+      "descripcion": "Simular cambios sin guardar",
+      "json": {
+        "comando": "editar_archivo",
+        "ruta": "tests/word_basico.txt",
+        "buscar": "uno",
+        "reemplazar": "UNO",
+        "dry_run": true
+      }
+    }
+  ],
+  "perfil_minimo": "advanced",
+  "timeout_segundos": 120,
+  "nota": "Funciona con 'editar_archivo' directo o con 'ejecutar'. Usa workdir para rutas relativas."
+}

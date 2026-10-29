@@ -1,0 +1,2567 @@
+{
+  "_waio_firma": "WAIO-V5-SKILLS-2026",
+  "_version": "1.0",
+  "_ultima_actualizacion": "2026-10-12 04:39:42",
+  "_total_skills": 47,
+  "categorias": {
+    "comandos_base": [
+      "append_archivo",
+      "buscar_archivos",
+      "contar_lineas",
+      "copiar_archivo",
+      "crear_archivo",
+      "crear_carpeta",
+      "eliminar_archivo",
+      "eliminar_carpeta",
+      "existe_archivo",
+      "fecha_modificacion",
+      "leer_archivo",
+      "leer_lineas",
+      "listar_directorio",
+      "mensaje",
+      "mover_archivo",
+      "obtener_tamano",
+      "renombrar_archivo"
+    ],
+    "core": [
+      "ayuda",
+      "ejecutar",
+      "indexar",
+      "skills"
+    ],
+    "sistema": [
+      "abrir_archivo",
+      "abrir_programa",
+      "analizar_proyecto",
+      "deepia",
+      "ejecutar_comando",
+      "estado",
+      "extlog",
+      "extraer_metadatos",
+      "listia",
+      "super_buscar",
+      "syslog",
+      "verificar_paquetes"
+    ],
+    "busqueda": [
+      "buscar_contenido",
+      "grep_avanzado"
+    ],
+    "utilidades": [
+      "buscar_duplicados",
+      "calcular_hash",
+      "crear_zip",
+      "editar_archivo",
+      "extraer_zip",
+      "mostrar_arbol"
+    ],
+    "archivos": [
+      "copiar_carpeta"
+    ],
+    "datos": [
+      "crear_excel",
+      "leer_excel"
+    ],
+    "documentos": [
+      "crear_word",
+      "leer_pdf",
+      "leer_word"
+    ]
+  },
+  "resumen_por_perfil": {
+    "solo_lectura": 25,
+    "estandar": 18,
+    "avanzado": 4,
+    "sin_restricciones": 0
+  },
+  "skills": {
+    "append_archivo": {
+      "nombre": "append_archivo",
+      "version": "1.0",
+      "autor": "WAIOGG",
+      "categoria": "comandos_base",
+      "tags": [
+        "append",
+        "agregar",
+        "archivo",
+        "final",
+        "escribir"
+      ],
+      "descripcion": "Agrega contenido al final de un archivo existente",
+      "tipo": "comando_interno",
+      "alias": [
+        "agregar",
+        "append"
+      ],
+      "parametros": {
+        "ruta": {
+          "tipo": "string",
+          "requerido": true,
+          "descripcion": "Ruta del archivo"
+        },
+        "contenido": {
+          "tipo": "string",
+          "requerido": true,
+          "descripcion": "Contenido a agregar"
+        }
+      },
+      "perfil_minimo": "estandar",
+      "ejemplo": {
+        "comando": "append_archivo",
+        "ruta": "log.txt",
+        "contenido": "Nueva linea al final"
+      },
+      "ruta_script": null
+    },
+    "ayuda": {
+      "nombre": "ayuda",
+      "version": "1.0",
+      "autor": "Yonijd",
+      "categoria": "core",
+      "tags": [
+        "ayuda",
+        "help",
+        "comandos",
+        "guia"
+      ],
+      "descripcion": "Muestra ayuda general de WAIO (comandos, perfiles, ejemplos).",
+      "tipo": "comando_interno",
+      "alias": [
+        "help",
+        "?"
+      ],
+      "perfil_minimo": "solo_lectura",
+      "parametros": {},
+      "ejemplo": {
+        "comando": "ayuda"
+      },
+      "ruta_script": null
+    },
+    "buscar_archivos": {
+      "nombre": "buscar_archivos",
+      "version": "1.0",
+      "autor": "WAIOGG",
+      "categoria": "comandos_base",
+      "tags": [
+        "buscar",
+        "archivos",
+        "patron",
+        "nombre",
+        "encontrar"
+      ],
+      "descripcion": "Busca archivos por nombre o patron",
+      "tipo": "comando_interno",
+      "alias": [
+        "buscar",
+        "find",
+        "search"
+      ],
+      "parametros": {
+        "ruta": {
+          "tipo": "string",
+          "requerido": true,
+          "descripcion": "Carpeta donde buscar"
+        },
+        "patron": {
+          "tipo": "string",
+          "requerido": true,
+          "descripcion": "Patron de busqueda (ej: *.txt, config.*)"
+        }
+      },
+      "perfil_minimo": "solo_lectura",
+      "ejemplo": {
+        "comando": "buscar_archivos",
+        "ruta": ".",
+        "patron": "*.json"
+      },
+      "ruta_script": null
+    },
+    "contar_lineas": {
+      "nombre": "contar_lineas",
+      "version": "1.0",
+      "autor": "WAIOGG",
+      "categoria": "comandos_base",
+      "tags": [
+        "contar",
+        "lineas",
+        "archivo",
+        "texto",
+        "estadisticas"
+      ],
+      "descripcion": "Cuenta las lineas de un archivo de texto",
+      "tipo": "comando_interno",
+      "alias": [
+        "contar",
+        "wc",
+        "count"
+      ],
+      "parametros": {
+        "ruta": {
+          "tipo": "string",
+          "requerido": true,
+          "descripcion": "Ruta del archivo"
+        }
+      },
+      "perfil_minimo": "solo_lectura",
+      "ejemplo": {
+        "comando": "contar_lineas",
+        "ruta": "archivo.py"
+      },
+      "ruta_script": null
+    },
+    "copiar_archivo": {
+      "nombre": "copiar_archivo",
+      "version": "1.0",
+      "autor": "WAIOGG",
+      "categoria": "comandos_base",
+      "tags": [
+        "copiar",
+        "archivo",
+        "duplicar",
+        "backup"
+      ],
+      "descripcion": "Copia un archivo de un lugar a otro",
+      "tipo": "comando_interno",
+      "alias": [
+        "copiar",
+        "cp",
+        "copy"
+      ],
+      "parametros": {
+        "origen": {
+          "tipo": "string",
+          "requerido": true,
+          "descripcion": "Ruta de origen"
+        },
+        "destino": {
+          "tipo": "string",
+          "requerido": true,
+          "descripcion": "Ruta de destino"
+        }
+      },
+      "perfil_minimo": "estandar",
+      "ejemplo": {
+        "comando": "copiar_archivo",
+        "origen": "archivo.txt",
+        "destino": "backup/archivo.txt"
+      },
+      "ruta_script": null
+    },
+    "crear_archivo": {
+      "nombre": "crear_archivo",
+      "version": "1.0",
+      "autor": "WAIOGG",
+      "categoria": "comandos_base",
+      "tags": [
+        "crear",
+        "archivo",
+        "escribir",
+        "nuevo"
+      ],
+      "descripcion": "Crea un archivo con el contenido especificado.",
+      "tipo": "comando_interno",
+      "alias": [
+        "crear",
+        "touch",
+        "create",
+        "write"
+      ],
+      "perfil_minimo": "estandar",
+      "parametros": {
+        "ruta": {
+          "tipo": "string",
+          "requerido": true,
+          "descripcion": "Ruta del archivo a crear"
+        },
+        "contenido": {
+          "tipo": "string",
+          "requerido": false,
+          "descripcion": "Contenido del archivo",
+          "defecto": ""
+        }
+      },
+      "ejemplo": {
+        "comando": "crear_archivo",
+        "ruta": "nuevo.txt",
+        "contenido": "Hola mundo"
+      },
+      "ruta_script": null
+    },
+    "crear_carpeta": {
+      "nombre": "crear_carpeta",
+      "version": "1.0",
+      "autor": "WAIOGG",
+      "categoria": "comandos_base",
+      "tags": [
+        "crear",
+        "carpeta",
+        "directorio",
+        "nuevo"
+      ],
+      "descripcion": "Crea una nueva carpeta",
+      "tipo": "comando_interno",
+      "alias": [
+        "mkdir",
+        "make_dir"
+      ],
+      "parametros": {
+        "ruta": {
+          "tipo": "string",
+          "requerido": true,
+          "descripcion": "Ruta de la carpeta a crear"
+        }
+      },
+      "perfil_minimo": "estandar",
+      "ejemplo": {
+        "comando": "crear_carpeta",
+        "ruta": "nueva_carpeta/"
+      },
+      "ruta_script": null
+    },
+    "ejecutar": {
+      "nombre": "ejecutar",
+      "version": "1.0",
+      "autor": "Yonijd",
+      "categoria": "core",
+      "tags": [
+        "ejecutar",
+        "scripts",
+        "python",
+        "run"
+      ],
+      "descripcion": "Ejecuta un script. Busca en skills.json, core/, skills/ y workdir.",
+      "tipo": "comando_interno",
+      "alias": [
+        "run"
+      ],
+      "perfil_minimo": "avanzado",
+      "parametros": {
+        "script": {
+          "tipo": "string",
+          "requerido": true,
+          "descripcion": "Nombre del script a ejecutar (con o sin .py)"
+        },
+        "parametros": {
+          "tipo": "array",
+          "requerido": false,
+          "descripcion": "Argumentos para el script",
+          "defecto": []
+        }
+      },
+      "ejemplo": {
+        "comando": "ejecutar",
+        "script": "hola_mundo.py"
+      },
+      "ruta_script": null
+    },
+    "eliminar_archivo": {
+      "nombre": "eliminar_archivo",
+      "version": "1.0",
+      "autor": "WAIOGG",
+      "categoria": "comandos_base",
+      "tags": [
+        "eliminar",
+        "archivo",
+        "borrar",
+        "papelera",
+        "peligroso"
+      ],
+      "descripcion": "Elimina un archivo y lo envia a la Papelera de Reciclaje",
+      "tipo": "comando_interno",
+      "alias": [
+        "eliminar",
+        "rm",
+        "del",
+        "delete"
+      ],
+      "parametros": {
+        "ruta": {
+          "tipo": "string",
+          "requerido": true,
+          "descripcion": "Ruta del archivo a eliminar"
+        }
+      },
+      "perfil_minimo": "avanzado",
+      "ejemplo": {
+        "comando": "eliminar_archivo",
+        "ruta": "temporal.txt"
+      },
+      "ruta_script": null
+    },
+    "eliminar_carpeta": {
+      "nombre": "eliminar_carpeta",
+      "version": "1.0",
+      "autor": "WAIOGG",
+      "categoria": "comandos_base",
+      "tags": [
+        "eliminar",
+        "carpeta",
+        "borrar",
+        "papelera",
+        "peligroso"
+      ],
+      "descripcion": "Elimina una carpeta y todo su contenido (a Papelera)",
+      "tipo": "comando_interno",
+      "alias": [
+        "rmdir",
+        "delete_dir"
+      ],
+      "parametros": {
+        "ruta": {
+          "tipo": "string",
+          "requerido": true,
+          "descripcion": "Ruta de la carpeta a eliminar"
+        }
+      },
+      "perfil_minimo": "avanzado",
+      "ejemplo": {
+        "comando": "eliminar_carpeta",
+        "ruta": "carpeta_temporal/"
+      },
+      "ruta_script": null
+    },
+    "existe_archivo": {
+      "nombre": "existe_archivo",
+      "version": "1.0",
+      "autor": "WAIOGG",
+      "categoria": "comandos_base",
+      "tags": [
+        "existe",
+        "archivo",
+        "verificar",
+        "comprobar"
+      ],
+      "descripcion": "Verifica si un archivo o carpeta existe",
+      "tipo": "comando_interno",
+      "alias": [
+        "existe",
+        "test",
+        "exists"
+      ],
+      "parametros": {
+        "ruta": {
+          "tipo": "string",
+          "requerido": true,
+          "descripcion": "Ruta del archivo o carpeta a verificar"
+        }
+      },
+      "perfil_minimo": "solo_lectura",
+      "ejemplo": {
+        "comando": "existe_archivo",
+        "ruta": "config.json"
+      },
+      "ruta_script": null
+    },
+    "fecha_modificacion": {
+      "nombre": "fecha_modificacion",
+      "version": "1.0",
+      "autor": "WAIOGG",
+      "categoria": "comandos_base",
+      "tags": [
+        "fecha",
+        "modificacion",
+        "archivo",
+        "tiempo",
+        "ultima"
+      ],
+      "descripcion": "Devuelve la fecha de ultima modificacion de un archivo",
+      "tipo": "comando_interno",
+      "alias": [
+        "modificado",
+        "modified"
+      ],
+      "parametros": {
+        "ruta": {
+          "tipo": "string",
+          "requerido": true,
+          "descripcion": "Ruta del archivo"
+        }
+      },
+      "perfil_minimo": "solo_lectura",
+      "ejemplo": {
+        "comando": "fecha_modificacion",
+        "ruta": "archivo.txt"
+      },
+      "ruta_script": null
+    },
+    "indexar": {
+      "nombre": "indexar",
+      "version": "1.0",
+      "autor": "Yonijd",
+      "categoria": "core",
+      "tags": [
+        "indexar",
+        "skills",
+        "catalogo",
+        "actualizar"
+      ],
+      "descripcion": "Regenera el catalogo de skills escaneando core/ y skills/",
+      "tipo": "script",
+      "script": "indexar.py",
+      "perfil_minimo": "solo_lectura",
+      "parametros": {},
+      "ejemplo": {
+        "comando": "indexar"
+      },
+      "ruta_script": "core/indexar/indexar.py"
+    },
+    "leer_archivo": {
+      "nombre": "leer_archivo",
+      "version": "1.0",
+      "autor": "WAIOGG",
+      "categoria": "comandos_base",
+      "tags": [
+        "leer",
+        "archivo",
+        "contenido",
+        "texto",
+        "ver"
+      ],
+      "descripcion": "Lee el contenido de un archivo de texto",
+      "tipo": "comando_interno",
+      "alias": [
+        "leer",
+        "cat",
+        "read"
+      ],
+      "parametros": {
+        "ruta": {
+          "tipo": "string",
+          "requerido": true,
+          "descripcion": "Ruta del archivo a leer"
+        },
+        "limite": {
+          "tipo": "number",
+          "requerido": false,
+          "descripcion": "Maximo de caracteres a leer (0 = todo)",
+          "defecto": 500000
+        }
+      },
+      "perfil_minimo": "solo_lectura",
+      "ejemplo": {
+        "comando": "leer_archivo",
+        "ruta": "config.json",
+        "limite": 0
+      },
+      "ruta_script": null
+    },
+    "leer_lineas": {
+      "nombre": "leer_lineas",
+      "version": "1.0",
+      "autor": "WAIOGG",
+      "categoria": "comandos_base",
+      "tags": [
+        "leer",
+        "lineas",
+        "rango",
+        "archivo",
+        "texto"
+      ],
+      "descripcion": "Lee un rango especifico de lineas de un archivo",
+      "tipo": "comando_interno",
+      "alias": [
+        "head",
+        "read_lines"
+      ],
+      "parametros": {
+        "ruta": {
+          "tipo": "string",
+          "requerido": true,
+          "descripcion": "Ruta del archivo"
+        },
+        "inicio": {
+          "tipo": "number",
+          "requerido": false,
+          "descripcion": "Numero de linea inicial",
+          "defecto": 1
+        },
+        "fin": {
+          "tipo": "number",
+          "requerido": true,
+          "descripcion": "Numero de linea final"
+        }
+      },
+      "perfil_minimo": "solo_lectura",
+      "ejemplo": {
+        "comando": "leer_lineas",
+        "ruta": "archivo.py",
+        "inicio": 10,
+        "fin": 20
+      },
+      "ruta_script": null
+    },
+    "listar_directorio": {
+      "nombre": "listar_directorio",
+      "version": "1.0",
+      "autor": "WAIOGG",
+      "categoria": "comandos_base",
+      "tags": [
+        "listar",
+        "directorio",
+        "archivos",
+        "carpetas",
+        "contenido"
+      ],
+      "descripcion": "Lista archivos y carpetas en una ruta especifica",
+      "tipo": "comando_interno",
+      "alias": [
+        "listar",
+        "ls",
+        "dir",
+        "list"
+      ],
+      "parametros": {
+        "ruta": {
+          "tipo": "string",
+          "requerido": false,
+          "descripcion": "Carpeta a listar (default: .)",
+          "defecto": "."
+        }
+      },
+      "perfil_minimo": "solo_lectura",
+      "ejemplo": {
+        "comando": "listar_directorio",
+        "ruta": "."
+      },
+      "ruta_script": null
+    },
+    "mensaje": {
+      "nombre": "mensaje",
+      "version": "1.0",
+      "autor": "WAIOGG",
+      "categoria": "comandos_base",
+      "tags": [
+        "mensaje",
+        "comunicacion",
+        "respuesta",
+        "informar"
+      ],
+      "descripcion": "no usar, usar el comando voz para enviar mensaje al usuario.",
+      "tipo": "comando_interno",
+      "alias": [
+        "echo",
+        "say"
+      ],
+      "parametros": {
+        "contenido": {
+          "tipo": "string",
+          "requerido": true,
+          "descripcion": "Texto del mensaje a enviar"
+        }
+      },
+      "perfil_minimo": "solo_lectura",
+      "ejemplo": {
+        "comando": "mensaje",
+        "contenido": "hola"
+      },
+      "ruta_script": null
+    },
+    "mover_archivo": {
+      "nombre": "mover_archivo",
+      "version": "1.0",
+      "autor": "WAIOGG",
+      "categoria": "comandos_base",
+      "tags": [
+        "mover",
+        "archivo",
+        "renombrar",
+        "trasladar"
+      ],
+      "descripcion": "Mueve o renombra un archivo",
+      "tipo": "comando_interno",
+      "alias": [
+        "mover",
+        "mv",
+        "move"
+      ],
+      "parametros": {
+        "origen": {
+          "tipo": "string",
+          "requerido": true,
+          "descripcion": "Ruta de origen"
+        },
+        "destino": {
+          "tipo": "string",
+          "requerido": true,
+          "descripcion": "Ruta de destino"
+        }
+      },
+      "perfil_minimo": "estandar",
+      "ejemplo": {
+        "comando": "mover_archivo",
+        "origen": "archivo.txt",
+        "destino": "backup/archivo.txt"
+      },
+      "ruta_script": null
+    },
+    "obtener_tamano": {
+      "nombre": "obtener_tamano",
+      "version": "1.0",
+      "autor": "WAIOGG",
+      "categoria": "comandos_base",
+      "tags": [
+        "tamano",
+        "bytes",
+        "archivo",
+        "peso",
+        "tamaño"
+      ],
+      "descripcion": "Devuelve el tamaño de un archivo en bytes",
+      "tipo": "comando_interno",
+      "alias": [
+        "tamano",
+        "size"
+      ],
+      "parametros": {
+        "ruta": {
+          "tipo": "string",
+          "requerido": true,
+          "descripcion": "Ruta del archivo"
+        }
+      },
+      "perfil_minimo": "solo_lectura",
+      "ejemplo": {
+        "comando": "obtener_tamano",
+        "ruta": "archivo.zip"
+      },
+      "ruta_script": null
+    },
+    "renombrar_archivo": {
+      "nombre": "renombrar_archivo",
+      "version": "1.0",
+      "autor": "WAIOGG",
+      "categoria": "comandos_base",
+      "tags": [
+        "renombrar",
+        "archivo",
+        "nombre",
+        "cambiar"
+      ],
+      "descripcion": "Renombra un archivo.",
+      "tipo": "comando_interno",
+      "alias": [
+        "renombrar",
+        "rename",
+        "ren"
+      ],
+      "perfil_minimo": "estandar",
+      "parametros": {
+        "ruta": {
+          "tipo": "string",
+          "requerido": true,
+          "descripcion": "Ruta del archivo a renombrar"
+        },
+        "nombre_nuevo": {
+          "tipo": "string",
+          "requerido": true,
+          "descripcion": "Nuevo nombre del archivo"
+        }
+      },
+      "ejemplo": {
+        "comando": "renombrar_archivo",
+        "ruta": "viejo.txt",
+        "nombre_nuevo": "nuevo.txt"
+      },
+      "ruta_script": null
+    },
+    "skills": {
+      "nombre": "skills",
+      "version": "1.0",
+      "autor": "Yonijd",
+      "categoria": "core",
+      "tags": [
+        "skills",
+        "listar",
+        "info",
+        "comandos",
+        "catalogo"
+      ],
+      "descripcion": "Comando unificado para listar skills o mostrar la informacion de una skill especifica.",
+      "tipo": "comando_interno",
+      "alias": [
+        "listar_skills",
+        "list_skills",
+        "info"
+      ],
+      "perfil_minimo": "solo_lectura",
+      "parametros": {
+        "nombre": {
+          "tipo": "string",
+          "requerido": false,
+          "descripcion": "Nombre de la skill (ej: voz, leer_pdf). Si no se especifica, lista todas las skills disponibles."
+        }
+      },
+      "ejemplo_1": {
+        "descripcion": "Listar todas las skills",
+        "comando": "skills"
+      },
+      "ejemplo_2": {
+        "descripcion": "Mostrar JSON de la skill 'voz'",
+        "comando": "skills",
+        "nombre": "voz"
+      },
+      "ejemplo_3": {
+        "descripcion": "Usar alias 'info' para mostrar JSON de 'leer_pdf'",
+        "comando": "info",
+        "nombre": "leer_pdf"
+      },
+      "ruta_script": null
+    },
+    "abrir_archivo": {
+      "nombre": "abrir_archivo",
+      "version": "1.0",
+      "autor": "Yonijd",
+      "categoria": "sistema",
+      "tags": [
+        "abrir",
+        "archivo",
+        "pdf",
+        "imagen",
+        "documento",
+        "audio",
+        "video"
+      ],
+      "descripcion": "Abre cualquier archivo con su programa asociado en Windows. Soporta PDF, Word, Excel, PowerPoint, imagenes, audio, video, texto, codigo y mas.",
+      "tipo": "script",
+      "dependencias": {},
+      "script": "abrir_archivo.py",
+      "ruta_script": "skills/abrir_archivo/abrir_archivo.py",
+      "alias": [
+        "abrir",
+        "open",
+        "start"
+      ],
+      "parametros": {
+        "archivo": {
+          "tipo": "string",
+          "requerido": true,
+          "descripcion": "Ruta del archivo a abrir (ej: documento.pdf, imagen.jpg, cancion.mp3)"
+        }
+      },
+      "ejemplo": {
+        "comando": "ejecutar",
+        "script": "abrir_archivo",
+        "parametros": [
+          "test_skills/prueba.txt"
+        ]
+      },
+      "ejemplos_adicionales": [
+        {
+          "descripcion": "Abrir directo",
+          "json": {
+            "comando": "abrir_archivo",
+            "parametros": [
+              "test_skills/prueba.txt"
+            ]
+          }
+        },
+        {
+          "descripcion": "Usar alias abrir",
+          "json": {
+            "comando": "abrir",
+            "parametros": [
+              "test_skills/prueba.txt"
+            ]
+          }
+        }
+      ],
+      "perfil_minimo": "estandar",
+      "nota": "Funciona con 'abrir_archivo' directo o con 'ejecutar'. Ambos modos soportados."
+    },
+    "abrir_programa": {
+      "nombre": "abrir_programa",
+      "version": "1.0",
+      "autor": "Yonijd",
+      "categoria": "sistema",
+      "tags": [
+        "abrir",
+        "programa",
+        "exe",
+        "ejecutar",
+        "lanzar"
+      ],
+      "descripcion": "Abre cualquier programa buscando su ejecutable en el sistema. Solo pasa el nombre del programa (ej: notepad, calc, aimp, vlc).",
+      "tipo": "script",
+      "dependencias": {},
+      "script": "abrir_programa.py",
+      "ruta_script": "skills/abrir_programa/abrir_programa.py",
+      "alias": [
+        "launch",
+        "start"
+      ],
+      "parametros": {
+        "programa": {
+          "tipo": "string",
+          "requerido": true,
+          "descripcion": "Nombre del programa a abrir. Ej: notepad, calc, aimp, vlc, winrar, explorer"
+        }
+      },
+      "ejemplo": {
+        "comando": "ejecutar",
+        "script": "abrir_programa",
+        "parametros": [
+          "notepad"
+        ]
+      },
+      "ejemplos_adicionales": [
+        {
+          "descripcion": "Abrir directo",
+          "json": {
+            "comando": "abrir_programa",
+            "parametros": [
+              "notepad"
+            ]
+          }
+        },
+        {
+          "descripcion": "Abrir con alias launch",
+          "json": {
+            "comando": "launch",
+            "parametros": [
+              "calc"
+            ]
+          }
+        },
+        {
+          "descripcion": "Abrir AIMP",
+          "json": {
+            "comando": "ejecutar",
+            "script": "abrir_programa",
+            "parametros": [
+              "aimp"
+            ]
+          }
+        }
+      ],
+      "perfil_minimo": "estandar",
+      "nota": "Funciona con 'abrir_programa' directo o con 'ejecutar'. Ambos modos soportados. No usa workdir porque busca en rutas del sistema."
+    },
+    "analizar_proyecto": {
+      "nombre": "analizar_proyecto",
+      "version": "1.0",
+      "autor": "Yonijd",
+      "categoria": "sistema",
+      "tags": [
+        "analizar",
+        "proyecto",
+        "estructura",
+        "carpetas",
+        "resumen"
+      ],
+      "descripcion": "Analiza la estructura de una carpeta y genera un resumen",
+      "tipo": "script",
+      "dependencias": {},
+      "script": "analizar_proyecto.py",
+      "ruta_script": "skills/analizar_proyecto/analizar_proyecto.py",
+      "alias": [
+        "analizar",
+        "analyze"
+      ],
+      "parametros": {
+        "ruta": {
+          "tipo": "string",
+          "requerido": false,
+          "descripcion": "Ruta de la carpeta a analizar (default: .)",
+          "defecto": "."
+        },
+        "profundidad": {
+          "tipo": "number",
+          "requerido": false,
+          "descripcion": "Profundidad maxima a analizar (default: 3)",
+          "defecto": 3
+        }
+      },
+      "ejemplo": {
+        "comando": "ejecutar",
+        "script": "analizar_proyecto",
+        "parametros": [
+          "--ruta=./src",
+          "--profundidad=2"
+        ]
+      },
+      "ejemplos_adicionales": [
+        {
+          "descripcion": "Analizar directo",
+          "json": {
+            "comando": "analizar_proyecto",
+            "parametros": [
+              "--ruta=test_skills",
+              "--profundidad=1"
+            ]
+          }
+        },
+        {
+          "descripcion": "Usar alias analizar",
+          "json": {
+            "comando": "analizar",
+            "parametros": [
+              "--ruta=.",
+              "--profundidad=2"
+            ]
+          }
+        }
+      ],
+      "perfil_minimo": "solo_lectura",
+      "nota": "Funciona con 'analizar_proyecto' directo o con 'ejecutar'. Ambos modos soportados. Usa workdir para rutas relativas."
+    },
+    "buscar_contenido": {
+      "nombre": "buscar_contenido",
+      "version": "1.0",
+      "autor": "Yonijd",
+      "categoria": "busqueda",
+      "tags": [
+        "buscar",
+        "contenido",
+        "texto",
+        "grep",
+        "pdf",
+        "excel",
+        "word"
+      ],
+      "descripcion": "Busca texto en archivos: PDF, DOCX, XLSX, TXT, PY, JSON, MD, CSV, HTML, XML",
+      "tipo": "script",
+      "dependencias": {
+        "PyPDF2": "3.0.0",
+        "openpyxl": "3.1.0",
+        "python-docx": "1.2.0"
+      },
+      "script": "buscar_contenido.py",
+      "ruta_script": "skills/buscar_contenido/buscar_contenido.py",
+      "alias": [
+        "buscar_texto",
+        "grep",
+        "findstr",
+        "search_text"
+      ],
+      "parametros": {
+        "ruta": {
+          "tipo": "string",
+          "requerido": true,
+          "descripcion": "Carpeta o archivo donde buscar"
+        },
+        "patron": {
+          "tipo": "string",
+          "requerido": true,
+          "descripcion": "Texto a buscar"
+        },
+        "extension": {
+          "tipo": "string",
+          "requerido": false,
+          "descripcion": "Filtrar por extension (ej: .pdf, .docx)"
+        },
+        "case_sensitive": {
+          "tipo": "boolean",
+          "requerido": false,
+          "descripcion": "Sensible a mayusculas"
+        }
+      },
+      "ejemplo": {
+        "comando": "ejecutar",
+        "script": "buscar_contenido",
+        "parametros": [
+          "--ruta=./",
+          "--patron=texto",
+          "--extension=.pdf"
+        ]
+      },
+      "ejemplos_adicionales": [
+        {
+          "descripcion": "Buscar directo",
+          "json": {
+            "comando": "buscar_contenido",
+            "parametros": [
+              "--ruta=test_skills",
+              "--patron=prueba"
+            ]
+          }
+        },
+        {
+          "descripcion": "Buscar en PDF",
+          "json": {
+            "comando": "buscar_contenido",
+            "parametros": [
+              "--ruta=skills/buscar_contenido/7-Zip.pdf",
+              "--patron=7-Zip"
+            ]
+          }
+        },
+        {
+          "descripcion": "Buscar con alias grep",
+          "json": {
+            "comando": "grep",
+            "parametros": [
+              "--ruta=.",
+              "--patron=WAIO",
+              "--extension=.md"
+            ]
+          }
+        }
+      ],
+      "perfil_minimo": "estandar",
+      "nota": "Funciona con 'buscar_contenido' directo o con 'ejecutar'. Ambos modos soportados. Usa workdir para rutas relativas. Soporta PDFs, DOCX, XLSX, TXT, etc."
+    },
+    "buscar_duplicados": {
+      "nombre": "buscar_duplicados",
+      "version": "1.0",
+      "autor": "Yonijd",
+      "categoria": "utilidades",
+      "tags": [
+        "buscar",
+        "duplicados",
+        "archivos",
+        "hash",
+        "contenido"
+      ],
+      "descripcion": "Busca archivos duplicados por contenido (hash SHA-256)",
+      "tipo": "script",
+      "dependencias": {},
+      "script": "buscar_duplicados.py",
+      "ruta_script": "skills/buscar_duplicados/buscar_duplicados.py",
+      "alias": [
+        "duplicados",
+        "dups",
+        "duplicates"
+      ],
+      "parametros": {
+        "ruta": {
+          "tipo": "string",
+          "requerido": false,
+          "descripcion": "Ruta de la carpeta a analizar (default: .)",
+          "defecto": "."
+        },
+        "mostrar_tamano": {
+          "tipo": "boolean",
+          "requerido": false,
+          "descripcion": "Mostrar tamaño de los duplicados"
+        }
+      },
+      "ejemplo": {
+        "comando": "ejecutar",
+        "script": "buscar_duplicados",
+        "parametros": [
+          "--ruta=./descargas",
+          "--mostrar_tamano"
+        ]
+      },
+      "ejemplos_adicionales": [
+        {
+          "descripcion": "Buscar directo",
+          "json": {
+            "comando": "buscar_duplicados",
+            "parametros": [
+              "--ruta=test_skills"
+            ]
+          }
+        },
+        {
+          "descripcion": "Usar alias duplicados",
+          "json": {
+            "comando": "duplicados",
+            "parametros": [
+              "--ruta=."
+            ]
+          }
+        }
+      ],
+      "perfil_minimo": "solo_lectura",
+      "nota": "Funciona con 'buscar_duplicados' directo o con 'ejecutar'. Ambos modos soportados. Usa workdir para rutas relativas."
+    },
+    "calcular_hash": {
+      "nombre": "calcular_hash",
+      "version": "1.0",
+      "autor": "Yonijd",
+      "categoria": "utilidades",
+      "tags": [
+        "hash",
+        "sha256",
+        "md5",
+        "sha1",
+        "archivo",
+        "checksum"
+      ],
+      "descripcion": "Calcula el hash (SHA-256, MD5, etc.) de un archivo o carpeta",
+      "tipo": "script",
+      "dependencias": {},
+      "script": "calcular_hash.py",
+      "ruta_script": "skills/calcular_hash/calcular_hash.py",
+      "alias": [
+        "hash",
+        "checksum"
+      ],
+      "parametros": {
+        "ruta": {
+          "tipo": "string",
+          "requerido": true,
+          "descripcion": "Ruta del archivo o carpeta"
+        },
+        "algoritmo": {
+          "tipo": "string",
+          "requerido": false,
+          "descripcion": "Algoritmo: sha256, md5, sha1, etc.",
+          "defecto": "sha256"
+        },
+        "resumen": {
+          "tipo": "boolean",
+          "requerido": false,
+          "descripcion": "Mostrar solo resumen (para carpetas)"
+        }
+      },
+      "ejemplo": {
+        "comando": "ejecutar",
+        "script": "calcular_hash",
+        "parametros": [
+          "--ruta=archivo.pdf",
+          "--algoritmo=md5"
+        ]
+      },
+      "ejemplos_adicionales": [
+        {
+          "descripcion": "Calcular hash directo",
+          "json": {
+            "comando": "calcular_hash",
+            "parametros": [
+              "--ruta=test_skills/prueba.txt"
+            ]
+          }
+        },
+        {
+          "descripcion": "Usar alias hash",
+          "json": {
+            "comando": "hash",
+            "parametros": [
+              "--ruta=test_skills/prueba.txt",
+              "--algoritmo=md5"
+            ]
+          }
+        }
+      ],
+      "perfil_minimo": "solo_lectura",
+      "nota": "Funciona con 'calcular_hash' directo o con 'ejecutar'. Ambos modos soportados. Usa workdir para rutas relativas."
+    },
+    "copiar_carpeta": {
+      "nombre": "copiar_carpeta",
+      "version": "1.0",
+      "autor": "Yonijd",
+      "categoria": "archivos",
+      "tags": [
+        "copiar",
+        "carpeta",
+        "directorio",
+        "recursivo",
+        "backup"
+      ],
+      "descripcion": "Copia una carpeta completa recursivamente (contenido y subcarpetas).",
+      "tipo": "script",
+      "dependencias": {},
+      "script": "copiar_carpeta.py",
+      "ruta_script": "skills/copiar_carpeta/copiar_carpeta.py",
+      "alias": [
+        "cp -r",
+        "xcopy",
+        "copy_dir"
+      ],
+      "parametros": {
+        "origen": {
+          "tipo": "string",
+          "requerido": true,
+          "descripcion": "Ruta de la carpeta origen"
+        },
+        "destino": {
+          "tipo": "string",
+          "requerido": true,
+          "descripcion": "Ruta de la carpeta destino"
+        },
+        "sobrescribir": {
+          "tipo": "boolean",
+          "requerido": false,
+          "descripcion": "Sobrescribir si la carpeta destino ya existe"
+        }
+      },
+      "ejemplo": {
+        "comando": "ejecutar",
+        "script": "copiar_carpeta",
+        "parametros": [
+          "--origen=./backup/mi_carpeta",
+          "--destino=./proyecto/mi_carpeta",
+          "--sobrescribir"
+        ]
+      },
+      "ejemplos_adicionales": [
+        {
+          "descripcion": "Copiar directo",
+          "json": {
+            "comando": "copiar_carpeta",
+            "parametros": [
+              "--origen=test_skills",
+              "--destino=test_skills_copia2"
+            ]
+          }
+        }
+      ],
+      "perfil_minimo": "estandar",
+      "nota": "Funciona con 'copiar_carpeta' directo o con 'ejecutar'. Ambos modos soportados. Usa workdir para rutas relativas."
+    },
+    "crear_excel": {
+      "nombre": "crear_excel",
+      "version": "1.0",
+      "autor": "Yonijd",
+      "categoria": "datos",
+      "tags": [
+        "crear",
+        "excel",
+        "xlsx",
+        "datos",
+        "tabla"
+      ],
+      "descripcion": "Crea un archivo Excel (.xlsx) con los datos proporcionados",
+      "tipo": "script",
+      "dependencias": {
+        "openpyxl": "3.1.0"
+      },
+      "script": "crear_excel.py",
+      "ruta_script": "skills/crear_excel/crear_excel.py",
+      "alias": [
+        "excel",
+        "xlsx",
+        "create_xlsx"
+      ],
+      "parametros": {
+        "ruta": {
+          "tipo": "string",
+          "requerido": true,
+          "descripcion": "Ruta de salida del archivo Excel"
+        },
+        "datos": {
+          "tipo": "string",
+          "requerido": true,
+          "descripcion": "Datos en formato JSON. Ej: [[\"Nombre\",\"Edad\"],[\"Juan\",25],[\"Ana\",30]]"
+        }
+      },
+      "ejemplo": {
+        "comando": "ejecutar",
+        "script": "crear_excel",
+        "parametros": [
+          "--ruta=reporte.xlsx",
+          "--datos='[[\"Producto\",\"Precio\"],[\"Manzana\",1.5],[\"Pera\",2.0]]'"
+        ]
+      },
+      "ejemplos_adicionales": [
+        {
+          "descripcion": "Crear Excel directo",
+          "json": {
+            "comando": "crear_excel",
+            "parametros": [
+              "--ruta=test_skills/datos.xlsx",
+              "--datos=[[\"Nombre\",\"Edad\"],[\"Juan\",25],[\"Ana\",30]]"
+            ]
+          }
+        }
+      ],
+      "perfil_minimo": "estandar",
+      "nota": "Funciona con 'crear_excel' directo o con 'ejecutar'. Ambos modos soportados. Usa workdir para rutas relativas."
+    },
+    "crear_word": {
+      "nombre": "crear_word",
+      "version": "1.0",
+      "autor": "Yonijd",
+      "categoria": "documentos",
+      "tags": [
+        "crear",
+        "word",
+        "docx",
+        "documento",
+        "texto"
+      ],
+      "descripcion": "Crea un archivo Word (.docx) con el texto proporcionado",
+      "tipo": "script",
+      "dependencias": {
+        "python-docx": "1.2.0"
+      },
+      "script": "crear_word.py",
+      "ruta_script": "skills/crear_word/crear_word.py",
+      "alias": [
+        "word",
+        "docx",
+        "create_docx"
+      ],
+      "parametros": {
+        "ruta": {
+          "tipo": "string",
+          "requerido": true,
+          "descripcion": "Ruta de salida del archivo Word"
+        },
+        "contenido": {
+          "tipo": "string",
+          "requerido": true,
+          "descripcion": "Contenido del documento. Usa \\n para saltos de linea."
+        },
+        "titulo": {
+          "tipo": "string",
+          "requerido": false,
+          "descripcion": "Titulo del documento (opcional)"
+        }
+      },
+      "ejemplo": {
+        "comando": "ejecutar",
+        "script": "crear_word",
+        "parametros": [
+          "--ruta=informe.docx",
+          "--contenido=Texto del informe",
+          "--titulo=Informe Final"
+        ]
+      },
+      "ejemplos_adicionales": [
+        {
+          "descripcion": "Crear Word directo",
+          "json": {
+            "comando": "crear_word",
+            "parametros": [
+              "--ruta=test_skills/documento.docx",
+              "--contenido=Texto de prueba",
+              "--titulo=Documento de Prueba"
+            ]
+          }
+        }
+      ],
+      "perfil_minimo": "estandar",
+      "nota": "Funciona con 'crear_word' directo o con 'ejecutar'. Ambos modos soportados. Usa workdir para rutas relativas."
+    },
+    "crear_zip": {
+      "nombre": "crear_zip",
+      "version": "1.0",
+      "autor": "Yonijd",
+      "categoria": "utilidades",
+      "tags": [
+        "crear",
+        "zip",
+        "comprimir",
+        "archivo",
+        "backup"
+      ],
+      "descripcion": "Crea un archivo ZIP desde una carpeta o archivo",
+      "tipo": "script",
+      "dependencias": {},
+      "script": "crear_zip.py",
+      "ruta_script": "skills/crear_zip/crear_zip.py",
+      "alias": [
+        "zip",
+        "compress"
+      ],
+      "parametros": {
+        "origen": {
+          "tipo": "string",
+          "requerido": true,
+          "descripcion": "Ruta de la carpeta o archivo a comprimir"
+        },
+        "destino": {
+          "tipo": "string",
+          "requerido": false,
+          "descripcion": "Ruta de destino del ZIP (opcional)"
+        },
+        "sin_subcarpetas": {
+          "tipo": "boolean",
+          "requerido": false,
+          "descripcion": "No incluir subcarpetas"
+        },
+        "compresion": {
+          "tipo": "number",
+          "requerido": false,
+          "descripcion": "Nivel de compresion (0-9, default: 6)",
+          "defecto": 6
+        }
+      },
+      "ejemplo": {
+        "comando": "ejecutar",
+        "script": "crear_zip",
+        "parametros": [
+          "--origen=./proyecto",
+          "--destino=backup.zip",
+          "--compresion=9"
+        ]
+      },
+      "ejemplos_adicionales": [
+        {
+          "descripcion": "Crear ZIP directo",
+          "json": {
+            "comando": "crear_zip",
+            "parametros": [
+              "--origen=test_skills",
+              "--destino=test_skills.zip"
+            ]
+          }
+        }
+      ],
+      "perfil_minimo": "estandar",
+      "nota": "Funciona con 'crear_zip' directo o con 'ejecutar'. Ambos modos soportados. Usa workdir para rutas relativas."
+    },
+    "deepia": {
+      "nombre": "deepia",
+      "version": "1.0",
+      "autor": "Yonijd",
+      "categoria": "sistema",
+      "tags": [
+        "reporte",
+        "profundo",
+        "json",
+        "ia",
+        "unicode",
+        "emojis",
+        "recursivo"
+      ],
+      "descripcion": "Reporte profundo en JSON de una carpeta y todo su contenido. Soporta Unicode, emojis y nombres chotos sin crashear. Devuelve JSON estructurado con hash, duracion y metadatos opcionales.",
+      "tipo": "script",
+      "dependencias": {},
+      "script": "deepia.py",
+      "ruta_script": "skills/deepia/deepia.py",
+      "alias": [
+        "deepia",
+        "deep_ia",
+        "reporte_json",
+        "tree_json"
+      ],
+      "parametros": {
+        "ruta": {
+          "tipo": "string",
+          "requerido": false,
+          "descripcion": "Carpeta a escanear (default: workdir)"
+        },
+        "extensiones": {
+          "tipo": "string",
+          "requerido": false,
+          "descripcion": "Extensiones separadas por coma (ej: .mkv,.mp4)"
+        },
+        "orden": {
+          "tipo": "string",
+          "requerido": false,
+          "descripcion": "Criterio de orden: nombre (default), nombre_desc, fecha, fecha_desc, tamano, tamano_desc"
+        },
+        "recursivo": {
+          "tipo": "boolean",
+          "requerido": false,
+          "descripcion": "Entrar en subcarpetas (default: true)"
+        },
+        "hash": {
+          "tipo": "boolean",
+          "requerido": false,
+          "descripcion": "Calcular hash MD5 de cada archivo"
+        },
+        "duracion": {
+          "tipo": "boolean",
+          "requerido": false,
+          "descripcion": "Calcular duracion (con ffprobe si esta)"
+        },
+        "metadatos": {
+          "tipo": "boolean",
+          "requerido": false,
+          "descripcion": "Extraer metadatos (titulo, artista, album, fecha, genero)"
+        }
+      },
+      "ejemplo": {
+        "comando": "deepia",
+        "ruta": "anime",
+        "extensiones": ".mp4,.mkv",
+        "orden": "nombre"
+      },
+      "ejemplos_adicionales": [
+        {
+          "descripcion": "Reporte completo con hash y duracion",
+          "json": {
+            "comando": "deepia",
+            "ruta": "anime",
+            "extensiones": ".mp4,.mkv",
+            "hash": true,
+            "duracion": true
+          }
+        },
+        {
+          "descripcion": "Solo la raiz, sin recursivo",
+          "json": {
+            "comando": "deepia",
+            "ruta": "anime",
+            "no-recursivo": true
+          }
+        }
+      ],
+      "perfil_minimo": "solo_lectura",
+      "nota": "Devuelve JSON estructurado con la jerarquia completa de carpetas y archivos. Soporta Unicode, emojis y nombres chotos. Opcionalmente calcula hash, duracion y metadatos. Usa ensure_ascii=True para evitar problemas de encoding."
+    },
+    "editar_archivo": {
+      "nombre": "editar_archivo",
+      "version": "1.0",
+      "autor": "Yonijd",
+      "categoria": "utilidades",
+      "tags": [
+        "editar",
+        "archivo",
+        "buscar",
+        "reemplazar",
+        "regex",
+        "backup"
+      ],
+      "descripcion": "Busca y reemplaza texto en un archivo. Soporta regex y backup.",
+      "tipo": "script",
+      "dependencias": {},
+      "script": "editar_archivo.py",
+      "ruta_script": "skills/editar_archivo/editar_archivo.py",
+      "alias": [
+        "editar",
+        "edit",
+        "replace"
+      ],
+      "parametros": {
+        "ruta": {
+          "tipo": "string",
+          "requerido": true,
+          "descripcion": "Ruta del archivo a editar"
+        },
+        "buscar": {
+          "tipo": "string",
+          "requerido": true,
+          "descripcion": "Texto a buscar"
+        },
+        "reemplazar": {
+          "tipo": "string",
+          "requerido": true,
+          "descripcion": "Texto de reemplazo"
+        },
+        "regex": {
+          "tipo": "boolean",
+          "requerido": false,
+          "descripcion": "Usar expresiones regulares (default: false)"
+        },
+        "dry_run": {
+          "tipo": "boolean",
+          "requerido": false,
+          "descripcion": "Simular cambios sin guardar (default: false)"
+        },
+        "backup": {
+          "tipo": "boolean",
+          "requerido": false,
+          "descripcion": "Crear backup antes de editar (default: false)"
+        }
+      },
+      "ejemplo": {
+        "comando": "ejecutar",
+        "script": "editar_archivo",
+        "parametros": [
+          "--ruta=config.ini",
+          "--buscar=127.0.0.1",
+          "--reemplazar=0.0.0.0",
+          "--backup",
+          "--dry_run"
+        ]
+      },
+      "ejemplos_adicionales": [
+        {
+          "descripcion": "Editar directo",
+          "json": {
+            "comando": "editar_archivo",
+            "parametros": [
+              "--ruta=test_skills/editar.txt",
+              "--buscar=Hola",
+              "--reemplazar=Chau"
+            ]
+          }
+        },
+        {
+          "descripcion": "Usar alias editar",
+          "json": {
+            "comando": "editar",
+            "parametros": [
+              "--ruta=test_skills/editar.txt",
+              "--buscar=Chau",
+              "--reemplazar=Hola"
+            ]
+          }
+        }
+      ],
+      "perfil_minimo": "estandar",
+      "nota": "Funciona con 'editar_archivo' directo o con 'ejecutar'. Ambos modos soportados. Usa workdir para rutas relativas."
+    },
+    "ejecutar_comando": {
+      "nombre": "ejecutar_comando",
+      "version": "1.0",
+      "autor": "Yonijd",
+      "categoria": "sistema",
+      "tags": [
+        "ejecutar",
+        "comando",
+        "cmd",
+        "terminal",
+        "consola"
+      ],
+      "descripcion": "Ejecuta comandos del sistema con restricciones de seguridad (whitelist, timeout, comandos prohibidos).",
+      "tipo": "script",
+      "dependencias": {},
+      "script": "ejecutar_comando.py",
+      "ruta_script": "skills/ejecutar_comando/ejecutar_comando.py",
+      "alias": [
+        "comando",
+        "shell",
+        "cmd",
+        "system"
+      ],
+      "parametros": {
+        "comando": {
+          "tipo": "string",
+          "requerido": true,
+          "descripcion": "Comando a ejecutar (ej: pip list, python --version, dir)"
+        }
+      },
+      "ejemplo": {
+        "comando": "ejecutar",
+        "script": "ejecutar_comando",
+        "parametros": [
+          "pip",
+          "list"
+        ]
+      },
+      "ejemplos_adicionales": [
+        {
+          "descripcion": "Ejecutar directo",
+          "json": {
+            "comando": "ejecutar_comando",
+            "parametros": [
+              "ipconfig"
+            ]
+          }
+        },
+        {
+          "descripcion": "Usar alias comando",
+          "json": {
+            "comando": "comando",
+            "parametros": [
+              "systeminfo"
+            ]
+          }
+        }
+      ],
+      "perfil_minimo": "avanzado",
+      "nota": "Funciona con 'ejecutar_comando' directo o con 'ejecutar'. Ambos modos soportados. Tiene whitelist de comandos seguros."
+    },
+    "estado": {
+      "nombre": "estado",
+      "version": "1.0",
+      "autor": "Yonijd",
+      "categoria": "sistema",
+      "tags": [
+        "estado",
+        "status",
+        "diagnostico",
+        "waio",
+        "monitoreo"
+      ],
+      "descripcion": "Muestra el estado actual de WAIO: workdir, perfil, version, skills, procesos, locks, triggers, ultimo JSON procesado, configuracion, wispout y categorias de skills.",
+      "tipo": "script",
+      "dependencias": {},
+      "script": "estado.py",
+      "ruta_script": "skills/estado/estado.py",
+      "alias": [
+        "status",
+        "state"
+      ],
+      "parametros": {},
+      "ejemplo": {
+        "comando": "estado"
+      },
+      "ejemplos_adicionales": [
+        {
+          "descripcion": "Estado con alias status",
+          "json": {
+            "comando": "status"
+          }
+        },
+        {
+          "descripcion": "Estado con alias state",
+          "json": {
+            "comando": "state"
+          }
+        }
+      ],
+      "perfil_minimo": "solo_lectura",
+      "nota": "Funciona con 'estado' directo o con 'ejecutar'. Ambos modos soportados. Muestra toda la informacion disponible sin necesidad de parametros adicionales."
+    },
+    "extlog": {
+      "nombre": "extlog",
+      "version": "1.0",
+      "autor": "Yonijd",
+      "categoria": "sistema",
+      "tags": [
+        "analisis",
+        "archivo",
+        "hash",
+        "metadatos",
+        "exif",
+        "profundo"
+      ],
+      "descripcion": "Analiza un archivo en profundidad: hashes, metadatos, estructura interna (texto, imagen, ejecutable, PDF, ZIP, RAR).",
+      "tipo": "script",
+      "dependencias": {
+        "pillow": "10.0.0",
+        "pypdf": "4.0.0",
+        "pywin32": "306",
+        "rarfile": "4.2"
+      },
+      "script": "extlog.py",
+      "ruta_script": "skills/extlog/extlog.py",
+      "alias": [
+        "ext",
+        "analyze_file"
+      ],
+      "parametros": {
+        "ruta": {
+          "tipo": "string",
+          "requerido": true,
+          "descripcion": "Ruta del archivo a analizar"
+        },
+        "guardar_log": {
+          "tipo": "boolean",
+          "requerido": false,
+          "descripcion": "Guardar log en .ialogpack/logs/"
+        }
+      },
+      "ejemplo": {
+        "comando": "ejecutar",
+        "script": "extlog",
+        "parametros": [
+          "--ruta=archivo.pdf"
+        ]
+      },
+      "ejemplos_adicionales": [
+        {
+          "descripcion": "Extlog directo",
+          "json": {
+            "comando": "extlog",
+            "parametros": [
+              "--ruta=test_skills/prueba.txt"
+            ]
+          }
+        }
+      ],
+      "perfil_minimo": "solo_lectura",
+      "nota": "Funciona con 'extlog' directo o con 'ejecutar'. Ambos modos soportados. Usa workdir para rutas relativas."
+    },
+    "extraer_metadatos": {
+      "nombre": "extraer_metadatos",
+      "version": "1.0",
+      "autor": "Yonijd",
+      "categoria": "sistema",
+      "tags": [
+        "extraer",
+        "metadatos",
+        "archivo",
+        "carpeta",
+        "informacion"
+      ],
+      "descripcion": "Extrae metadatos de un archivo o carpeta (tamano, fechas, permisos, etc.)",
+      "tipo": "script",
+      "dependencias": {},
+      "script": "extraer_metadatos.py",
+      "ruta_script": "skills/extraer_metadatos/extraer_metadatos.py",
+      "alias": [
+        "metadatos",
+        "meta",
+        "metadata"
+      ],
+      "parametros": {
+        "ruta": {
+          "tipo": "string",
+          "requerido": true,
+          "descripcion": "Ruta del archivo o carpeta a analizar"
+        }
+      },
+      "ejemplo": {
+        "comando": "ejecutar",
+        "script": "extraer_metadatos",
+        "parametros": [
+          "--ruta=documento.pdf"
+        ]
+      },
+      "ejemplos_adicionales": [
+        {
+          "descripcion": "Extraer metadatos directo",
+          "json": {
+            "comando": "extraer_metadatos",
+            "parametros": [
+              "--ruta=test_skills/prueba.txt"
+            ]
+          }
+        },
+        {
+          "descripcion": "Usar alias meta",
+          "json": {
+            "comando": "meta",
+            "parametros": [
+              "--ruta=."
+            ]
+          }
+        }
+      ],
+      "perfil_minimo": "solo_lectura",
+      "nota": "Funciona con 'extraer_metadatos' directo o con 'ejecutar'. Ambos modos soportados. Usa workdir para rutas relativas."
+    },
+    "extraer_zip": {
+      "nombre": "extraer_zip",
+      "version": "1.0",
+      "autor": "Yonijd",
+      "categoria": "utilidades",
+      "tags": [
+        "extraer",
+        "zip",
+        "descomprimir",
+        "archivo"
+      ],
+      "descripcion": "Extrae un archivo ZIP en la carpeta destino",
+      "tipo": "script",
+      "dependencias": {},
+      "script": "extraer_zip.py",
+      "ruta_script": "skills/extraer_zip/extraer_zip.py",
+      "alias": [
+        "extraer",
+        "unzip",
+        "extract"
+      ],
+      "parametros": {
+        "zip": {
+          "tipo": "string",
+          "requerido": true,
+          "descripcion": "Ruta del archivo ZIP"
+        },
+        "destino": {
+          "tipo": "string",
+          "requerido": false,
+          "descripcion": "Carpeta de destino (opcional)"
+        },
+        "sobrescribir": {
+          "tipo": "boolean",
+          "requerido": false,
+          "descripcion": "Sobrescribir archivos existentes"
+        }
+      },
+      "ejemplo": {
+        "comando": "ejecutar",
+        "script": "extraer_zip",
+        "parametros": [
+          "--zip=backup.zip",
+          "--destino=./extraido",
+          "--sobrescribir"
+        ]
+      },
+      "ejemplos_adicionales": [
+        {
+          "descripcion": "Extraer directo",
+          "json": {
+            "comando": "extraer_zip",
+            "parametros": [
+              "--zip=test_skills.zip",
+              "--destino=test_skills_extraido"
+            ]
+          }
+        },
+        {
+          "descripcion": "Usar alias unzip",
+          "json": {
+            "comando": "unzip",
+            "parametros": [
+              "--zip=test_skills.zip"
+            ]
+          }
+        }
+      ],
+      "perfil_minimo": "estandar",
+      "nota": "Funciona con 'extraer_zip' directo o con 'ejecutar'. Ambos modos soportados. Usa workdir para rutas relativas."
+    },
+    "grep_avanzado": {
+      "nombre": "grep_avanzado",
+      "version": "1.0",
+      "autor": "Yonijd",
+      "categoria": "busqueda",
+      "tags": [
+        "grep",
+        "buscar",
+        "regex",
+        "archivos",
+        "contenido"
+      ],
+      "descripcion": "Busqueda avanzada en archivos con soporte para regex y filtros",
+      "tipo": "script",
+      "dependencias": {},
+      "script": "grep_avanzado.py",
+      "ruta_script": "skills/grep_avanzado/grep_avanzado.py",
+      "alias": [
+        "grep",
+        "advanced_grep"
+      ],
+      "parametros": {
+        "ruta": {
+          "tipo": "string",
+          "requerido": true,
+          "descripcion": "Ruta de carpeta o archivo donde buscar"
+        },
+        "patron": {
+          "tipo": "string",
+          "requerido": true,
+          "descripcion": "Patron a buscar"
+        },
+        "regex": {
+          "tipo": "boolean",
+          "requerido": false,
+          "descripcion": "Usar expresiones regulares"
+        },
+        "case_sensitive": {
+          "tipo": "boolean",
+          "requerido": false,
+          "descripcion": "Sensible a mayusculas"
+        },
+        "extension": {
+          "tipo": "string",
+          "requerido": false,
+          "descripcion": "Filtrar por extension (ej: .py, .txt)"
+        },
+        "excluir": {
+          "tipo": "string",
+          "requerido": false,
+          "descripcion": "Excluir rutas que coincidan con este patron"
+        },
+        "mostrar_lineas": {
+          "tipo": "boolean",
+          "requerido": false,
+          "descripcion": "Mostrar contenido completo de la linea"
+        }
+      },
+      "ejemplo": {
+        "comando": "ejecutar",
+        "script": "grep_avanzado",
+        "parametros": [
+          "--ruta=./src",
+          "--patron=import",
+          "--extension=.py"
+        ]
+      },
+      "ejemplos_adicionales": [
+        {
+          "descripcion": "Grep directo",
+          "json": {
+            "comando": "grep_avanzado",
+            "parametros": [
+              "--ruta=test_skills",
+              "--patron=prueba"
+            ]
+          }
+        },
+        {
+          "descripcion": "Usar alias grep",
+          "json": {
+            "comando": "grep",
+            "parametros": [
+              "--ruta=.",
+              "--patron=WAIO",
+              "--extension=.md"
+            ]
+          }
+        }
+      ],
+      "perfil_minimo": "solo_lectura",
+      "nota": "Funciona con 'grep_avanzado' directo o con 'ejecutar'. Ambos modos soportados. Usa workdir para rutas relativas."
+    },
+    "leer_excel": {
+      "nombre": "leer_excel",
+      "version": "1.0",
+      "autor": "Yonijd",
+      "categoria": "datos",
+      "tags": [
+        "leer",
+        "excel",
+        "xlsx",
+        "hoja",
+        "datos"
+      ],
+      "descripcion": "Lee un archivo Excel (.xlsx) y muestra su contenido",
+      "tipo": "script",
+      "dependencias": {
+        "openpyxl": "3.1.0"
+      },
+      "script": "leer_excel.py",
+      "ruta_script": "skills/leer_excel/leer_excel.py",
+      "alias": [
+        "xls",
+        "read_xlsx"
+      ],
+      "parametros": {
+        "ruta": {
+          "tipo": "string",
+          "requerido": true,
+          "descripcion": "Ruta del archivo Excel a leer"
+        }
+      },
+      "ejemplo": {
+        "comando": "ejecutar",
+        "script": "leer_excel",
+        "parametros": [
+          "--ruta=datos.xlsx"
+        ]
+      },
+      "ejemplos_adicionales": [
+        {
+          "descripcion": "Leer Excel directo",
+          "json": {
+            "comando": "leer_excel",
+            "parametros": [
+              "--ruta=test_skills/datos.xlsx"
+            ]
+          }
+        }
+      ],
+      "perfil_minimo": "estandar",
+      "nota": "Funciona con 'leer_excel' directo o con 'ejecutar'. Ambos modos soportados. Usa workdir para rutas relativas."
+    },
+    "leer_pdf": {
+      "nombre": "leer_pdf",
+      "version": "1.0",
+      "autor": "Yonijd",
+      "categoria": "documentos",
+      "tags": [
+        "leer",
+        "pdf",
+        "texto",
+        "extraer",
+        "documento"
+      ],
+      "descripcion": "Extrae el texto de un archivo PDF",
+      "tipo": "script",
+      "dependencias": {
+        "PyPDF2": "3.0.0"
+      },
+      "script": "leer_pdf.py",
+      "ruta_script": "skills/leer_pdf/leer_pdf.py",
+      "alias": [
+        "pdf",
+        "read_pdf"
+      ],
+      "parametros": {
+        "ruta": {
+          "tipo": "string",
+          "requerido": true,
+          "descripcion": "Ruta del archivo PDF a leer"
+        }
+      },
+      "ejemplo": {
+        "comando": "ejecutar",
+        "script": "leer_pdf",
+        "parametros": [
+          "--ruta=documento.pdf"
+        ]
+      },
+      "ejemplos_adicionales": [
+        {
+          "descripcion": "Leer PDF directo",
+          "json": {
+            "comando": "leer_pdf",
+            "parametros": [
+              "--ruta=test_skills/7-Zip.pdf"
+            ]
+          }
+        }
+      ],
+      "perfil_minimo": "estandar",
+      "nota": "Funciona con 'leer_pdf' directo o con 'ejecutar'. Ambos modos soportados. Usa workdir para rutas relativas."
+    },
+    "leer_word": {
+      "nombre": "leer_word",
+      "version": "1.0",
+      "autor": "Yonijd",
+      "categoria": "documentos",
+      "tags": [
+        "leer",
+        "word",
+        "docx",
+        "texto",
+        "documento"
+      ],
+      "descripcion": "Lee un archivo Word (.docx) y extrae su texto",
+      "tipo": "script",
+      "dependencias": {
+        "python-docx": "1.2.0"
+      },
+      "script": "leer_word.py",
+      "ruta_script": "skills/leer_word/leer_word.py",
+      "alias": [
+        "doc",
+        "read_docx"
+      ],
+      "parametros": {
+        "ruta": {
+          "tipo": "string",
+          "requerido": true,
+          "descripcion": "Ruta del archivo Word a leer"
+        }
+      },
+      "ejemplo": {
+        "comando": "ejecutar",
+        "script": "leer_word",
+        "parametros": [
+          "--ruta=documento.docx"
+        ]
+      },
+      "ejemplos_adicionales": [
+        {
+          "descripcion": "Leer Word directo",
+          "json": {
+            "comando": "leer_word",
+            "parametros": [
+              "--ruta=test_skills/documento.docx"
+            ]
+          }
+        }
+      ],
+      "perfil_minimo": "estandar",
+      "nota": "Funciona con 'leer_word' directo o con 'ejecutar'. Ambos modos soportados. Usa workdir para rutas relativas."
+    },
+    "listia": {
+      "nombre": "listia",
+      "version": "1.0",
+      "autor": "Yonijd",
+      "categoria": "sistema",
+      "tags": [
+        "listar",
+        "directorio",
+        "archivos",
+        "carpetas",
+        "json",
+        "ia"
+      ],
+      "descripcion": "Lista el contenido de un directorio en formato JSON estructurado. Optimizado para consumo por IA. Soporta control de profundidad y archivos ocultos.",
+      "tipo": "script",
+      "dependencias": {},
+      "script": "listia.py",
+      "ruta_script": "skills/listia/listia.py",
+      "alias": [
+        "explorar",
+        "explore",
+        "tree_json",
+        "scan"
+      ],
+      "parametros": {
+        "ruta": {
+          "tipo": "string",
+          "requerido": false,
+          "descripcion": "Ruta del directorio a listar (default: .)",
+          "defecto": "."
+        },
+        "profundidad": {
+          "tipo": "number",
+          "requerido": false,
+          "descripcion": "Profundidad maxima a listar (default: 1, 0 = todos los niveles sin limite)",
+          "defecto": 1
+        },
+        "incluir_ocultos": {
+          "tipo": "boolean",
+          "requerido": false,
+          "descripcion": "Incluir carpetas y archivos ocultos (default: false)",
+          "defecto": false
+        },
+        "detalles": {
+          "tipo": "boolean",
+          "requerido": false,
+          "descripcion": "Calcular tamaños de carpetas, extensiones y estadisticas.",
+          "defecto": false
+        }
+      },
+      "ejemplo": {
+        "comando": "ejecutar",
+        "script": "listia",
+        "parametros": [
+          "--ruta=./src",
+          "--profundidad=2",
+          "--incluir_ocultos"
+        ]
+      },
+      "ejemplos_adicionales": [
+        {
+          "descripcion": "Listia directo",
+          "json": {
+            "comando": "listia",
+            "parametros": [
+              "--ruta=test_skills",
+              "--profundidad=1"
+            ]
+          }
+        }
+      ],
+      "perfil_minimo": "solo_lectura",
+      "nota": "Funciona con 'listia' directo o con 'ejecutar'. Ambos modos soportados. Usa workdir para rutas relativas."
+    },
+    "mostrar_arbol": {
+      "nombre": "mostrar_arbol",
+      "version": "2.0",
+      "autor": "Yonijd",
+      "categoria": "utilidades",
+      "tags": [
+        "mostrar",
+        "arbol",
+        "carpetas",
+        "estructura",
+        "jerarquia",
+        "json"
+      ],
+      "descripcion": "Muestra la estructura de carpetas en forma de arbol. Soporta formato tree (consola) y JSON. Incluye opcion para mostrar carpetas ocultas y guardar el resultado.",
+      "tipo": "script",
+      "dependencias": {},
+      "script": "mostrar_arbol.py",
+      "ruta_script": "skills/mostrar_arbol/mostrar_arbol.py",
+      "alias": [
+        "arbol",
+        "tree",
+        "show_tree"
+      ],
+      "parametros": {
+        "ruta": {
+          "tipo": "string",
+          "requerido": false,
+          "descripcion": "Ruta de la carpeta a analizar (default: .)",
+          "defecto": "."
+        },
+        "profundidad": {
+          "tipo": "number",
+          "requerido": false,
+          "descripcion": "Profundidad maxima a mostrar (default: 10)",
+          "defecto": 10
+        },
+        "incluir_ocultos": {
+          "tipo": "boolean",
+          "requerido": false,
+          "descripcion": "Incluir carpetas y archivos ocultos (default: false)",
+          "defecto": false
+        },
+        "formato": {
+          "tipo": "string",
+          "requerido": false,
+          "descripcion": "Formato de salida: tree (arbol en consola), json (estructurado), ambos (default: tree)",
+          "defecto": "tree"
+        },
+        "guardar": {
+          "tipo": "boolean",
+          "requerido": false,
+          "descripcion": "Guardar estructura en archivo JSON (default: false)",
+          "defecto": false
+        }
+      },
+      "ejemplo": {
+        "comando": "ejecutar",
+        "script": "mostrar_arbol",
+        "parametros": [
+          "--ruta=./src",
+          "--profundidad=3",
+          "--incluir_ocultos",
+          "--formato=ambos",
+          "--guardar"
+        ]
+      },
+      "ejemplos_adicionales": [
+        {
+          "descripcion": "Mostrar arbol directo",
+          "json": {
+            "comando": "mostrar_arbol",
+            "parametros": [
+              "--ruta=test_skills",
+              "--profundidad=1"
+            ]
+          }
+        }
+      ],
+      "perfil_minimo": "solo_lectura",
+      "nota": "Funciona con 'mostrar_arbol' directo o con 'ejecutar'. Ambos modos soportados. Usa workdir para rutas relativas."
+    },
+    "super_buscar": {
+      "nombre": "super_buscar",
+      "version": "1.0",
+      "autor": "Yonijd",
+      "categoria": "sistema",
+      "tags": [
+        "buscar",
+        "archivos",
+        "recursivo",
+        "profundo",
+        "patron",
+        "ocultos",
+        "excluir"
+      ],
+      "descripcion": "Busca archivos en profundidad con multiples patrones, exclusiones y progreso en tiempo real. Reemplaza al buscar_archivos basico.",
+      "tipo": "script",
+      "dependencias": {},
+      "script": "super_buscar.py",
+      "ruta_script": "skills/super_buscar/super_buscar.py",
+      "alias": [
+        "super_find",
+        "super_search"
+      ],
+      "parametros": {
+        "ruta": {
+          "tipo": "string",
+          "requerido": false,
+          "descripcion": "Carpeta raiz donde buscar (default: .)",
+          "defecto": "."
+        },
+        "patron": {
+          "tipo": "string",
+          "requerido": true,
+          "descripcion": "Patron de busqueda. Multiples separados por comas (ej: *.py,*.txt,config.*)"
+        },
+        "recursivo": {
+          "tipo": "boolean",
+          "requerido": false,
+          "descripcion": "Buscar en subcarpetas (default: True)",
+          "defecto": true
+        },
+        "ocultos": {
+          "tipo": "boolean",
+          "requerido": false,
+          "descripcion": "Incluir archivos y carpetas ocultas (default: False)"
+        },
+        "excluir": {
+          "tipo": "string",
+          "requerido": false,
+          "descripcion": "Carpetas a excluir separadas por comas (ej: node_modules,__pycache__,.git)"
+        },
+        "limite_resultados": {
+          "tipo": "integer",
+          "requerido": false,
+          "descripcion": "Limite maximo de resultados (default: 1000)",
+          "defecto": 1000
+        },
+        "guardar_log": {
+          "tipo": "boolean",
+          "requerido": false,
+          "descripcion": "Guardar resultado en archivo de log"
+        }
+      },
+      "ejemplo": {
+        "comando": "ejecutar",
+        "script": "super_buscar",
+        "parametros": [
+          "--ruta=./src",
+          "--patron=*.py,*.json",
+          "--excluir=__pycache__,node_modules",
+          "--limite_resultados=500"
+        ]
+      },
+      "ejemplos_adicionales": [
+        {
+          "descripcion": "Super buscar directo",
+          "json": {
+            "comando": "super_buscar",
+            "parametros": [
+              "--ruta=test_skills",
+              "--patron=*.txt"
+            ]
+          }
+        }
+      ],
+      "perfil_minimo": "solo_lectura",
+      "nota": "Funciona con 'super_buscar' directo o con 'ejecutar'. Ambos modos soportados. Usa workdir para rutas relativas."
+    },
+    "syslog": {
+      "nombre": "syslog",
+      "version": "1.0",
+      "autor": "Yonijd",
+      "categoria": "sistema",
+      "tags": [
+        "sistema",
+        "reporte",
+        "hardware",
+        "software",
+        "diagnostico",
+        "windows"
+      ],
+      "descripcion": "Genera un reporte completo del sistema: OS, CPU, RAM, discos, GPU, audio, Python, .NET, PATH y mas.",
+      "tipo": "script",
+      "dependencias": {},
+      "script": "syslog.py",
+      "ruta_script": "skills/syslog/syslog.py",
+      "alias": [
+        "sysinfo",
+        "system_report"
+      ],
+      "parametros": {
+        "guardar_log": {
+          "tipo": "boolean",
+          "requerido": false,
+          "descripcion": "Guardar log en .ialogpack/logs/"
+        }
+      },
+      "ejemplo": {
+        "comando": "ejecutar",
+        "script": "syslog"
+      },
+      "ejemplos_adicionales": [
+        {
+          "descripcion": "Syslog directo",
+          "json": {
+            "comando": "syslog"
+          }
+        }
+      ],
+      "perfil_minimo": "solo_lectura",
+      "nota": "Funciona con 'syslog' directo o con 'ejecutar'. Ambos modos soportados. No usa workdir porque es reporte del sistema."
+    },
+    "verificar_paquetes": {
+      "nombre": "verificar_paquetes",
+      "version": "1.0",
+      "autor": "Yonijd",
+      "categoria": "sistema",
+      "tags": [
+        "verificar",
+        "paquetes",
+        "python",
+        "dependencias",
+        "pip"
+      ],
+      "descripcion": "Verifica si una lista de paquetes de Python estan instalados intentando importarlos.",
+      "tipo": "script",
+      "dependencias": {},
+      "script": "verificar_paquetes.py",
+      "ruta_script": "skills/verificar_paquetes/verificar_paquetes.py",
+      "alias": [
+        "paquetes",
+        "pkgs",
+        "packages"
+      ],
+      "parametros": {
+        "paquetes": {
+          "tipo": "array",
+          "requerido": false,
+          "descripcion": "Lista de nombres de paquetes a verificar (ej: numpy requests rich). Si no se especifica, verifica los paquetes comunes."
+        }
+      },
+      "ejemplo": {
+        "comando": "ejecutar",
+        "script": "verificar_paquetes",
+        "parametros": [
+          "numpy",
+          "requests",
+          "pillow"
+        ]
+      },
+      "ejemplos_adicionales": [
+        {
+          "descripcion": "Verificar directo",
+          "json": {
+            "comando": "verificar_paquetes"
+          }
+        },
+        {
+          "descripcion": "Verificar paquetes especificos",
+          "json": {
+            "comando": "verificar_paquetes",
+            "parametros": [
+              "requests",
+              "rich"
+            ]
+          }
+        }
+      ],
+      "perfil_minimo": "solo_lectura",
+      "nota": "Funciona con 'verificar_paquetes' directo o con 'ejecutar'. Ambos modos soportados."
+    }
+  }
+}

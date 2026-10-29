@@ -1,0 +1,28 @@
+{
+  "nombre": "mover_archivo",
+  "version": "1.0",
+  "autor": "WAIOGG",
+  "categoria": "comandos_base",
+  "tags": ["mover", "archivo", "renombrar", "trasladar"],
+  "descripcion": "Mueve o renombra un archivo",
+  "tipo": "comando_interno",
+  "alias": ["mover", "mv", "move"],
+  "parametros": {
+    "origen": {
+      "tipo": "string",
+      "requerido": true,
+      "descripcion": "Ruta de origen"
+    },
+    "destino": {
+      "tipo": "string",
+      "requerido": true,
+      "descripcion": "Ruta de destino"
+    }
+  },
+  "perfil_minimo": "estandar",
+  "ejemplo": {
+    "comando": "mover_archivo",
+    "origen": "archivo.txt",
+    "destino": "backup/archivo.txt"
+  }
+}

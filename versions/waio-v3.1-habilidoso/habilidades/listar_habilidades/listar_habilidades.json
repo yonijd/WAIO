@@ -1,0 +1,14 @@
+{
+  "nombre": "listar_habilidades",
+  "version": "1.0",
+  "autor": "WAIOGG",
+  "categoria": "comandos_base",
+  "tags": ["listar", "habilidades", "comandos", "disponibles", "catalogo"],
+  "descripcion": "Muestra los comandos disponibles para el perfil activo",
+  "tipo": "comando_interno",
+  "parametros": {},
+  "perfil_minimo": "solo_lectura",
+  "ejemplo": {
+    "comando": "listar_habilidades"
+  }
+}

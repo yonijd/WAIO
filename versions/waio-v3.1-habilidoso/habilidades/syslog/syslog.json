@@ -1,0 +1,24 @@
+{
+  "nombre": "syslog",
+  "version": "1.0",
+  "autor": "Yonijd",
+  "categoria": "sistema",
+  "tags": ["sistema", "reporte", "hardware", "software", "diagnostico", "windows"],
+  "descripcion": "Genera un reporte completo del sistema: OS, CPU, RAM, discos, GPU, audio, Python, .NET, PATH y mas.",
+  "tipo": "script",
+  "dependencias": {},
+  "script": "syslog.py",
+  "parametros": {
+    "guardar_log": {
+      "tipo": "boolean",
+      "requerido": false,
+      "descripcion": "Guardar log en .ialogpack/logs/"
+    }
+  },
+  "ejemplo": {
+    "comando": "ejecutar_script",
+    "script": "syslog.py",
+    "parametros": []
+  },
+  "perfil_minimo": "solo_lectura"
+}

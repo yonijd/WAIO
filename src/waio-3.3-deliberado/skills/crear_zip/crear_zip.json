@@ -1,0 +1,74 @@
+{
+  "nombre": "crear_zip",
+  "version": "1.1",
+  "autor": "Yonijd",
+  "copyright": "Copyright (c) 2026 Yonijd",
+  "licencia": "MIT",
+  "categoria": "utilidades",
+  "tags": ["crear", "zip", "comprimir", "archivo", "backup"],
+  "descripcion": "Crea un archivo ZIP desde una carpeta o archivo",
+  "tipo": "script",
+  "dependencias": {},
+  "script": "crear_zip.py",
+  "ruta_script": "skills/crear_zip/crear_zip.py",
+  "alias": ["zip", "compress"],
+  "parametros": {
+    "origen": {
+      "tipo": "string",
+      "requerido": true,
+      "descripcion": "Ruta de la carpeta o archivo a comprimir"
+    },
+    "destino": {
+      "tipo": "string",
+      "requerido": false,
+      "descripcion": "Ruta de destino del ZIP (opcional, default: nombre del origen + .zip)"
+    },
+    "sin_subcarpetas": {
+      "tipo": "boolean",
+      "requerido": false,
+      "descripcion": "No incluir subcarpetas (default: false)"
+    },
+    "compresion": {
+      "tipo": "number",
+      "requerido": false,
+      "descripcion": "Nivel de compresion (0-9, default: 6)",
+      "defecto": 6
+    }
+  },
+  "usage": ["origen", "destino (opcional)", "sin_subcarpetas (opcional)", "compresion (opcional)"],
+  "ejemplo": {
+    "comando": "crear_zip",
+    "origen": "tests",
+    "destino": "tests_backup.zip"
+  },
+  "ejemplos_adicionales": [
+    {
+      "descripcion": "Comprimir carpeta con destino automatico",
+      "json": {
+        "comando": "crear_zip",
+        "origen": "tests"
+      }
+    },
+    {
+      "descripcion": "Comprimir con nivel maximo",
+      "json": {
+        "comando": "crear_zip",
+        "origen": "tests",
+        "destino": "tests_max.zip",
+        "compresion": 9
+      }
+    },
+    {
+      "descripcion": "Comprimir sin subcarpetas",
+      "json": {
+        "comando": "crear_zip",
+        "origen": "skills",
+        "destino": "skills_solo_raiz.zip",
+        "sin_subcarpetas": true
+      }
+    }
+  ],
+  "perfil_minimo": "advanced",
+  "timeout_segundos": 120,
+  "nota": "Funciona con 'crear_zip' directo o con 'ejecutar'. Usa workdir para rutas relativas."
+}

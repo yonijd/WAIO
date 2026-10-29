@@ -1,0 +1,28 @@
+{
+  "nombre": "append_archivo",
+  "version": "1.0",
+  "autor": "WAIOGG",
+  "categoria": "comandos_base",
+  "tags": ["append", "agregar", "archivo", "final", "escribir"],
+  "descripcion": "Agrega contenido al final de un archivo existente",
+  "tipo": "comando_interno",
+  "alias": ["agregar", "append"],
+  "parametros": {
+    "ruta": {
+      "tipo": "string",
+      "requerido": true,
+      "descripcion": "Ruta del archivo"
+    },
+    "contenido": {
+      "tipo": "string",
+      "requerido": true,
+      "descripcion": "Contenido a agregar"
+    }
+  },
+  "perfil_minimo": "estandar",
+  "ejemplo": {
+    "comando": "append_archivo",
+    "ruta": "log.txt",
+    "contenido": "Nueva linea al final"
+  }
+}

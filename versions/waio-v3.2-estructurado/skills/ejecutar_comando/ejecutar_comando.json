@@ -1,0 +1,57 @@
+{
+  "nombre": "ejecutar_comando",
+  "version": "1.1",
+  "autor": "Yonijd",
+  "copyright": "Copyright (c) 2026 Yonijd",
+  "licencia": "MIT",
+  "categoria": "sistema",
+  "tags": ["ejecutar", "comando", "cmd", "terminal", "consola"],
+  "descripcion": "Ejecuta comandos del sistema con restricciones de seguridad (whitelist, timeout, comandos prohibidos).",
+  "tipo": "script",
+  "dependencias": {},
+  "script": "ejecutar_comando.py",
+  "ruta_script": "skills/ejecutar_comando/ejecutar_comando.py",
+  "alias": ["comando", "shell", "cmd", "system"],
+  "parametros": {
+    "parametros": {
+      "tipo": "array",
+      "requerido": true,
+      "descripcion": "Comando a ejecutar como lista de tokens. Ej: [\"pip\", \"list\"] o [\"ipconfig\"]"
+    },
+    "timeout": {
+      "tipo": "number",
+      "requerido": false,
+      "descripcion": "Timeout en segundos (default: 10)"
+    }
+  },
+  "usage": ["parametros: [comando, ...]", "timeout (opcional)"],
+  "ejemplo": {
+    "comando": "ejecutar_comando",
+    "parametros": ["pip", "list"]
+  },
+  "ejemplos_adicionales": [
+    {
+      "descripcion": "Ejecutar ipconfig",
+      "json": {
+        "comando": "ejecutar_comando",
+        "parametros": ["ipconfig"]
+      }
+    },
+    {
+      "descripcion": "Ejecutar python --version",
+      "json": {
+        "comando": "ejecutar_comando",
+        "parametros": ["python", "--version"]
+      }
+    },
+    {
+      "descripcion": "Ejecutar con timeout custom",
+      "json": {
+        "comando": "ejecutar_comando",
+        "parametros": ["ping", "-n", "2", "google.com"]
+      }
+    }
+  ],
+  "perfil_minimo": "avanzado",
+  "nota": "Funciona con 'ejecutar_comando' directo o con 'ejecutar'. Usa 'parametros' como array de tokens del comando. Whitelist de comandos seguros."
+}

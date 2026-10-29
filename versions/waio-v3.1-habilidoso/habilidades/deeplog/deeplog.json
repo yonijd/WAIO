@@ -1,0 +1,29 @@
+{
+  "nombre": "deeplog",
+  "version": "1.0",
+  "autor": "Yonijd",
+  "categoria": "sistema",
+  "tags": ["escaneo", "profundo", "carpeta", "archivos", "jerarquia", "reporte"],
+  "descripcion": "Escanea una carpeta en profundidad y genera un reporte detallado con estructura jerarquica, tamaños, fechas y tipos de archivos.",
+  "tipo": "script",
+  "dependencias": {},
+  "script": "deeplog.py",
+  "parametros": {
+    "ruta": {
+      "tipo": "string",
+      "requerido": true,
+      "descripcion": "Ruta de la carpeta a escanear"
+    },
+    "guardar_log": {
+      "tipo": "boolean",
+      "requerido": false,
+      "descripcion": "Guardar log en .ialogpack/logs/"
+    }
+  },
+  "ejemplo": {
+    "comando": "ejecutar_script",
+    "script": "deeplog.py",
+    "parametros": ["--ruta=./src"]
+  },
+  "perfil_minimo": "solo_lectura"
+}

@@ -1,0 +1,48 @@
+{
+  "nombre": "leer_excel",
+  "version": "1.1",
+  "autor": "Yonijd",
+  "copyright": "Copyright (c) 2026 Yonijd",
+  "licencia": "MIT",
+  "categoria": "datos",
+  "tags": ["leer", "excel", "xlsx", "hoja", "datos"],
+  "descripcion": "Lee un archivo Excel (.xlsx) y muestra su contenido",
+  "tipo": "script",
+  "dependencias": {
+    "openpyxl": "3.1.0"
+  },
+  "script": "leer_excel.py",
+  "ruta_script": "skills/leer_excel/leer_excel.py",
+  "alias": ["xls", "read_xlsx"],
+  "parametros": {
+    "ruta": {
+      "tipo": "string",
+      "requerido": true,
+      "descripcion": "Ruta del archivo Excel a leer"
+    }
+  },
+  "usage": ["ruta"],
+  "ejemplo": {
+    "comando": "leer_excel",
+    "ruta": "tests/datos_test.xlsx"
+  },
+  "ejemplos_adicionales": [
+    {
+      "descripcion": "Leer Excel directo",
+      "json": {
+        "comando": "leer_excel",
+        "ruta": "tests/datos_test.xlsx"
+      }
+    },
+    {
+      "descripcion": "Usar alias xls",
+      "json": {
+        "comando": "xls",
+        "ruta": "tests/excel_A.xlsx"
+      }
+    }
+  ],
+  "perfil_minimo": "advanced",
+  "timeout_segundos": 120,
+  "nota": "Funciona con 'leer_excel' directo o con 'ejecutar'. Usa workdir para rutas relativas."
+}

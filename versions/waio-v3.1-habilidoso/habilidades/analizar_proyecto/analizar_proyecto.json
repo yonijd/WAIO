@@ -1,0 +1,31 @@
+{
+  "nombre": "analizar_proyecto",
+  "version": "1.0",
+  "autor": "Yonijd",
+  "categoria": "sistema",
+  "tags": ["analizar", "proyecto", "estructura", "carpetas", "resumen"],
+  "descripcion": "Analiza la estructura de una carpeta y genera un resumen",
+  "tipo": "script",
+  "dependencias": {},
+  "script": "analizar_proyecto.py",
+  "parametros": {
+    "ruta": {
+      "tipo": "string",
+      "requerido": false,
+      "descripcion": "Ruta de la carpeta a analizar (default: .)",
+      "defecto": "."
+    },
+    "profundidad": {
+      "tipo": "number",
+      "requerido": false,
+      "descripcion": "Profundidad máxima a analizar (default: 3)",
+      "defecto": 3
+    }
+  },
+  "ejemplo": {
+    "comando": "ejecutar_script",
+    "script": "analizar_proyecto.py",
+    "parametros": ["--ruta=./src", "--profundidad=2"]
+  },
+  "perfil_minimo": "solo_lectura"
+}

@@ -1,0 +1,21 @@
+{
+  "nombre": "eliminar_carpeta",
+  "version": "1.0",
+  "autor": "WAIOGG",
+  "categoria": "comandos_base",
+  "tags": ["eliminar", "carpeta", "borrar", "papelera", "peligroso"],
+  "descripcion": "Elimina una carpeta y todo su contenido (a Papelera)",
+  "tipo": "comando_interno",
+  "parametros": {
+    "ruta": {
+      "tipo": "string",
+      "requerido": true,
+      "descripcion": "Ruta de la carpeta a eliminar"
+    }
+  },
+  "perfil_minimo": "avanzado",
+  "ejemplo": {
+    "comando": "eliminar_carpeta",
+    "ruta": "carpeta_temporal/"
+  }
+}

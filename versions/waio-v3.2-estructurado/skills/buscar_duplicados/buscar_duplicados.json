@@ -1,0 +1,52 @@
+{
+  "nombre": "buscar_duplicados",
+  "version": "1.1",
+  "autor": "Yonijd",
+  "copyright": "Copyright (c) 2026 Yonijd",
+  "licencia": "MIT",
+  "categoria": "utilidades",
+  "tags": ["buscar", "duplicados", "archivos", "hash", "contenido"],
+  "descripcion": "Busca archivos duplicados por contenido (hash SHA-256)",
+  "tipo": "script",
+  "dependencias": {},
+  "script": "buscar_duplicados.py",
+  "ruta_script": "skills/buscar_duplicados/buscar_duplicados.py",
+  "alias": ["duplicados", "dups", "duplicates"],
+  "parametros": {
+    "ruta": {
+      "tipo": "string",
+      "requerido": false,
+      "descripcion": "Ruta de la carpeta a analizar (default: .)",
+      "defecto": "."
+    },
+    "mostrar_tamano": {
+      "tipo": "boolean",
+      "requerido": false,
+      "descripcion": "Mostrar tamaño de los duplicados (default: false)"
+    }
+  },
+  "usage": ["ruta (opcional)", "mostrar_tamano (opcional)"],
+  "ejemplo": {
+    "comando": "buscar_duplicados",
+    "ruta": ".",
+    "mostrar_tamano": true
+  },
+  "ejemplos_adicionales": [
+    {
+      "descripcion": "Buscar duplicados en el workdir",
+      "json": {
+        "comando": "buscar_duplicados",
+        "ruta": "."
+      }
+    },
+    {
+      "descripcion": "Usar alias duplicados",
+      "json": {
+        "comando": "duplicados",
+        "ruta": "skills"
+      }
+    }
+  ],
+  "perfil_minimo": "solo_lectura",
+  "nota": "Funciona con 'buscar_duplicados' directo o con 'ejecutar'. Usa workdir para rutas relativas."
+}

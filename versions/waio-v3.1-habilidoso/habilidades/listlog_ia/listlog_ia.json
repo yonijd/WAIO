@@ -1,0 +1,49 @@
+{
+  "nombre": "listlog_ia",
+  "version": "1.0",
+  "autor": "Yonijd",
+  "categoria": "sistema",
+  "tags": ["listar", "directorio", "archivos", "carpetas", "json", "ia"],
+  "descripcion": "Lista el contenido de un directorio en formato JSON estructurado. Optimizado para consumo por IA. Soporta control de profundidad y archivos ocultos. ADVERTENCIA: No usar en carpetas con mas de 10,000 archivos o subcarpetas profundas (>10 niveles) con --profundidad=0 y --detalles, ya que puede generar archivos de mas de 10MB.",
+  "tipo": "script",
+  "dependencias": {},
+  "script": "listlog_ia.py",
+  "parametros": {
+    "ruta": {
+      "tipo": "string",
+      "requerido": false,
+      "descripcion": "Ruta del directorio a listar (default: .)",
+      "defecto": "."
+    },
+    "profundidad": {
+      "tipo": "number",
+      "requerido": false,
+      "descripcion": "Profundidad maxima a listar (default: 1, 0 = todos los niveles sin limite). ADVERTENCIA: 0 en carpetas grandes puede generar archivos de mas de 10MB.",
+      "defecto": 1
+    },
+    "incluir_ocultos": {
+      "tipo": "boolean",
+      "requerido": false,
+      "descripcion": "Incluir carpetas y archivos ocultos (default: false)",
+      "defecto": false
+    },
+    "detalles": {
+      "tipo": "boolean",
+      "requerido": false,
+      "descripcion": "Calcular tamaños de carpetas, extensiones y estadisticas. ADVERTENCIA: Activa calculos pesados en carpetas grandes.",
+      "defecto": false
+    }
+  },
+  "ejemplo": {
+    "comando": "ejecutar_script",
+    "script": "listlog_ia.py",
+    "parametros": ["--ruta=./src", "--profundidad=2", "--incluir_ocultos"]
+  },
+  "perfil_minimo": "solo_lectura",
+  "cuando_usar": "Cuando necesitas explorar la estructura de una carpeta y quieres obtener la informacion en formato JSON estructurado para que la IA la procese. Ideal para exploracion inicial de carpetas pequenas o medianas. NO recomendado para carpetas con mas de 10,000 archivos o profundidad mayor a 10 niveles con --profundidad=0 y --detalles.",
+  "limitaciones": [
+    "Carpetas con mas de 10,000 archivos pueden generar archivos de mas de 10MB.",
+    "Profundidad mayor a 10 niveles con --profundidad=0 y --detalles puede ser lento.",
+    "En carpetas muy grandes, usar --profundidad=1 o 2 para exploracion rapida."
+  ]
+}

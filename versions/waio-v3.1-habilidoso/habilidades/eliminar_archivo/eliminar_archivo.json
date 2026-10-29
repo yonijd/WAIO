@@ -1,0 +1,21 @@
+{
+  "nombre": "eliminar_archivo",
+  "version": "1.0",
+  "autor": "WAIOGG",
+  "categoria": "comandos_base",
+  "tags": ["eliminar", "archivo", "borrar", "papelera", "peligroso"],
+  "descripcion": "Elimina un archivo y lo envia a la Papelera de Reciclaje",
+  "tipo": "comando_interno",
+  "parametros": {
+    "ruta": {
+      "tipo": "string",
+      "requerido": true,
+      "descripcion": "Ruta del archivo a eliminar"
+    }
+  },
+  "perfil_minimo": "avanzado",
+  "ejemplo": {
+    "comando": "eliminar_archivo",
+    "ruta": "temporal.txt"
+  }
+}

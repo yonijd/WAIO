@@ -1,0 +1,49 @@
+{
+  "nombre": "mostrar_arbol",
+  "version": "2.0",
+  "autor": "Yonijd",
+  "categoria": "utilidades",
+  "tags": ["mostrar", "arbol", "carpetas", "estructura", "jerarquia", "json"],
+  "descripcion": "Muestra la estructura de carpetas en forma de arbol. Soporta formato tree (consola) y JSON. Incluye opcion para mostrar carpetas ocultas y guardar el resultado.",
+  "tipo": "script",
+  "dependencias": {},
+  "script": "mostrar_arbol.py",
+  "parametros": {
+    "ruta": {
+      "tipo": "string",
+      "requerido": false,
+      "descripcion": "Ruta de la carpeta a analizar (default: .)",
+      "defecto": "."
+    },
+    "profundidad": {
+      "tipo": "number",
+      "requerido": false,
+      "descripcion": "Profundidad maxima a mostrar (default: 10)",
+      "defecto": 10
+    },
+    "incluir_ocultos": {
+      "tipo": "boolean",
+      "requerido": false,
+      "descripcion": "Incluir carpetas y archivos ocultos (default: false)",
+      "defecto": false
+    },
+    "formato": {
+      "tipo": "string",
+      "requerido": false,
+      "descripcion": "Formato de salida: tree (arbol en consola), json (estructurado), ambos (default: tree)",
+      "defecto": "tree"
+    },
+    "guardar": {
+      "tipo": "boolean",
+      "requerido": false,
+      "descripcion": "Guardar estructura en archivo JSON (default: false)",
+      "defecto": false
+    }
+  },
+  "ejemplo": {
+    "comando": "ejecutar_script",
+    "script": "mostrar_arbol.py",
+    "parametros": ["--ruta=./src", "--profundidad=3", "--incluir_ocultos", "--formato=ambos", "--guardar"]
+  },
+  "perfil_minimo": "solo_lectura"
+}

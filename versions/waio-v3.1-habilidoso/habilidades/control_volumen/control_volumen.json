@@ -1,0 +1,56 @@
+{
+  "nombre": "control_volumen",
+  "version": "1.0",
+  "autor": "Yonijd",
+  "categoria": "sistema",
+  "tags": ["volumen", "sonido", "subir", "bajar", "silenciar", "audio"],
+  "descripcion": "Controla el volumen del sistema: subir, bajar o silenciar. Este comando NO se ejecuta directamente. Debe usarse con 'ejecutar_script'.",
+  "tipo": "script",
+  "dependencias": {},
+  "script": "control_volumen.py",
+  "parametros": {
+    "accion": {
+      "tipo": "string",
+      "requerido": true,
+      "descripcion": "Accion a realizar: subir, bajar, silenciar"
+    },
+    "pasos": {
+      "tipo": "number",
+      "requerido": false,
+      "descripcion": "Cantidad de pasos (para subir/bajar), default: 1",
+      "defecto": 1
+    }
+  },
+  "ejemplo": {
+    "comando": "ejecutar_script",
+    "script": "control_volumen.py",
+    "parametros": ["--accion=subir", "--pasos=5"]
+  },
+  "ejemplos_adicionales": [
+    {
+      "descripcion": "Subir volumen 3 pasos",
+      "json": {
+        "comando": "ejecutar_script",
+        "script": "control_volumen.py",
+        "parametros": ["--accion=subir", "--pasos=3"]
+      }
+    },
+    {
+      "descripcion": "Bajar volumen 4 pasos",
+      "json": {
+        "comando": "ejecutar_script",
+        "script": "control_volumen.py",
+        "parametros": ["--accion=bajar", "--pasos=4"]
+      }
+    },
+    {
+      "descripcion": "Silenciar",
+      "json": {
+        "comando": "ejecutar_script",
+        "script": "control_volumen.py",
+        "parametros": ["--accion=silenciar"]
+      }
+    }
+  ],
+  "perfil_minimo": "estandar"
+}

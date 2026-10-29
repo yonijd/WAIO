@@ -1,0 +1,21 @@
+{
+  "nombre": "contar_lineas",
+  "version": "1.0",
+  "autor": "WAIOGG",
+  "categoria": "comandos_base",
+  "tags": ["contar", "lineas", "archivo", "texto", "estadisticas"],
+  "descripcion": "Cuenta las lineas de un archivo de texto",
+  "tipo": "comando_interno",
+  "parametros": {
+    "ruta": {
+      "tipo": "string",
+      "requerido": true,
+      "descripcion": "Ruta del archivo"
+    }
+  },
+  "perfil_minimo": "solo_lectura",
+  "ejemplo": {
+    "comando": "contar_lineas",
+    "ruta": "archivo.py"
+  }
+}

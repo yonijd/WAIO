@@ -1,0 +1,36 @@
+{
+  "nombre": "estado",
+  "version": "1.1",
+  "autor": "Yonijd",
+  "copyright": "Copyright (c) 2026 Yonijd",
+  "licencia": "MIT",
+  "categoria": "sistema",
+  "tags": ["estado", "status", "diagnostico", "waio", "monitoreo"],
+  "descripcion": "Muestra el estado actual de WAIO: workdir, perfil, version, skills, procesos, locks, triggers, ultimo JSON procesado, configuracion, wispout y categorias de skills.",
+  "tipo": "script",
+  "dependencias": {},
+  "script": "estado.py",
+  "ruta_script": "skills/estado/estado.py",
+  "alias": ["status", "state"],
+  "parametros": {},
+  "usage": [],
+  "ejemplo": {
+    "comando": "estado"
+  },
+  "ejemplos_adicionales": [
+    {
+      "descripcion": "Estado directo",
+      "json": {
+        "comando": "estado"
+      }
+    },
+    {
+      "descripcion": "Usar alias status",
+      "json": {
+        "comando": "status"
+      }
+    }
+  ],
+  "perfil_minimo": "solo_lectura",
+  "nota": "Funciona con 'estado' directo o con 'ejecutar'. No requiere parametros."
+}

@@ -1,0 +1,14 @@
+{
+  "nombre": "indexar_habilidades",
+  "version": "1.0",
+  "autor": "Yonijd",
+  "categoria": "sistema",
+  "tags": ["indexar", "habilidades", "escanear", "generar", "indice"],
+  "descripcion": "Comando interno de WAIO. Escanea habilidades/ y genera el JSON maestro. No necesita ejecutar_script.",
+  "tipo": "comando_interno",
+  "parametros": {},
+  "ejemplo": {
+    "comando": "indexar_habilidades"
+  },
+  "perfil_minimo": "solo_lectura"
+}

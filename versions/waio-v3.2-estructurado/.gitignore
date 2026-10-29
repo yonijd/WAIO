@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.pyc
+
+# Logs
+*.log
+
+# Archivos de instancia/trigger (runtime)
+*.lock
+*.trigger
+*.pid
+
+# Archivos temporales (runtime)
+*.tmp
+
+# Carpetas de datos en runtime
+temp/output/
+temp/logs/
+temp/jsonout/
+trash/
+
+# Backups
+*_backup.*
+*.rar
+*.7z
+*.zip
+
+# Archivos de sistema
+desktop.ini
+Thumbs.db

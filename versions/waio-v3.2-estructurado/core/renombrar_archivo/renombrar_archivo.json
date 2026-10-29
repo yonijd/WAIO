@@ -1,0 +1,28 @@
+{
+  "nombre": "renombrar_archivo",
+  "version": "1.0",
+  "autor": "WAIOGG",
+  "categoria": "comandos_base",
+  "tags": ["renombrar", "archivo", "nombre", "cambiar"],
+  "descripcion": "Renombra un archivo.",
+  "tipo": "comando_interno",
+  "alias": ["renombrar", "rename", "ren"],
+  "perfil_minimo": "estandar",
+  "parametros": {
+    "ruta": {
+      "tipo": "string",
+      "requerido": true,
+      "descripcion": "Ruta del archivo a renombrar"
+    },
+    "nombre_nuevo": {
+      "tipo": "string",
+      "requerido": true,
+      "descripcion": "Nuevo nombre del archivo"
+    }
+  },
+  "ejemplo": {
+    "comando": "renombrar_archivo",
+    "ruta": "viejo.txt",
+    "nombre_nuevo": "nuevo.txt"
+  }
+}

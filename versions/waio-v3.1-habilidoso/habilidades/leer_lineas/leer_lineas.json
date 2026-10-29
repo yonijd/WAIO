@@ -1,0 +1,34 @@
+{
+  "nombre": "leer_lineas",
+  "version": "1.0",
+  "autor": "WAIOGG",
+  "categoria": "comandos_base",
+  "tags": ["leer", "lineas", "rango", "archivo", "texto"],
+  "descripcion": "Lee un rango especifico de lineas de un archivo",
+  "tipo": "comando_interno",
+  "parametros": {
+    "ruta": {
+      "tipo": "string",
+      "requerido": true,
+      "descripcion": "Ruta del archivo"
+    },
+    "inicio": {
+      "tipo": "number",
+      "requerido": false,
+      "descripcion": "Numero de linea inicial",
+      "defecto": 1
+    },
+    "fin": {
+      "tipo": "number",
+      "requerido": true,
+      "descripcion": "Numero de linea final"
+    }
+  },
+  "perfil_minimo": "solo_lectura",
+  "ejemplo": {
+    "comando": "leer_lineas",
+    "ruta": "archivo.py",
+    "inicio": 10,
+    "fin": 20
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "nombre": "fecha_modificacion",
+  "version": "1.0",
+  "autor": "WAIOGG",
+  "categoria": "comandos_base",
+  "tags": ["fecha", "modificacion", "archivo", "tiempo", "ultima"],
+  "descripcion": "Devuelve la fecha de ultima modificacion de un archivo",
+  "tipo": "comando_interno",
+  "alias": ["modificado", "modified"],
+  "parametros": {
+    "ruta": {
+      "tipo": "string",
+      "requerido": true,
+      "descripcion": "Ruta del archivo"
+    }
+  },
+  "perfil_minimo": "solo_lectura",
+  "ejemplo": {
+    "comando": "fecha_modificacion",
+    "ruta": "archivo.txt"
+  }
+}

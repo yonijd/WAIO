@@ -1,0 +1,96 @@
+{
+  "nombre": "grep",
+  "version": "1.0",
+  "autor": "Yonijd",
+  "copyright": "Copyright (c) 2026 Yonijd",
+  "licencia": "MIT",
+  "categoria": "busqueda",
+  "tags": ["grep", "buscar", "regex", "archivos", "contenido"],
+  "descripcion": "Busqueda avanzada en archivos con soporte para regex, filtros de extension y exclusion.",
+  "tipo": "script",
+  "dependencias": {},
+  "script": "grep.py",
+  "ruta_script": "skills/grep/grep.py",
+  "alias": ["advanced_grep", "buscar_regex"],
+  "parametros": {
+    "ruta": {
+      "tipo": "string",
+      "requerido": true,
+      "descripcion": "Ruta de carpeta o archivo donde buscar"
+    },
+    "patron": {
+      "tipo": "string",
+      "requerido": true,
+      "descripcion": "Patron a buscar"
+    },
+    "regex": {
+      "tipo": "boolean",
+      "requerido": false,
+      "descripcion": "Usar expresiones regulares (default: false)"
+    },
+    "case_sensitive": {
+      "tipo": "boolean",
+      "requerido": false,
+      "descripcion": "Sensible a mayusculas (default: false)"
+    },
+    "extension": {
+      "tipo": "string",
+      "requerido": false,
+      "descripcion": "Filtrar por extension (ej: .py, .txt)"
+    },
+    "excluir": {
+      "tipo": "string",
+      "requerido": false,
+      "descripcion": "Excluir rutas que coincidan con este patron"
+    },
+    "mostrar_lineas": {
+      "tipo": "boolean",
+      "requerido": false,
+      "descripcion": "Mostrar contenido completo de la linea (default: false)"
+    },
+    "contexto": {
+      "tipo": "number",
+      "requerido": false,
+      "descripcion": "Lineas de contexto alrededor del match (default: 0)"
+    }
+  },
+  "usage": ["ruta", "patron", "regex (opcional)", "case_sensitive (opcional)", "extension (opcional)", "excluir (opcional)", "mostrar_lineas (opcional)", "contexto (opcional)"],
+  "ejemplo": {
+    "comando": "grep",
+    "ruta": "skills",
+    "patron": "def main",
+    "extension": ".py"
+  },
+  "ejemplos_adicionales": [
+    {
+      "descripcion": "Buscar texto en el workdir",
+      "json": {
+        "comando": "grep",
+        "ruta": ".",
+        "patron": "WAIO"
+      }
+    },
+    {
+      "descripcion": "Buscar con regex",
+      "json": {
+        "comando": "grep",
+        "ruta": "skills",
+        "patron": "def \\w+\\(",
+        "regex": true,
+        "extension": ".py"
+      }
+    },
+    {
+      "descripcion": "Excluir carpetas",
+      "json": {
+        "comando": "grep",
+        "ruta": ".",
+        "patron": "import",
+        "extension": ".py",
+        "excluir": "__pycache__"
+      }
+    }
+  ],
+  "perfil_minimo": "solo_lectura",
+  "nota": "Funciona con 'grep' directo o con 'ejecutar'. Usa workdir para rutas relativas."
+}

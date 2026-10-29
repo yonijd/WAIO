@@ -1,0 +1,24 @@
+{
+  "nombre": "abrir_programa",
+  "version": "1.0",
+  "autor": "Yonijd",
+  "categoria": "sistema",
+  "tags": ["abrir", "programa", "exe", "ejecutar", "lanzar"],
+  "descripcion": "Abre cualquier programa buscando su ejecutable en el sistema. Solo pasa el nombre del programa (ej: notepad, calc, aimp, vlc).",
+  "tipo": "script",
+  "dependencias": {},
+  "script": "abrir_programa.py",
+  "parametros": {
+    "programa": {
+      "tipo": "string",
+      "requerido": true,
+      "descripcion": "Nombre del programa a abrir. Ej: notepad, calc, aimp, vlc, winrar, explorer"
+    }
+  },
+  "ejemplo": {
+    "comando": "ejecutar_script",
+    "script": "abrir_programa.py",
+    "parametros": ["notepad"]
+  },
+  "perfil_minimo": "estandar"
+}

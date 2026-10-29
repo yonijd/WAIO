@@ -1,0 +1,28 @@
+{
+  "nombre": "buscar_archivos",
+  "version": "1.0",
+  "autor": "WAIOGG",
+  "categoria": "comandos_base",
+  "tags": ["buscar", "archivos", "patron", "nombre", "encontrar"],
+  "descripcion": "Busca archivos por nombre o patron",
+  "tipo": "comando_interno",
+  "alias": ["buscar", "find", "search"],
+  "parametros": {
+    "ruta": {
+      "tipo": "string",
+      "requerido": true,
+      "descripcion": "Carpeta donde buscar"
+    },
+    "patron": {
+      "tipo": "string",
+      "requerido": true,
+      "descripcion": "Patron de busqueda (ej: *.txt, config.*)"
+    }
+  },
+  "perfil_minimo": "solo_lectura",
+  "ejemplo": {
+    "comando": "buscar_archivos",
+    "ruta": ".",
+    "patron": "*.json"
+  }
+}

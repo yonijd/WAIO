@@ -1,0 +1,22 @@
+{
+  "nombre": "mensaje",
+  "version": "1.0",
+  "autor": "WAIOGG",
+  "categoria": "comandos_base",
+  "tags": ["mensaje", "comunicacion", "respuesta", "informar"],
+  "descripcion": "no usar, usar el comando voz para enviar mensaje al usuario.",
+  "tipo": "comando_interno",
+  "alias": ["echo", "say"],
+  "parametros": {
+    "contenido": {
+      "tipo": "string",
+      "requerido": true,
+      "descripcion": "Texto del mensaje a enviar"
+    }
+  },
+  "perfil_minimo": "solo_lectura",
+  "ejemplo": {
+    "comando": "mensaje",
+    "contenido": "hola"
+  }
+}

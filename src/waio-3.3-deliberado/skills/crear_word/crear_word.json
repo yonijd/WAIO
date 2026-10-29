@@ -1,0 +1,63 @@
+{
+  "nombre": "crear_word",
+  "version": "1.1",
+  "autor": "Yonijd",
+  "copyright": "Copyright (c) 2026 Yonijd",
+  "licencia": "MIT",
+  "categoria": "documentos",
+  "tags": ["crear", "word", "docx", "documento", "texto"],
+  "descripcion": "Crea un archivo Word (.docx) con el texto proporcionado",
+  "tipo": "script",
+  "dependencias": {
+    "python-docx": "1.2.0"
+  },
+  "script": "crear_word.py",
+  "ruta_script": "skills/crear_word/crear_word.py",
+  "alias": ["word", "docx", "create_docx"],
+  "parametros": {
+    "ruta": {
+      "tipo": "string",
+      "requerido": true,
+      "descripcion": "Ruta de salida del archivo Word"
+    },
+    "contenido": {
+      "tipo": "string",
+      "requerido": true,
+      "descripcion": "Contenido del documento. Usa \\n para saltos de linea."
+    },
+    "titulo": {
+      "tipo": "string",
+      "requerido": false,
+      "descripcion": "Titulo del documento (opcional)"
+    }
+  },
+  "usage": ["ruta", "contenido", "titulo (opcional)"],
+  "ejemplo": {
+    "comando": "crear_word",
+    "ruta": "informe.docx",
+    "contenido": "Texto del informe",
+    "titulo": "Informe Final"
+  },
+  "ejemplos_adicionales": [
+    {
+      "descripcion": "Crear Word basico",
+      "json": {
+        "comando": "crear_word",
+        "ruta": "documento.docx",
+        "contenido": "Linea 1\\nLinea 2\\nLinea 3"
+      }
+    },
+    {
+      "descripcion": "Crear Word con titulo",
+      "json": {
+        "comando": "crear_word",
+        "ruta": "informe.docx",
+        "contenido": "Parrafo uno\\nParrafo dos",
+        "titulo": "Mi Informe"
+      }
+    }
+  ],
+  "perfil_minimo": "advanced",
+  "timeout_segundos": 120,
+  "nota": "Funciona con 'crear_word' directo o con 'ejecutar'. Usa workdir para rutas relativas."
+}

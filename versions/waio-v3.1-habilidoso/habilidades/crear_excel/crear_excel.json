@@ -1,0 +1,31 @@
+{
+  "nombre": "crear_excel",
+  "version": "1.0",
+  "autor": "Yonijd",
+  "categoria": "datos",
+  "tags": ["crear", "excel", "xlsx", "datos", "tabla"],
+  "descripcion": "Crea un archivo Excel (.xlsx) con los datos proporcionados",
+  "tipo": "script",
+  "dependencias": {
+    "openpyxl": "3.1.0"
+  },
+  "script": "crear_excel.py",
+  "parametros": {
+    "ruta": {
+      "tipo": "string",
+      "requerido": true,
+      "descripcion": "Ruta de salida del archivo Excel"
+    },
+    "datos": {
+      "tipo": "string",
+      "requerido": true,
+      "descripcion": "Datos en formato JSON. Ej: [[\"Nombre\",\"Edad\"],[\"Juan\",25],[\"Ana\",30]]"
+    }
+  },
+  "ejemplo": {
+    "comando": "ejecutar_script",
+    "script": "crear_excel.py",
+    "parametros": ["--ruta=reporte.xlsx", "--datos='[[\"Producto\",\"Precio\"],[\"Manzana\",1.5],[\"Pera\",2.0]]'"]
+  },
+  "perfil_minimo": "estandar"
+}
