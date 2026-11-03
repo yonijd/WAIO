@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO 与元数据 -->
+    <title>WAIO - 给网页AI一双手 | Web AI Orchestrator</title>
+    <meta name="description" content="WAIO 是一个开源本地引擎，为 DeepSeek、ChatGPT、Gemini 等网页 AI 赋予双手和眼睛，在你的电脑上读取、整理和执行操作。无需 API，无需 Token，100% 本地且安全。">
+    <meta name="keywords" content="WAIO, Web AI Orchestrator, 本地AI, 自动化, DeepSeek, ChatGPT, Gemini, 开源, 无API, 沙盒, 安全">
+    <meta name="author" content="Yonijd">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="WAIO - 给网页AI一双手">
+    <meta property="og:description" content="开源本地引擎，连接网页AI与你的电脑。无需 API，无需 Token，100% 本地。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yonijd.github.io/WAIO/index.zh.html">
+    <meta property="og:image" content="https://yonijd.github.io/WAIO/assets/banner.png">
+
+    <!-- Hreflang -->
+    <link rel="alternate" hreflang="zh" href="https://yonijd.github.io/WAIO/index.zh.html" />
+    <link rel="alternate" hreflang="en" href="https://yonijd.github.io/WAIO/index.html" />
+    <link rel="alternate" hreflang="es" href="https://yonijd.github.io/WAIO/index.es.html" />
+    <link rel="alternate" hreflang="x-default" href="https://yonijd.github.io/WAIO/index.html" />
+
+    <style>
+        :root { --azul-principal: #0088FF; --azul-claro: #B0BEF0; --fondo-oscuro: #0A0F1E; --fondo-tarjeta: #12182B; --texto-blanco: #F0F4F8; --texto-gris: #A0AEC0; --borde: #1A2238; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+        body { background-color: var(--fondo-oscuro); color: var(--texto-blanco); line-height: 1.6; overflow-x: hidden; }
+        .container { max-width: 900px; margin: 0 auto; padding: 40px 24px; }
+        .banner { width: 100%; border-radius: 12px; border: 1px solid var(--borde); margin-bottom: 30px; }
+        h1 { font-size: 3rem; font-weight: 800; margin-bottom: 5px; color: var(--texto-blanco); }
+        h1 span { color: var(--azul-principal); }
+        .slogan { font-size: 1.8rem; color: var(--azul-claro); font-weight: bold; margin-bottom: 20px; }
+        .lang { font-size: 14px; color: var(--texto-gris); margin-bottom: 30px; }
+        .lang a { color: var(--texto-gris); text-decoration: none; margin-right: 15px; }
+        .lang a.active { color: var(--texto-blanco); font-weight: 600; }
+        .botones { display: flex; gap: 15px; flex-wrap: wrap; margin-bottom: 50px; }
+        .btn { padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 600; transition: transform 0.2s, box-shadow 0.2s; display: inline-block; }
+        .btn-primary { background-color: var(--azul-principal); color: #fff; box-shadow: 0 4px 15px rgba(0, 136, 255, 0.3); }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0, 136, 255, 0.5); }
+        .btn-secondary { background-color: transparent; color: var(--texto-blanco); border: 1px solid var(--borde); }
+        .btn-secondary:hover { background-color: var(--fondo-tarjeta); }
+        .section { margin-bottom: 50px; padding-top: 30px; border-top: 1px solid var(--borde); }
+        .section h2 { font-size: 1.5rem; margin-bottom: 15px; color: var(--azul-principal); }
+        .section p, .section ul { color: var(--texto-gris); margin-bottom: 15px; }
+        .section ul { padding-left: 20px; } .section li { margin-bottom: 8px; }
+        .highlight-box { background-color: rgba(0, 136, 255, 0.1); border-left: 4px solid var(--azul-principal); padding: 20px; border-radius: 0 8px 8px 0; margin: 20px 0; }
+        .highlight-box strong { color: var(--texto-blanco); font-size: 1.1rem; }
+        .tree { font-family: 'Courier New', monospace; background-color: #000; border: 1px solid var(--borde); border-radius: 10px; padding: 20px; font-size: 13px; white-space: pre-wrap; color: var(--texto-gris); overflow-x: auto; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-top: 20px; }
+        .card { background-color: var(--fondo-tarjeta); padding: 20px; border-radius: 10px; border
