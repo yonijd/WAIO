@@ -5,7 +5,7 @@ WAIO is a local automation tool designed to give "hands" to web AIs. We recogniz
 
 ## 2. Reporting a Vulnerability
 If you discover a security flaw in WAIO, please **DO NOT open a public issue**.
-Contact me directly at: **[Your Email or GitHub username]**.
+Use the **Security → Advisories** tab of the repository to open a private report.
 I commit to:
 1. Confirming receipt of the report within a maximum of 48 hours.
 2. Investigating and developing a patch if the flaw is valid.

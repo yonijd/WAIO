@@ -5,7 +5,7 @@ WAIO es una herramienta de automatización local diseñada para darle "manos" a 
 
 ## 2. Reportar una Vulnerabilidad
 Si descubrís una falla de seguridad en WAIO, por favor **NO abras un issue público**.
-Contactame directamente a: **[Tu Email o tu usuario de GitHub]**.
+Usá la pestaña **Security → Advisories** del repositorio para abrir un reporte privado.
 Me comprometo a:
 1. Confirmar la recepción del reporte en un plazo máximo de 48 horas.
 2. Investigar y desarrollar un parche si la falla es válida.
