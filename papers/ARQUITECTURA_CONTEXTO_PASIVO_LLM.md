@@ -1,4 +1,4 @@
-# PAPER DE INVESTIGACIÓN: ARQUITECTURA DE CONTEXTO PASIVO (ACP) EN AGENTES AUTÓNOMOS
+#  ARQUITECTURA DE CONTEXTO PASIVO (ACP) EN AGENTES AUTÓNOMOS
 **Área:** Ingeniería de Software, Interacción Humano-Computadora (HCI) e Inteligencia Artificial.
 **Autor:** Yonijd  
 **Fecha:** 25 de Octubre de 2026  

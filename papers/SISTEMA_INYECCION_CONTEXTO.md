@@ -1,4 +1,4 @@
-# PAPER DE INVESTIGACIÓN: EL SISTEMA DE INYECCIÓN DE CONTEXTO PASIVO (SICP)
+# EL SISTEMA DE INYECCIÓN DE CONTEXTO PASIVO (SICP)
 **Proyecto:** WAIO (Web AI Orchestrator)  
 **Autor:** Yonijd  
 **Fecha:** 25 de Octubre de 2026  
