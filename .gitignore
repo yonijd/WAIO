@@ -21,9 +21,6 @@ outputs_copiados/
 # Backups
 *_backup.*
 *.bak
-*.rar
-*.7z
-*.zip
 
 # Sistema
 desktop.ini

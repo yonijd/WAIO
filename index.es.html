@@ -1,26 +1,26 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- SEO 与元数据 -->
-    <title>WAIO - 给网页AI一双手 | Web AI Orchestrator</title>
-    <meta name="description" content="WAIO 是一个开源本地引擎，为 DeepSeek、ChatGPT、Gemini 等网页 AI 赋予双手和眼睛，在你的电脑上读取、整理和执行操作。无需 API，无需 Token，100% 本地且安全。">
-    <meta name="keywords" content="WAIO, Web AI Orchestrator, 本地AI, 自动化, DeepSeek, ChatGPT, Gemini, 开源, 无API, 沙盒, 安全">
+
+    <!-- SEO y Metadatos -->
+    <title>WAIO - Dale manos a tu IA web | Web AI Orchestrator</title>
+    <meta name="description" content="WAIO es un motor local de código abierto que le da manos y ojos a las IA web (DeepSeek, ChatGPT, Gemini) para leer, organizar y ejecutar acciones en tu PC. Sin APIs, sin tokens, 100% local y seguro.">
+    <meta name="keywords" content="WAIO, Web AI Orchestrator, IA local, automatización, DeepSeek, ChatGPT, Gemini, código abierto, sin APIs, sandbox, seguridad">
     <meta name="author" content="Yonijd">
-    
+
     <!-- Open Graph -->
-    <meta property="og:title" content="WAIO - 给网页AI一双手">
-    <meta property="og:description" content="开源本地引擎，连接网页AI与你的电脑。无需 API，无需 Token，100% 本地。">
+    <meta property="og:title" content="WAIO - Dale manos a tu IA web">
+    <meta property="og:description" content="Motor local de código abierto que conecta las IA web con tu PC. Sin APIs, sin tokens, 100% local.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://yonijd.github.io/WAIO/index.zh.html">
+    <meta property="og:url" content="https://yonijd.github.io/WAIO/index.es.html">
     <meta property="og:image" content="https://yonijd.github.io/WAIO/assets/banner.png">
 
     <!-- Hreflang -->
-    <link rel="alternate" hreflang="zh" href="https://yonijd.github.io/WAIO/index.zh.html" />
-    <link rel="alternate" hreflang="en" href="https://yonijd.github.io/WAIO/index.html" />
     <link rel="alternate" hreflang="es" href="https://yonijd.github.io/WAIO/index.es.html" />
+    <link rel="alternate" hreflang="en" href="https://yonijd.github.io/WAIO/index.html" />
+    <link rel="alternate" hreflang="zh" href="https://yonijd.github.io/WAIO/index.zh.html" />
     <link rel="alternate" hreflang="x-default" href="https://yonijd.github.io/WAIO/index.html" />
 
     <style>
@@ -61,87 +61,96 @@
 </head>
 <body>
     <main class="container">
-        <img src="assets/banner.png" alt="WAIO Banner - 给网页AI一双手" class="banner">
+        <img src="assets/banner.png" alt="Banner de WAIO - Dale manos a tu IA web" class="banner">
         <header>
             <h1><span>{</span> waio <span>}</span></h1>
-            <p class="slogan">给网页AI一双手。</p>
+            <p class="slogan">Dale manos a tu IA web.</p>
         </header>
         <div class="lang">
-            语言: <a href="index.html">EN</a> 
-            <a href="index.es.html">ES</a> 
-            <a href="index.zh.html" class="active">中文</a>
+            Idioma: <a href="index.html">EN</a>
+            <a href="index.es.html" class="active">ES</a>
+            <a href="index.zh.html">中文</a>
         </div>
         <div class="botones">
-            <a href="https://github.com/yonijd/WAIO" class="btn btn-secondary" target="_blank">代码仓库</a>
-            <a href="https://github.com/yonijd/WAIO/releases" class="btn btn-primary">⬇ 下载 v3.3</a>
-            <a href="https://www.bilibili.com/es/video/BV1vnx663EU9/" class="btn btn-secondary" target="_blank">观看演示 (B站)</a>
+            <a href="https://github.com/yonijd/WAIO" class="btn btn-secondary" target="_blank">Repositorio</a>
+            <a href="https://github.com/yonijd/WAIO/releases" class="btn btn-primary">⬇ Descargar v3.3</a>
+            <a href="https://www.youtube.com/watch?v=FkuZu94az3A" class="btn btn-secondary" target="_blank">Ver Demo</a>
         </div>
         <section class="section">
-            <h2>什么是 WAIO？</h2>
-            <p>WAIO (Web AI Orchestrator) 是一个开源本地引擎，允许网页 AI (DeepSeek, ChatGPT, Gemini, Claude) 在你的电脑上读取、整理和执行操作。AI 生成 JSON，WAIO 执行并返回结果。<strong>无需 API，无需 Token，无需云端。</strong></p>
-            <p>设计极其轻量，可在老旧处理器上流畅运行（如第三代 Intel i3 或 1.6 GHz 双核），无需显卡。</p>
+            <h2>¿Qué es WAIO?</h2>
+            <p>WAIO (Web AI Orchestrator) es un motor local de código abierto que permite a una IA web (DeepSeek, ChatGPT, Gemini, Claude) leer, organizar y ejecutar acciones en tu PC. La IA genera un JSON, WAIO lo ejecuta y devuelve el resultado. <strong>Sin APIs, sin tokens, sin nube.</strong></p>
+            <p>Diseñado para ser súper liviano, corre en procesadores antiguos (como un Intel i3 de 3ª generación o un Dual Core de 1.6 GHz) sin necesidad de GPU.</p>
         </section>
         <section class="section">
-            <h2>基于文件夹的沙盒</h2>
+            <h2>Papers de Investigación</h2>
+            <p>WAIO no es solo un programa. Es un laboratorio de interacción entre Modelos de Lenguaje Grandes (LLM) y Sistemas Operativos. Durante su desarrollo descubrimos la <strong>Arquitectura de Contexto Pasivo (ACP)</strong> y documentamos la <strong>Inyección de Prompt Inversa</strong>. Los papers completos están disponibles en español, inglés y chino en la carpeta <code>/papers/</code> del repositorio.</p>
+            <div class="link-list">
+                <a href="https://github.com/yonijd/WAIO/tree/main/papers" target="_blank">📚 Ver Papers</a>
+            </div>
+        </section>
+        <section class="section">
+            <h2>Sandbox basado en carpetas</h2>
             <div class="highlight-box">
-                <strong>右键点击 = 沙盒。</strong>
-                <p style="margin-top: 10px; margin-bottom: 0;">与其他将沙盒固定在系统文件夹中的代理不同，WAIO 反转了这一模式。右键点击任何文件夹（或 U 盘），选择 <em>"在此处启动 WAIO"</em>，该文件夹即成为沙盒。只有该文件夹中的文档会受到影响，仅此而已。这更安全，也更实用。</p>
+                <strong>Clic derecho = Sandbox.</strong>
+                <p style="margin-top: 10px; margin-bottom: 0;">A diferencia de otros agentes que alojan su sandbox en una carpeta fija del sistema, WAIO invierte el modelo. Hacé clic derecho en cualquier carpeta (o pendrive), seleccioná <em>"Iniciar WAIO aquí"</em>, y esa carpeta se convierte en el sandbox. Los únicos documentos comprometidos son los de esa carpeta. Nada más. Es más seguro y más práctico.</p>
             </div>
         </section>
         <section class="section">
-            <h2>v3.3 版本特性</h2>
+            <h2>Características de la v3.3</h2>
             <div class="grid">
-                <div class="card"><h3>🐙 26 项审计技能</h3><p>从读取 PDF、创建 Excel/Word、压缩 ZIP 到语音播报。</p></div>
-                <div class="card"><h3>🔒 4 种安全配置文件</h3><p>readonly, standard, advanced, debug。带有写入限制和回收站。</p></div>
-                <div class="card"><h3>⚡ 双线程引擎</h3><p>如果 JSON 无效或恶意，引擎不会挂起，而是在队列中处理。</p></div>
-                <div class="card"><h3>🌍 双语设计</h3><p>命令带有英语和 Linux 格式的别名（<code>ls</code>, <code>cat</code>, <code>rm</code>）。</p></div>
+                <div class="card"><h3>🐙 26 Skills Auditadas</h3><p>Desde leer PDFs, crear archivos Excel/Word, comprimir ZIPs hasta texto a voz.</p></div>
+                <div class="card"><h3>🔒 4 Perfiles de Seguridad</h3><p>readonly, standard, advanced, debug. Con límites de escritura y papelera de reciclaje.</p></div>
+                <div class="card"><h3>⚡ Motor Dual-Thread</h3><p>Si un JSON es inválido o malicioso, el motor no se cuelga. Procesa en cola.</p></div>
+                <div class="card"><h3>🌍 Bilingüe por Diseño</h3><p>Comandos con alias en inglés y formato Linux (<code>ls</code>, <code>cat</code>, <code>rm</code>).</p></div>
             </div>
         </section>
         <section class="section">
-            <h2>卫星功能</h2>
-            <p>WAIO 不仅仅是一个引擎。它还包含扩展生态系统的工具：</p>
+            <h2>Funciones Satélite</h2>
+            <p>WAIO no es solo un motor. Incluye herramientas que expanden su ecosistema:</p>
             <ul>
-                <li><strong>图形查看器 (Visor):</strong> 实时监控操作和结果。</li>
-                <li><strong>输出监听 (Escucha Output):</strong> 自动将结果复制到剪贴板，以便粘贴到 AI 中。</li>
-                <li><strong>Transclip:</strong> 为不生成 JSON 的 AI（如 WhatsApp）提供桥梁，翻译简单命令。</li>
+                <li><strong>Visor Gráfico:</strong> Monitoreo en tiempo real de acciones y resultados.</li>
+                <li><strong>Escucha Output:</strong> Copia automáticamente los resultados al portapapeles para pegarlos en la IA.</li>
+                <li><strong>Transclip:</strong> Puente para IAs que no generan JSON (como WhatsApp), traduciendo comandos simples.</li>
             </ul>
         </section>
         <section class="section">
-            <h2>项目结构</h2>
+            <h2>Estructura del Proyecto</h2>
             <div class="tree">src/waio-3.3-deliberado/
-├── core/          # 基础命令和卫星
-├── skills/        # 26 项审计技能
-├── comandos/      # 21 个信息性 JSON
+├── core/          # Comandos base y satélites
+├── skills/        # 26 skills auditadas
+├── comandos/      # 21 JSONs informativos
 ├── config/        # waio_config.json, wispout.json, prompt.txt
 ├── data/          # skills.json
-├── rescue_tools/  # 救援工具
-├── waio_escucha.py  # 引擎（双线程）
-├── waio_visor.py    # 图形查看器
+├── rescue_tools/  # Herramientas de rescate
+├── waio_escucha.py  # Motor (dual-thread)
+├── waio_visor.py    # Visor gráfico
 └── instalador_waio.py + instalar_waio.bat</div>
         </section>
         <section class="section">
-            <h2>安装</h2>
-            <p>1. 从 Releases <a href="https://github.com/yonijd/WAIO/releases" style="color: var(--azul-principal); text-decoration: underline;">下载</a> <code>waio-instalador</code> 文件夹。<br>
-            2. 运行 <code>instalar_waio.bat</code>。<br>
-            3. 它会自动创建在 <code>%USERPROFILE%\.waio</code>。</p>
-            <p style="font-size: 0.9rem;">要求：Windows 10/11，Python 3.8+，4GB RAM。</p>
+            <h2>Instalación</h2>
+            <p>1. <a href="https://github.com/yonijd/WAIO/releases" style="color: var(--azul-principal); text-decoration: underline;">Descargá</a> la carpeta <code>waio-instalador</code> desde Releases.<br>
+            2. Ejecutá <code>instalar_waio.bat</code>.<br>
+            3. Se crea automáticamente en <code>%USERPROFILE%\.waio</code>.</p>
+            <p style="font-size: 0.9rem;">Requisitos: Windows 10/11, Python 3.8+, 4GB RAM.</p>
         </section>
         <section class="section">
-            <h2>仓库与社交</h2>
+            <h2>Repositorios y Redes</h2>
             <div class="link-list">
                 <a href="https://github.com/yonijd/WAIO" target="_blank">GitHub</a>
                 <a href="https://gitlink.org.cn/yonijd/waio" target="_blank">GitLink</a>
                 <a href="https://gitee.com/yonijd/waio" target="_blank">Gitee</a>
                 <a href="https://www.youtube.com/@waio_dev" target="_blank">YouTube</a>
                 <a href="https://www.bilibili.com/es/video/BV1vnx663EU9/" target="_blank">Bilibili</a>
-                <a href="https://whatsapp.com/channel/0029Vb9Lr5zDp2QAEJXqcX3B" target="_blank">WhatsApp</a>
                 <a href="https://dev.to/yonijd" target="_blank">Dev.to</a>
+                <a href="https://www.linkedin.com/in/jonatan-draganczuk-b2675630b/" target="_blank">LinkedIn</a>
+                <a href="https://web.facebook.com/profile.php?id=61596326696361" target="_blank">Facebook</a>
+                <a href="https://whatsapp.com/channel/0029Vb90nbJKwqSYYykJJT0w" target="_blank">WhatsApp</a>
                 <a href="https://buymeacoffee.com/yonijdj" target="_blank">Buy Me a Coffee</a>
             </div>
         </section>
         <footer>
-            <p>阿根廷制造，带着马黛茶和耐心。 🧉</p>
-            <p>MIT 许可证 - 2026</p>
+            <p>Hecho en Argentina, con mate y paciencia. 🧉</p>
+            <p>Licencia MIT - 2026</p>
         </footer>
     </main>
 </body>

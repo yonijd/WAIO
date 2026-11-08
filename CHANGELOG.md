@@ -1,162 +1,162 @@
 # CHANGELOG - WAIO
 
-Todos los cambios notables de WAIO se documentan en este archivo.
+All notable changes to WAIO are documented in this file.
 
-El formato se basa en [Keep a Changelog](https://keepachangelog.com/es/1.0.0/).
-
----
-
-## [v3.3 Deliberado] - 2026-10-17
-
-Refactor profundo del motor, los satelites, la configuracion y el sistema de respuestas. Cada decision esta tomada conscientemente. Nada es accidental.
-
-### Agregado
-
-- **Formato de respuesta `[SECCION]`**: reemplaza el formato plano. Secciones `[STATUS]`, `[COMANDO]`, `[RESULTADO]`, `[AVISO]`, `[SUSURRO]`, `[RECORDATORIO]`.
-- **Timeout configurable en 3 niveles**: accion -> skill -> config. Con tope maximo. Antes era 60s fijo.
-- **`WAIO_WORKDIR` por variable de entorno**: el motor se lo pasa a las skills. Corrige el bug de `obtener_workdir` en 22 skills.
-- **Orden de procesamiento por `mtime` ascendente**: procesa el JSON mas viejo primero.
-- **Cache por `mtime`** en config, skills y wispout. Log limpio.
-- **Seguridad implementada de verdad**: limites de lectura/escritura aplicados, validacion de `destino` y `ruta_script`, `carpetas_prohibidas` normalizadas, deteccion de `perfil_activo` invalido.
-- **Limites de sistema**: maximo de acciones por transaccion, maximo de transacciones por minuto, maximo de archivos en `output/` y `jsonout/`.
-- **Estructura `core/`**: los comandos base y scripts principales se movieron a `core/` (uno por carpeta). Se agrego `core/voz`, `core/listia`, `core/ejecutar_comando`, etc.
-- **Doble hilo (Watcher + Procesador)**: el motor ahora tiene un hilo que escanea `Downloads/` y mueve a `temp/queue/`, y otro que procesa la cola. Evita cuelgues.
-- **Recuperacion de crashes**: si el motor se cierra a mitad de una transaccion, al arrancar mueve los JSON de `temp/processing/` a `temp/jsonout/rechazados/` con un `.error.txt`.
-- **Indice de duplicados**: el motor rechaza `transaccion_id` que ya fueron procesados (configurable).
-- **Lista negra de nombres reservados**: bloquea `CON`, `NUL`, `PRN`, `AUX`, `COM1-9`, `LPT1-9` y el caracter `:`.
-- **Sanitizacion de `transaccion_id`**: valida y reemplaza caracteres invalidos antes de usarlo en nombres de archivo.
-- **`ejecutar_comando` como comando nativo**: solo disponible en perfil `debug`, con whitelist de comandos, bloqueo de `python -c`, `python -m`, pipes y redirecciones.
-- **18 campos nuevos** en `waio_config.json` (incluyendo `directorio_escucha`, `leer_json_en_downloads`, `aceptar_id_duplicado`).
-- **`rescue_tools/` consolidado**: `kill_waio.py`, `limpiar_waio.py`, `ver_estado.py`, desinstalador, `README.md`.
-- **Botones `CONF`, `WISP` y `PROMPT`** en el visor.
-- **`total_acciones`** seteado desde el motor (corrige el bug de v3.2).
-- **`pid_es_python`**: antes de matar el PID del lock, verifica con `tasklist` que sea Python.
-
-### Cambiado
-
-- **Motor mucho mas grande**: de 65 KB a 74 KB. Incluye cache, timeouts, limites y seguridad.
-- **`escucha_output.py`**: fix del `GlobalLock fallo` usando `ctypes` con timeout de 3s. Buffer ordenado por `(transaccion_id, accion_idx)`.
-- **`waio_visor.py`**: copia al portapapeles eliminada de `mostrar_json`. Botones `CONF`, `WISP` y `PROMPT`. Mensajes en ingles. Lee `visor_max_lines` y `visor_refresh_ms` del config.
-- **Instalador**: NO copia `temp/` (arrastra logs y basura). NO copia `trash/` (el motor la crea). Crea `temp/` vacia. `limpiar_entradas_viejas` borra claves obsoletas. `validar_src_dir` verifica que no se instale sobre si mismo.
-- **Desinstalador**: `borrar_clave_recursiva` para borrar claves con subclaves. Preserva `trash/` y `temp/logs/` si el usuario lo pide.
-- **Menu contextual**: 4 entradas (se saco `04_clip_output`, `05_kill_waio` paso a `04_kill_waio`).
-- **`wispout.json`**: estructura completamente nueva. Cada seccion tiene reglas (`activo`, `inicio_accion`, `duracion_acciones`, `cada_cuantas_acciones`, `repeticion_cada`, `mostrar_en_error`, `mostrar_en_primera`).
-- **Perfiles renombrados**: `solo_lectura` -> `readonly`, `estandar` -> `standard`, `avanzado` -> `advanced`, `sin_restricciones` -> `debug`. Se agrego `permite_ejecutar_core/skills/workdir/disco`.
-- **`limite_lectura_bytes`** renombrado a **`limite_lectura_chars`**.
-
-### Corregido
-
-- **`GlobalLock fallo`** en `copiar_portapapeles` (era un bug de handles de 64 bits).
-- **`total_acciones`** no seteado desde el motor.
-- **Cache de alias**: ahora el mapeo se reconstruye con `construir_mapeo_comandos()`.
-- **`obtener_workdir`** en 22 skills.
-- **Colision de alias**: `grep` removido de `buscar_contenido`, `info` removido de `skills`.
-- **Seguridad de `ejecutar_comando`**: `shell=True` removido, `python -c` y `python -m` bloqueados, pipes y redirecciones bloqueadas, whitelist de comandos.
-
-### Notas
-
-- Bugs conocidos: ver `REPORTE.md`.
-- Pendientes:
-  - GUIs de config y wispout (botones preparados, sin codigo).
-  - `event_visor.py` sin auditar.
-  - Rotacion de logs (`logs_retention_days: 7` en config pero no se aplica).
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
-## [v3.2 Estructurado] - 2026-09-04
+## [v3.3 Deliberate] - 2026-10-17
 
-Version de reorganizacion completa. El proyecto pasa de tener todo desparramado a tener todo en carpetas. Los comandos dejan de estar en codigo y pasan a ser datos.
+Deep refactor of the engine, satellites, configuration and response system. Every decision is made consciously. Nothing is accidental.
 
-### Agregado
+### Added
 
-- **Estructura de carpetas**: `config/`, `core/`, `data/`, `rescue_tools/`, `skills/`, `temp/`.
-- **Comandos base en `core/`**: cada comando es una carpeta con su JSON.
-- **`core/indexar/indexar.py`**: indexador independiente.
-- **Comandos unificados**: `skills`, `indexar`, `ejecutar`, `ayuda`.
+- **`[SECTION]` response format**: replaces the flat format. Sections `[STATUS]`, `[COMANDO]`, `[RESULTADO]`, `[AVISO]`, `[SUSURRO]`, `[RECORDATORIO]`.
+- **Configurable timeout at 3 levels**: action -> skill -> config. With maximum cap. Previously fixed at 60s.
+- **`WAIO_WORKDIR` via environment variable**: the engine passes it to the skills. Fixes the `obtener_workdir` bug in 22 skills.
+- **Processing order by ascending `mtime`**: processes the oldest JSON first.
+- **Cache by `mtime`** in config, skills and wispout. Clean log.
+- **Security actually implemented**: read/write limits enforced, validation of `destino` and `ruta_script`, normalized `carpetas_prohibidas`, detection of invalid `perfil_activo`.
+- **System limits**: maximum actions per transaction, maximum transactions per minute, maximum files in `output/` and `jsonout/`.
+- **`core/` structure**: base commands and main scripts moved to `core/` (one per folder). Added `core/voz`, `core/listia`, `core/ejecutar_comando`, etc.
+- **Dual thread (Watcher + Processor)**: the engine now has a thread that scans `Downloads/` and moves to `temp/queue/`, and another that processes the queue. Prevents hangs.
+- **Crash recovery**: if the engine closes mid-transaction, on startup it moves the JSONs from `temp/processing/` to `temp/jsonout/rechazados/` with an `.error.txt`.
+- **Duplicate index**: the engine rejects `transaccion_id` that were already processed (configurable).
+- **Blacklist of reserved names**: blocks `CON`, `NUL`, `PRN`, `AUX`, `COM1-9`, `LPT1-9` and the `:` character.
+- **`transaccion_id` sanitization**: validates and replaces invalid characters before using it in file names.
+- **`ejecutar_comando` as native command**: only available in `debug` profile, with command whitelist, blocking of `python -c`, `python -m`, pipes and redirections.
+- **18 new fields** in `waio_config.json` (including `directorio_escucha`, `leer_json_en_downloads`, `aceptar_id_duplicado`).
+- **`rescue_tools/` consolidated**: `kill_waio.py`, `limpiar_waio.py`, `ver_estado.py`, uninstaller, `README.md`.
+- **`CONF`, `WISP` and `PROMPT` buttons** in the viewer.
+- **`total_acciones`** set from the engine (fixes the v3.2 bug).
+- **`pid_es_python`**: before killing the lock PID, verifies with `tasklist` that it is Python.
+
+### Changed
+
+- **Much larger engine**: from 65 KB to 74 KB. Includes cache, timeouts, limits and security.
+- **`escucha_output.py`**: fix of `GlobalLock fallo` using `ctypes` with 3s timeout. Buffer ordered by `(transaccion_id, accion_idx)`.
+- **`waio_visor.py`**: clipboard copy removed from `mostrar_json`. `CONF`, `WISP` and `PROMPT` buttons. Messages in English. Reads `visor_max_lines` and `visor_refresh_ms` from config.
+- **Installer**: does NOT copy `temp/` (drags logs and junk). Does NOT copy `trash/` (the engine creates it). Creates empty `temp/`. `limpiar_entradas_viejas` deletes obsolete keys. `validar_src_dir` verifies it doesn't install over itself.
+- **Uninstaller**: `borrar_clave_recursiva` to delete keys with subkeys. Preserves `trash/` and `temp/logs/` if the user requests it.
+- **Context menu**: 4 entries (`04_clip_output` removed, `05_kill_waio` moved to `04_kill_waio`).
+- **`wispout.json`**: completely new structure. Each section has rules (`activo`, `inicio_accion`, `duracion_acciones`, `cada_cuantas_acciones`, `repeticion_cada`, `mostrar_en_error`, `mostrar_en_primera`).
+- **Profiles renamed**: `solo_lectura` -> `readonly`, `estandar` -> `standard`, `avanzado` -> `advanced`, `sin_restricciones` -> `debug`. Added `permite_ejecutar_core/skills/workdir/disco`.
+- **`limite_lectura_bytes`** renamed to **`limite_lectura_chars`**.
+
+### Fixed
+
+- **`GlobalLock fallo`** in `copiar_portapapeles` (was a 64-bit handle bug).
+- **`total_acciones`** not set from the engine.
+- **Alias cache**: the mapping is now rebuilt with `construir_mapeo_comandos()`.
+- **`obtener_workdir`** in 22 skills.
+- **Alias collision**: `grep` removed from `buscar_contenido`, `info` removed from `skills`.
+- **`ejecutar_comando` security**: `shell=True` removed, `python -c` and `python -m` blocked, pipes and redirections blocked, command whitelist.
+
+### Notes
+
+- Known bugs: see `REPORTE.md`.
+- Pending:
+  - Config and wispout GUIs (buttons prepared, no code).
+  - `event_visor.py` unaudited.
+  - Log rotation (`logs_retention_days: 7` in config but not applied).
+
+---
+
+## [v3.2 Structured] - 2026-09-04
+
+Complete reorganization version. The project goes from having everything scattered to having everything in folders. Commands stop being code and become data.
+
+### Added
+
+- **Folder structure**: `config/`, `core/`, `data/`, `rescue_tools/`, `skills/`, `temp/`.
+- **Base commands in `core/`**: each command is a folder with its JSON.
+- **`core/indexar/indexar.py`**: independent indexer.
+- **Unified commands**: `skills`, `indexar`, `ejecutar`, `ayuda`.
 - **`rescue_tools/`**: kill_waio, stop_monitor, bats.
 - **`LICENSE`**, **`requirements.txt`**, **`.gitignore`**.
 
-### Cambiado
+### Changed
 
-- **Instalador**: copia carpetas enteras en lugar de archivos sueltos.
-- **Motor**: lee de `config/`, `data/`, `temp/`.
-
----
-
-## [v3.1 Habilidoso] - 2026-07-29
-
-Version de transicion. Introduce sistema de habilidades, perfiles de seguridad configurables, WispOut y dos modulos auxiliares (`event_visor`, `speech`) que no llegaron a consolidarse.
-
-### Agregado
-
-- Sistema de habilidades en `habilidades/`.
-- Sistema de perfiles en `waio_config.json`.
-- WispOut: `wispout.json` con formato de respuestas.
-- Event Visor: monitor de eventos con `watchdog`.
-- Speech: lector por voz.
-- Comandos nuevos: `append_archivo`, `renombrar_archivo`, `contar_lineas`, `leer_lineas`, `buscar_archivos`, `ejecutar_script`, `listar_habilidades`, `indexar_habilidades`.
-
-### Notas
-
-- Version de transicion. No se publico como estable.
+- **Installer**: copies entire folders instead of loose files.
+- **Engine**: reads from `config/`, `data/`, `temp/`.
 
 ---
 
-## [v3.0 Consolidado] - 2026-06-12
+## [v3.1 Skilled] - 2026-07-29
 
-Primera version que se considero lista para publicar. Foco en corregir bugs y problemas de seguridad de v2.5, y en agregar `escucha_output`.
+Transition version. Introduces the skills system, configurable security profiles, WispOut and two auxiliary modules (`event_visor`, `speech`) that did not consolidate.
 
-### Agregado
+### Added
 
-- `escucha_output.py`: compilador de resultados con timeout de 5s.
-- Comando `mensaje`.
-- Prompt editable en `.waio/prompt.txt`.
-- `ver_estado.bat` y `limpiar_waio.bat`.
-- Menu contextual numerado (4 entradas).
-- Campo `waio_version` en los JSONs.
+- Skills system in `habilidades/`.
+- Profiles system in `waio_config.json`.
+- WispOut: `wispout.json` with response format.
+- Event Visor: event monitor with `watchdog`.
+- Speech: voice reader.
+- New commands: `append_archivo`, `renombrar_archivo`, `contar_lineas`, `leer_lineas`, `buscar_archivos`, `ejecutar_script`, `listar_habilidades`, `indexar_habilidades`.
 
-### Cambiado
+### Notes
 
-- Motor renombrado: `waio_escucha_v2.py` -> `waio_escucha.py`.
-- Motor ya no escribe al portapapeles.
-- Visor: titulo corregido.
-- LICENSE, requirements.txt agregados.
+- Transition version. Not published as stable.
 
 ---
 
-## [v2.5 Fluido] - 2026-06-12
+## [v3.0 Consolidated] - 2026-06-12
 
-Version centrada en fluidez: entrada sin friccion, lecturas mas grandes, borrado seguro y portapapeles Unicode.
+First version considered ready to publish. Focus on fixing bugs and security issues from v2.5, and on adding `escucha_output`.
 
-### Agregado
+### Added
+
+- `escucha_output.py`: results compiler with 5s timeout.
+- `mensaje` command.
+- Editable prompt in `.waio/prompt.txt`.
+- `ver_estado.bat` and `limpiar_waio.bat`.
+- Numbered context menu (4 entries).
+- `waio_version` field in the JSONs.
+
+### Changed
+
+- Engine renamed: `waio_escucha_v2.py` -> `waio_escucha.py`.
+- Engine no longer writes to clipboard.
+- Viewer: title fixed.
+- LICENSE, requirements.txt added.
+
+---
+
+## [v2.5 Fluid] - 2026-06-12
+
+Version focused on fluidity: frictionless input, larger reads, safe deletion and Unicode clipboard.
+
+### Added
 
 - TRANSCLIP (`transclip.py`).
-- Carpeta `trash/`.
-- Portapapeles Unicode real con `ctypes` UTF-16.
-- Escritura atomica de JSON.
+- `trash/` folder.
+- Real Unicode clipboard with `ctypes` UTF-16.
+- Atomic JSON writing.
 
-### Cambiado
+### Changed
 
-- `MAX_READ_DEFAULT`: de 100k a 500k.
-- Comandos de eliminacion: a Papelera o `trash/`.
+- `MAX_READ_DEFAULT`: from 100k to 500k.
+- Deletion commands: to Trash or `trash/`.
 
 ---
 
 ## [v2.0 Vision] - 2026-05-31
 
-Primera version publicable. Salto conceptual respecto al proto-MCP previo.
+First publishable version. Conceptual leap from the previous proto-MCP.
 
-### Agregado
+### Added
 
-- Motor principal con 11 comandos.
-- Retroalimentacion JSON en `output/`.
-- Copia automatica al portapapeles.
-- Visor Tkinter.
-- Kill switch quirurgico.
-- Instalador, desinstalador y menu contextual.
+- Main engine with 11 commands.
+- JSON feedback in `output/`.
+- Automatic clipboard copy.
+- Tkinter viewer.
+- Surgical kill switch.
+- Installer, uninstaller and context menu.
 
 ---
 
-## [No publicado] - proto-MCP
+## [Unreleased] - proto-MCP
 
-Version previa sin identidad propia. Solo 4 comandos. Salida unicamente por log. No se conserva codigo completo.
+Previous version without its own identity. Only 4 commands. Output only via log. Full code not preserved.

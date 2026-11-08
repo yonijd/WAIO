@@ -1,4 +1,4 @@
-# 🐙 {waio}
+# {waio}
 
 ![WAIO Banner](assets/banner.png)
 
@@ -14,9 +14,9 @@
 
 ## 💡 What is WAIO?
 
-WAIO (Web AI Orchestrator) is a **super lightweight** local engine that gives **hands and eyes** to web AIs (DeepSeek, ChatGPT, Gemini, Claude). 
+WAIO (Web AI Orchestrator) is a **super lightweight** local engine that gives **hands and eyes** to web AIs (DeepSeek, ChatGPT, Gemini, Claude).
 
-AIs are incredibly smart, but they are trapped in the browser: they can't read your files, organize your folders, or execute commands. **WAIO breaks that barrier.** The AI generates a JSON, WAIO detects it, executes it on your PC, and returns the results. 
+AIs are incredibly smart, but they are trapped in the browser: they can't read your files, organize your folders, or execute commands. **WAIO breaks that barrier.** The AI generates a JSON, WAIO detects it, executes it on your PC, and returns the results.
 
 No APIs. No tokens. No servers. No cloud. Everything happens on your machine.
 
@@ -69,7 +69,9 @@ WAIO is designed so that a non-technical user can use it without destroying thei
 
 ## 🔬 Research and Security
 
-WAIO is not just a program. It's a laboratory for interaction between Large Language Models (LLMs) and Operating Systems. During its development, we discovered **Passive Context Architecture (PCA)** and documented **Reverse Prompt Injection**. All research papers and mitigations are available in the `/papers/` folder of the repository.
+WAIO is not just a program. It's a laboratory for interaction between Large Language Models (LLMs) and Operating Systems. During its development, we discovered **Passive Context Architecture (PCA)** and documented **Reverse Prompt Injection**. All research papers and mitigations are available in the **[`/papers/`](papers/)** folder, in **Spanish, English and Chinese**.
+
+If you come from the security or AI research community, start there.
 
 ---
 
@@ -127,5 +129,10 @@ If you find WAIO useful and want to support its continuous development (and the 
 - ☕ [Buy Me a Coffee](https://buymeacoffee.com/yonijdj)
 - 💙 [PayPal](https://paypal.me/yonijdj)
 - 🇦🇷 [MercadoPago](https://link.mercadopago.com.ar/yonijd)
+
+### 🌐 Connect with the community
+- **LinkedIn:** [Jonatan Draganczuk](https://www.linkedin.com/in/jonatan-draganczuk-b2675630b/)
+- **Facebook:** [WAIO Page](https://web.facebook.com/profile.php?id=61596326696361)
+- **WhatsApp Channel:** [WAIO](https://whatsapp.com/channel/0029Vb90nbJKwqSYYykJJT0w)
 
 **Made in Argentina, with mate and patience. 🧉**
